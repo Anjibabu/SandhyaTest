@@ -1,0 +1,10 @@
+﻿@model DOSBPM.Models.Uploads
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.ActionLink("Previous", "Index", "CodeComplianceChecklistPartII", null, new { @class = "NextBtn" })
+@Html.ActionLink("Next", "Index", "Payment", null, new { @class = "NextBtn" })

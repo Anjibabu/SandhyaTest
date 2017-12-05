@@ -1,0 +1,10 @@
+﻿@model DOSBPM.Models.ElectricalRequirements
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.ActionLink("Previous", "Index", "ConstructionMaterials", null, new { @class = "NextBtn" })
+@Html.ActionLink("Next", "Index", "MechanicalRequirements", null, new { @class = "NextBtn" })

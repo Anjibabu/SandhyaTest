@@ -1,0 +1,10 @@
+﻿@model DOSBPM.Models.ConstructionMaterials
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.ActionLink("Previous", "Index", "SoilsandFoundations", null, new { @class = "NextBtn" })
+@Html.ActionLink("Next", "Index", "ElectricalRequirements", null, new { @class = "NextBtn" })

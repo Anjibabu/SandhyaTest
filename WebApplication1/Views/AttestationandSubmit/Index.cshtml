@@ -1,0 +1,11 @@
+﻿@model DOSBPM.Models.AttestationandSubmit
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>AttestationandSubmit</h2>
+
+@Html.ActionLink("Previous", "Index", "Payment", null, new { @class = "NextBtn" })
+@Html.ActionLink("Next", "Index", "Summary", null, new { @class = "NextBtn" })
+

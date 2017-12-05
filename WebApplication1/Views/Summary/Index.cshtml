@@ -1,0 +1,10 @@
+﻿@model DOSBPM.Models.Summary
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.ActionLink("Previous", "Index", "AttestationandSubmit", null, new { @class = "NextBtn" })
+@Html.ActionLink("Next", "Index", "SpecialDetailedRequirementsBasedonUseandOccupancy", null, new { @class = "NextBtn" })

@@ -1,0 +1,10 @@
+﻿@model DOSBPM.Models.MiscAdditionalInfo
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.ActionLink("Previous", "Index", "SiteandUtilities", null, new { @class = "NextBtn" })
+@Html.ActionLink("Next", "Index", "CodeComplianceChecklistPartII", null, new { @class = "NextBtn" })

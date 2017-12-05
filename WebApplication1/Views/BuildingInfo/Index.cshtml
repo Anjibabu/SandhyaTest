@@ -1,0 +1,11 @@
+﻿@model DOSBPM.Models.BuildingInfo
+
+@{
+    ViewBag.Title = "BuildingInfo";
+}
+
+<h2>BuildingInfo</h2>
+
+@Html.ActionLink("Previous", "Index", "AdditionalStakeholderQuestions", null, new { @class = "NextBtn" })
+@Html.ActionLink("Next", "Index", "AdditionalInfo", null, new { @class = "NextBtn" })
+

@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - My ASP.NET Application</title>
+        @Styles.Render("~/Content/css")
+        @Styles.Render("~/Content/CSS/StyleSheet.css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+
+    <body oncontextmenu=" return disableRightClick();">
+
+        @* <div class="container">
+                    <div class="navbar-left">
+                    <button type="button" class="navbar-left" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+            </div>*@
+        <div class=" navbar-header navbar-fixed-top  ">
+            <img src="~/Content/Images/VHeader.PNG" />
+        </div>
+        <br /><br />
+        <div id="customerresult" class="itemdetailws">
+            <div class="navbar-default">
+                <ul class="nav navbar-left">
+                    <li>@Html.ActionLink("LogIn", "Index", "LogIn", null, new { @class = "classname" })</li>
+                    <li>@Html.ActionLink("Qualifying Information", "Index", "QualifyingInfo", null, new { @class = "classname" })</li>
+
+                    @*<nav class="navbar-default">
+            <div class="container">
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-left">*@
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">
+                            Main 1<span class="caret"></span> @*<b class="caret"></b>*@
+                            @Html.ActionLink("Stakeholder Contact Information ", "Index", "StakeholderContactInfo", null, new { @class = "classname" })@*<span class="caret"></span>*@
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Property Owner Information", "Index", "PropertyOwnerInfo", null, new { @class = "classname" })</li>
+                            <li>@Html.ActionLink("Property Owner Contact", "Index", "PropertyOwnerContact", null, new { @class = "classname" })</li>
+                            <li>@Html.ActionLink("Additional Stakeholder Information", "Index", "AdditionalStakeholderInfo", null, new { @class = "classname" })</li>
+                            <li>@Html.ActionLink("Additional Stakeholder Contacts", "Index", "AdditionalStakeholderContacts", null, new { @class = "classname" })</li>
+                            <li>@Html.ActionLink("Additional Stakeholder Questions", "Index", "AdditionalStakeholderQuestions", null, new { @class = "classname" })</li>
+                        </ul>
+                    </li>
+
+                    @*</ul>
+                    </div>
+                </div>
+            </nav>*@
+
+                    <li>@Html.ActionLink("Building Information", "Index", "BuildingInfo", null, new { @class = "classname" })</li>
+                    <li>@Html.ActionLink("Additional Information", "Index", "AdditionalInfo", null, new { @class = "classname" })</li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Main 2<b class="caret"></b>
+                            @Html.ActionLink("Code Compliance Checklist Part I", "Index", "CodeComplianceChecklistPartI", null, new { @class = "classname" })
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Project Description", "Index", "ProjectDescription", null, new { @class = "classname" })</li>
+                            <li>@Html.ActionLink("Occupancy, Heights and Areas", "Index", "OccupancyHeightsandAreas", null, new { @class = "classname" })</li>
+                            <li>@Html.ActionLink("Variance Questions", "Index", "VarianceQuestions", null, new { @class = "classname" })</li>
+                            <li>@Html.ActionLink("Site and Utilities", "Index", "SiteandUtilities", null, new { @class = "classname" })</li>
+                            <li>@Html.ActionLink("Misc. Additional Information", "Index", "MiscAdditionalInfo", null, new { @class = "classname" })</li>
+                        </ul>
+                    </li>
+
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Main 3<b class="caret"></b>
+                            @Html.ActionLink("Code Compliance Checklist Part II", "Index", "CodeComplianceChecklistPartII", null, new { @class = "classname" })
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Uploads", "Index", "Uploads", null, new { @class = "classname" })</li>
+                            <li>@Html.ActionLink("Payment", "Index", "Payment", null, new { @class = "classname" })</li>
+                            <li>@Html.ActionLink("Attestation/Submit", "Index", "AttestationandSubmit", null, new { @class = "classname" })</li>
+                            <li>@Html.ActionLink("Summary", "Index", "Summary", null, new { @class = "classname" })</li>
+
+                            <li>@Html.ActionLink("Special Detailed Requirements Based on Use and Occupancy", "Index", "SpecialDetailedRequirementsBasedonUseandOccupancy", null, new { @class = "classname" })</li>
+                            <li>@Html.ActionLink("General Building Heights and Areas", "Index", "GeneralBuildingHeightsandAreas", null, new { @class = "classname" })</li>
+                            <li>@Html.ActionLink("Type of Construction", "Index", "TypeofConstruction", null, new { @class = "classname" })</li>
+                            <li>@Html.ActionLink("Fire and Smoke Protection Features", "Index", "FireandSmokeProtectionFeatures", null, new { @class = "classname" })</li>
+                            <li>@Html.ActionLink("Interior Finishes", "Index", "InteriorFinishes", null, new { @class = "classname" })</li>
+                            <li>@Html.ActionLink("Fire Protection Systems", "Index", "FireProtectionSystems", null, new { @class = "classname" })</li>
+                            <li>@Html.ActionLink("Means of Egress", "Index", "MeansofEgress", null, new { @class = "classname" })</li>
+                            <li>@Html.ActionLink("Accessibility", "Index", "Accessibility", null, new { @class = "classname" })</li>
+                            <li>@Html.ActionLink("Interior Environment/ExteriorWalls and Rooftop Structures", "Index", "InteriorEnvironmentandExteriorWallsandRooftopStructures", null, new { @class = "classname" })</li>
+                            <li>@Html.ActionLink("Energy Requirements", "Index", "EnergyRequirements", null, new { @class = "classname" })</li>
+                            <li>@Html.ActionLink("Structural Design", "Index", "StructrualDesign", null, new { @class = "classname" })</li>
+                            <li>@Html.ActionLink("Soils and Foundations", "Index", "SoilsandFoundations", null, new { @class = "classname" })</li>
+                            <li>@Html.ActionLink("Construction Materials", "Index", "ConstructionMaterials", null, new { @class = "classname" })</li>
+                            <li>@Html.ActionLink("Electrical Requirements", "Index", "ElectricalRequirements", null, new { @class = "classname" })</li>
+                            <li>@Html.ActionLink("Mechanical Requirements", "Index", "MechanicalRequirements", null, new { @class = "classname" })</li>
+                            <li>@Html.ActionLink("Plumbing Requirements", "Index", "PlumbingRequirements", null, new { @class = "classname" })</li>
+                            <li>@Html.ActionLink("Fuel Gas Requirements", "Index", "FuelGasRequirements", null, new { @class = "classname" })</li>
+                            <li>@Html.ActionLink("Elevators and Conveying Systems", "Index", "ElevatorsandConveyingSystems", null, new { @class = "classname" })</li>
+                            <li>@Html.ActionLink("Safeguards During Construction", "Index", "SafeguardsDuringConstruction", null, new { @class = "classname" })</li>
+
+                        </ul>
+                    </li>
+                </ul>
+                    </div>
+                    <div class="container body-content">
+                        @RenderBody()
+                        <hr />
+                        <footer>
+                            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+                        </footer>
+                    </div>
+
+            <div class="navbar-fixed-bottom  ">               
+                <img src="~/Content/Images/VFooter.png" />
+            </div>
+
+</div>
+
+            @Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/bootstrap")
+            @RenderSection("scripts", required: false)
+
+</body>
+
+</html>
+
+@*For Disabling Right Click*@
+<script type="text/javascript">
+    function disableRightClick() {
+        alert("Sorry, right click is not allowed !!");
+        return false;
+    }
+</script>

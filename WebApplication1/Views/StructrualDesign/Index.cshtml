@@ -1,0 +1,10 @@
+﻿@model DOSBPM.Models.StructrualDesign
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.ActionLink("Previous", "Index", "EnergyRequirements", null, new { @class = "NextBtn" })
+@Html.ActionLink("Next", "Index", "SoilsandFoundations", null, new { @class = "NextBtn" })

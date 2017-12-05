@@ -1,0 +1,10 @@
+﻿@model DOSBPM.Models.GeneralBuildingHeightsandAreas
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.ActionLink("Previous", "Index", "SpecialDetailedRequirementsBasedonUseandOccupancy", null, new { @class = "NextBtn" })
+@Html.ActionLink("Next", "Index", "TypeofConstruction", null, new { @class = "NextBtn" })

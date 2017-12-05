@@ -1,0 +1,10 @@
+﻿@model DOSBPM.Models.EnergyRequirements
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.ActionLink("Previous", "Index", "InteriorEnvironmentandExteriorWallsandRooftopStructures", null, new { @class = "NextBtn" })
+@Html.ActionLink("Next", "Index", "StructrualDesign", null, new { @class = "NextBtn" })

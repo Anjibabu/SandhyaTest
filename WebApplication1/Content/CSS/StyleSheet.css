@@ -1,0 +1,60 @@
+﻿body {
+}
+
+a.classname {
+    background-color: #007681; /* Green */
+    border: none;
+    color: white;
+    padding: 1px 1px;
+    text-align: left;
+    text-decoration: none;
+    display: normal;
+    font-size: 13px;
+    border: solid;
+}
+
+    a.classname:active {
+        background-color: gray;
+        color: gray;
+    }
+
+a.NextBtn {
+    background-color: #b22b2b;
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: left;
+    text-decoration: none;
+    display: normal;
+    font-size: 15px;
+    border: solid;
+    /*position: relative; 
+    margin-bottom: 45%;
+    margin-left: 95%;*/
+}
+
+.itemdetailws {
+    border: solid dotted #C0C0C0;
+    overflow-y: scroll;    
+    width: 97%;
+    height: 850px;
+}
+
+
+/*.container .cssState {
+    float: left;
+    display: block;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: black;
+    border-bottom-width: 1px;
+    border-bottom-color: grey;
+    border-bottom-style: solid;
+    width: 200px;
+    border-right-style: solid;
+    border-right-color: white;
+    border-right-width: 10px;
+    padding: 2px;
+    cursor: pointer;
+    font-weight: bold;
+}*/ 

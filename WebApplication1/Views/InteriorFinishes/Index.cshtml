@@ -1,0 +1,10 @@
+﻿@model DOSBPM.Models.InteriorFinishes
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.ActionLink("Previous", "Index", "FireandSmokeProtectionFeatures", null, new { @class = "NextBtn" })
+@Html.ActionLink("Next", "Index", "FireProtectionSystems", null, new { @class = "NextBtn" })

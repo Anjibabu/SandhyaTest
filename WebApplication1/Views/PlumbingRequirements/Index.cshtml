@@ -1,0 +1,10 @@
+﻿@model DOSBPM.Models.PlumbingRequirements
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@Html.ActionLink("Previous", "Index", "MechanicalRequirements", null, new { @class = "NextBtn" })
+@Html.ActionLink("Next", "Index", "FuelGasRequirements", null, new { @class = "NextBtn" })

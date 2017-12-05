@@ -1,0 +1,11 @@
+﻿@model DOSBPM.Models.PropertyOwnerInfo
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>Index</h2>
+
+@Html.ActionLink("Previous", "Index", "StakeholderContactInfo", null, new { @class = "NextBtn" })
+@Html.ActionLink("Next", "Index", "PropertyOwnerContact", null, new { @class = "NextBtn" })
+
