@@ -13,10 +13,10 @@ namespace DOSBPM.Controllers
         // GET: QualifyingInfo
         public ActionResult Index()
         {
-            QualifyingInfoModel qualifyingInfo = new QualifyingInfoModel();
+            QualifyingInfo qualifyingInfo = new QualifyingInfo();
             {
-                new QualifyingInfoModel { TransactionType = "New" };
-                new QualifyingInfoModel { TransactionType = "Demo" };
+                new QualifyingInfo { TransactionType = "New" };
+                new QualifyingInfo { TransactionType = "Demo" };
 
             }
             

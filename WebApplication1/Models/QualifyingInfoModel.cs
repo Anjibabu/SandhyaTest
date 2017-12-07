@@ -5,7 +5,7 @@ using System.Web;
 
 namespace DOSBPM.Models
 {
-    public class QualifyingInfoModel
+    public class QualifyingInfo
     {
 
         public string TransactionType { get; set;}
