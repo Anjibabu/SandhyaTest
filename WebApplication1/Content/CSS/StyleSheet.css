@@ -13,6 +13,23 @@ a.classname {
     border: solid;
 }
 
+.leftMenuItem {
+    background-color: #007681 !important; /* Green */
+    color: #ffffff !important;
+    text-align: left;
+    text-decoration: none;
+    display: normal;
+    font-size: 13px !important;
+    margin-bottom:2px;
+}
+    .leftMenuItem h4 {
+        color: #ffffff !important;
+        font-size: 13px !important;
+    }
+.leftMenuSubItem {
+    color: #007681 !important;
+    font-size: 12.5px !important;
+} 
     a.classname:active {
         background-color: gray;
         color: gray;

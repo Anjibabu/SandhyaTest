@@ -11,9 +11,7 @@ namespace DOSBPM.Controllers
         // GET: LogIn
         public ActionResult Index()
         {
-            return View();
-
-            
+            return View();            
 
         }
     }
