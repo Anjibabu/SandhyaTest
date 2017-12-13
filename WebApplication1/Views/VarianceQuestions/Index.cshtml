@@ -137,7 +137,7 @@
 		</div>
 	</div>
 	<div class="row"><br></div>
-	<div class="row" style="height:50px;"><br></div>
+	<div class="row" style="height:10px;"><br></div>
 		<div class="row">
 		<div class="col-md-3">
 		   
@@ -159,7 +159,8 @@
             <input type="text" multiline="true" style="height:50px" class="form-control" />
 		</div>
 	</div>	
-	<div class="row"><br></div><div class="row">
+	<div class="row"><br></div>
+     <div class="row">
 		<div class="col-md-3">
 		   
 		</div>
@@ -173,8 +174,6 @@
 		    
 		</div>
 		<div class="col-md-3">
-		    
-		       
 		</div>
 		<div class="col-md-3">
 		    Comments(Reviewer)
@@ -183,5 +182,8 @@
 	</div>	
 	
 </div>
-@Html.ActionLink("Previous", "Index", "OccupancyHeightsandAreas", null, new { @class = "NextBtn" })
-@Html.ActionLink("Next", "Index", "SiteandUtilities", null, new { @class = "NextBtn" })
+<br />
+ <div class="col-md-6 text-left">@Html.ActionLink("Previous", "Index", "OccupancyHeightsandAreas", null, new { @class = "NextBtn" })</div>
+ <div class="col-md-6 text-right">@Html.ActionLink("Next", "Index", "SiteandUtilities", null, new { @class = "NextBtn" })</div>
+
+

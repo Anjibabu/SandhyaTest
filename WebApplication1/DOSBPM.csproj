@@ -340,7 +340,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>65084</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:65084/</IISUrl>
+          <IISUrl>http://localhost:65084/VarianceQuestions</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:65084/VarianceQuestions</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

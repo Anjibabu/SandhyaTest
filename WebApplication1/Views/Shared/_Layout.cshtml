@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -28,48 +28,52 @@
    
 
 
-    <div id="customerresult" class="itemdetailws">
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position: static; margin-bottom: 5px; *width: 180px;">
-            <li>@Html.ActionLink("Qualifying Information", "Index", "QualifyingInfo", null, new { @class = "leftMenuItem" })</li>
-            <li class="dropdown dropdown-submenu ">
-                <a href="#" class="dropdown-toggle leftMenuItem" data-toggle="dropdown">Stakeholder Contact Information</a>
-                <ul class="dropdown-menu">
-                    <li class="kopie">@Html.ActionLink("Property Owner Information", "Index", "PropertyOwnerInfo", null, new { @class = "leftMenuItem" })</li>
-                    <li>@Html.ActionLink("Property Owner Contact", "Index", "PropertyOwnerContact", null, new { @class = "leftMenuItem" })</li>
-                    <li>@Html.ActionLink("Additional Stakeholder Information", "Index", "AdditionalStakeholderInfo", null, new { @class = "leftMenuItem" })</li>
-                    <li>@Html.ActionLink("Additional Stakeholder Contacts", "Index", "AdditionalStakeholderContacts", null, new { @class = "leftMenuItem" })</li>
-                    <li>@Html.ActionLink("Additional Stakeholder Questions", "Index", "AdditionalStakeholderQuestions", null, new { @class = "leftMenuItem" })</li>
+          <div id="customerresult" class="itemdetailws ">
 
-                </ul>
-            </li>
-            <li>@Html.ActionLink("Building Information", "Index", "BuildingInfo", null, new { @class = "leftMenuItem" })</li>
-            <li>@Html.ActionLink("Additional Information", "Index", "AdditionalInfo", null, new { @class = "leftMenuItem" })</li>
-            <li class="dropdown dropdown-submenu ">
-                <a href="#" class="dropdown-toggle leftMenuItem" data-toggle="dropdown">Code Compliance Checklist Part I</a>
-                <ul class="dropdown-menu">
-                    <li class="kopie">@Html.ActionLink("Project Description", "Index", "ProjectDescription", null, new { @class = "leftMenuItem" })</li>
-                    <li>@Html.ActionLink("Occupancy, Heights and Areas", "Index", "OccupancyHeightsandAreas", null, new { @class = "leftMenuItem" })</li>
-                    <li>@Html.ActionLink("Variance Questions", "Index", "VarianceQuestions", null, new { @class = "leftMenuItem" })</li>
-                    <li>@Html.ActionLink("Site and Utilities", "Index", "SiteandUtilities", null, new { @class = "leftMenuItem" })</li>
-                    <li>@Html.ActionLink("Misc. Additional Information", "Index", "MiscAdditionalInfo", null, new { @class = "leftMenuItem" })</li>
+              <div class="collapse navbar-collapse col-md-2" id="navbar-collapse-1">
+                  <ul class="nav ">
+                      <li class="">@Html.ActionLink("Property Owner Information", "Index", "PropertyOwnerInfo", null, new { @class = "leftMenuItem" })</li>
+                      <li class="dropdown">
+                          <a href="#" class="dropdown-toggle leftMenuItem" data-toggle="dropdown">Stakeholder Contact Information <b class="caret"></b></a>
+                          <ul class="dropdown-menu" style="left:100%;top:0%">
+                              <li class="kopie">@Html.ActionLink("Property Owner Information", "Index", "PropertyOwnerInfo", null, new { @class = "leftMenuItem" })</li>
+                              <li>@Html.ActionLink("Property Owner Contact", "Index", "PropertyOwnerContact", null, new { @class = "leftMenuItem" })</li>
+                              <li>@Html.ActionLink("Additional Stakeholder Information", "Index", "AdditionalStakeholderInfo", null, new { @class = "leftMenuItem" })</li>
+                              <li>@Html.ActionLink("Additional Stakeholder Contacts", "Index", "AdditionalStakeholderContacts", null, new { @class = "leftMenuItem" })</li>
+                              <li>@Html.ActionLink("Additional Stakeholder Questions", "Index", "AdditionalStakeholderQuestions", null, new { @class = "leftMenuItem" })</li>
+                          </ul>
+                      </li>
+                      <li>@Html.ActionLink("Building Information", "Index", "BuildingInfo", null, new { @class = "leftMenuItem" })</li>
+                      <li>
+                          @Html.ActionLink("Additional Information", "Index", "AdditionalInfo", null, new { @class = "leftMenuItem" })
+                      </li>
+                      <li class="dropdown">
+                          <a href="#" class="dropdown-toggle leftMenuItem" data-toggle="dropdown">Code Compliance Checklist Part I <b class="caret"></b></a>
+                          <ul class="dropdown-menu" style="left:100%;top:0%">
+                              <li class="kopie">@Html.ActionLink("Project Description", "Index", "ProjectDescription", null, new { @class = "leftMenuItem" })</li>
+                              <li>@Html.ActionLink("Occupancy, Heights and Areas", "Index", "OccupancyHeightsandAreas", null, new { @class = "leftMenuItem" })</li>
+                              <li>@Html.ActionLink("Additional Stakeholder Information", "Index", "AdditionalStakeholderInfo", null, new { @class = "leftMenuItem" })</li>
+                              <li>@Html.ActionLink("Additional Stakeholder Contacts", "Index", "AdditionalStakeholderContacts", null, new { @class = "leftMenuItem" })</li>
+                              <li>@Html.ActionLink("Additional Stakeholder Questions", "Index", "AdditionalStakeholderQuestions", null, new { @class = "leftMenuItem" })</li>
+                          </ul>
+                      </li>
+                  </ul>
+              </div>
+               
 
-                </ul>
-            </li>
-        </ul>
-      
-        <div class="container body-content">
-            @RenderBody()
-            <hr />
-            <footer>
-                <p>&copy; @DateTime.Now.Year Department of State - New York</p>
-            </footer>
-        </div>
+              <div class="container body-content col-md-10">
+                  @RenderBody()
+                  <hr />
+                  <footer>
+                      <p>&copy; @DateTime.Now.Year Department of State - New York</p>
+                  </footer>
+              </div>
 
-        <div class="navbar-fixed-bottom  ">
-            <img src="~/Content/Images/VFooter.png" />
-        </div>
+              <div class="navbar-fixed-bottom  ">
+                  <img src="~/Content/Images/VFooter.png" />
+              </div>
 
-    </div>
+          </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
