@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -30,17 +30,29 @@
 
     <div id="customerresult" class="itemdetailws">
         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu" style="display: block; position: static; margin-bottom: 5px; *width: 180px;">
-            <li><a tabindex="-1" href="#" class="leftMenuItem">Action</a></li>
-            <li><a tabindex="-1" href="#" class="leftMenuItem">Another action</a></li>
-            <li><a tabindex="-1" href="#" class="leftMenuItem">Something else here</a></li>
-            <li class="dropdown-submenu pull-right">
-                <a tabindex="-1" href="#">More options</a>
+            <li>@Html.ActionLink("Qualifying Information", "Index", "QualifyingInfo", null, new { @class = "leftMenuItem" })</li>
+            <li class="dropdown dropdown-submenu ">
+                <a href="#" class="dropdown-toggle leftMenuItem" data-toggle="dropdown">Stakeholder Contact Information</a>
                 <ul class="dropdown-menu">
-                    <li><a tabindex="-1" href="#">Second level link</a></li>
-                    <li><a tabindex="-1" href="#">Second level link</a></li>
-                    <li><a tabindex="-1" href="#">Second level link</a></li>
-                    <li><a tabindex="-1" href="#">Second level link</a></li>
-                    <li><a tabindex="-1" href="#">Second level link</a></li>
+                    <li class="kopie">@Html.ActionLink("Property Owner Information", "Index", "PropertyOwnerInfo", null, new { @class = "leftMenuItem" })</li>
+                    <li>@Html.ActionLink("Property Owner Contact", "Index", "PropertyOwnerContact", null, new { @class = "leftMenuItem" })</li>
+                    <li>@Html.ActionLink("Additional Stakeholder Information", "Index", "AdditionalStakeholderInfo", null, new { @class = "leftMenuItem" })</li>
+                    <li>@Html.ActionLink("Additional Stakeholder Contacts", "Index", "AdditionalStakeholderContacts", null, new { @class = "leftMenuItem" })</li>
+                    <li>@Html.ActionLink("Additional Stakeholder Questions", "Index", "AdditionalStakeholderQuestions", null, new { @class = "leftMenuItem" })</li>
+
+                </ul>
+            </li>
+            <li>@Html.ActionLink("Building Information", "Index", "BuildingInfo", null, new { @class = "leftMenuItem" })</li>
+            <li>@Html.ActionLink("Additional Information", "Index", "AdditionalInfo", null, new { @class = "leftMenuItem" })</li>
+            <li class="dropdown dropdown-submenu ">
+                <a href="#" class="dropdown-toggle leftMenuItem" data-toggle="dropdown">Code Compliance Checklist Part I</a>
+                <ul class="dropdown-menu">
+                    <li class="kopie">@Html.ActionLink("Project Description", "Index", "ProjectDescription", null, new { @class = "leftMenuItem" })</li>
+                    <li>@Html.ActionLink("Occupancy, Heights and Areas", "Index", "OccupancyHeightsandAreas", null, new { @class = "leftMenuItem" })</li>
+                    <li>@Html.ActionLink("Variance Questions", "Index", "VarianceQuestions", null, new { @class = "leftMenuItem" })</li>
+                    <li>@Html.ActionLink("Site and Utilities", "Index", "SiteandUtilities", null, new { @class = "leftMenuItem" })</li>
+                    <li>@Html.ActionLink("Misc. Additional Information", "Index", "MiscAdditionalInfo", null, new { @class = "leftMenuItem" })</li>
+
                 </ul>
             </li>
         </ul>

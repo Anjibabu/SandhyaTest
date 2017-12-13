@@ -35,6 +35,24 @@ a.classname {
         color: gray;
     }
 
+
+.dropdown-submenu > a:after {
+    border-color: transparent transparent transparent #333 !important;
+    border-style: solid !important;
+    border-width: 5px 0 5px 5px !important;
+    content: " " !important;
+    display: block !important;
+    float: right !important;
+    height: 0 !important;
+    margin-right: -10px !important;
+    margin-top: 5px !important;
+    width: 0 !important;
+}
+
+.dropdown-submenu > .dropdown-menu {
+    max-width:260px !important;
+
+}
 a.NextBtn {
     background-color: #b22b2b;
     border: none;
