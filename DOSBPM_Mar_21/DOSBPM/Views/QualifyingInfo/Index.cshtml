@@ -1,0 +1,70 @@
+﻿@model DOSBPM.Models.QualifyingInfo
+
+@{
+	ViewBag.Title = "Qualifying Information";
+}
+<h3>Qualifying Questions</h3>
+<br />
+<div class="container-fluid" id="QualifyingInfoForm">
+
+	@using (Html.BeginForm("Index", "QualifyingInfo", FormMethod.Post))
+	{
+		@Html.AntiForgeryToken()
+		<div class="form-group">
+			<div class="col-md-12">
+				<label class="required">
+					Please select your transaction Type
+				</label><br />
+				<div>
+					@Html.DropDownListFor(model => model.TransactionType, Model.TransactionTypes,"--Select Transaction Type --", new { @class = "form-control", id = "ddTransactionType" , IsRequired = "TRUE" })
+				</div>
+				<div class="checkIt" id="divBPA" style="padding-top:20px;display:block">
+					<label class="required">Please select one of the following (Project Type)</label><br />
+					 
+						@Html.CheckBoxFor(m => m.IsExistingBuilding, new { IsRequired = "TRUE" })
+						 <label for="IsExistingBuilding">Existing Building&nbsp;&nbsp;</label>
+					
+						@Html.CheckBoxFor(m => m.IsNewConstruction, new { IsRequired = "TRUE" })  New Construction
+					</div>
+					<div id="divDPA" style="padding-top:20px;display:none">
+						<label class="required">Please select one of the following (Project Type)</label><br />
+						@Html.CheckBoxFor(m => m.IsPartialDemolition, new { IsRequired = "TRUE" }) Partial Demolition &nbsp;&nbsp;
+						@Html.CheckBoxFor(m => m.IsEntireBuildingDemolition, new { IsRequired = "TRUE" }) Entire Building Demolition
+					</div>
+				</div>
+		</div>
+		<div class="bottom" style="padding-top: 5em">
+			<div class="col-md-9"></div>
+			<div class="col-md-3">
+				<input type="submit" onclick="return qualify.validate()" id="btnNext" class="NextBtn btn btn-primary" style=" color:white" value="Next" />
+			</div>
+		</div>
+	}
+</div>
+
+
+
+
+@******************* *@
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<script src="~/Scripts/BPM_Js/QualifyingInfo.js"></script>
+<script src="~/Scripts/BPM_Js/Common.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		qualify.init();
+	});
+
+	
+
+</script>
+
+
+
+
+
+
+
+
+
+

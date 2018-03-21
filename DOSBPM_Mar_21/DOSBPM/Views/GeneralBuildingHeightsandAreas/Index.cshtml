@@ -1,0 +1,285 @@
+﻿@model DOSBPM.Models.GeneralBuildingHeightsandAreas
+
+@{
+    ViewBag.Title = "General Building Heights and Areas";
+}
+
+
+<div class="container-fluid">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @*<div>*@
+        <form>
+            <h3>General Building Heights and Areas</h3>
+            @* Genereal Buildings and heigths Questions*@
+            @*<div class="contentOfPage" style="border:solid 1px; ">*@
+            @*BuildingHeightInfo in Stories*@
+            <div class="horizontalStories" style="border:solid 1px; display:inline-block; width:95%;">
+                <br />
+                <div>
+                    <label class="col-md-3">Enter the building height in stories:</label>
+                    <div class="col-md-4">
+                        <label class="control-label col-md-3">Provided</label> @Html.TextBoxFor(x => x.txtProvidedHeightStories, new { @class = "form-control", @style = "width=10px;" }) <!--ADJUST HEIGHT AND WIDTH-->
+                    </div>
+                    <div class="col-md-4">
+                        <label class="col-md-3">Allowed</label>@Html.TextBoxFor(x => x.txtAllowedHeightStories, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="CodeIntegration" style="display:inline-block;">
+                    <br />
+                    <div class="col-md-2 ">
+                        Code Compliance Document
+                        @Html.TextBoxFor(X => X.txt1CCD, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                    </div>
+                    <div class="col-md-2 ">
+                        Code Integration Section
+                        @Html.TextBoxFor(X => X.txt1CIS, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                    </div>
+                    <div class="col-md-2 ">
+                        Plan Sheet/Page Number
+                        @Html.TextBoxFor(X => X.txt1PgNo, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2 ">
+                        Applicant  Comments
+                        @Html.TextBoxFor(X => X.txt1ApplicantComments, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2 ">
+                        Back Office Comments
+                        @Html.TextBoxFor(X => X.txt1BackOffComments, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <div class="col-md-4 ">
+                            Remove<br />
+                            <input type="checkbox" id="chkRemove1" class="check" style="margin:10px;" />
+                        </div>
+                        <div class="col-md-4 ">
+                            Deviation<br />
+                            <input type="checkbox" id="chkDeviation1" class="check" style="margin:10px;" />
+                        </div>
+                        <div class=" col-md-2  ">
+                            Edit<br />
+                            <input type="checkbox" id="chkEdit1" class="check" style="margin:10px;" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12"><br /></div>
+
+
+                @*BuildingHeightInfo in Feet *@
+
+                <div class="heightInft" style="border-top:solid 1px; display:inline-block;">
+                    <div>
+                        <br />
+                        <label class="col-md-3 text-left">Enter the building height in Feet:</label>
+                        <div class="col-md-4">
+                            <label class="control-label col-md-3">Provided</label> @Html.TextBoxFor(x => x.txtProvidedHeightft, new { @class = "form-control", @style = "width=10px;" }) <!--ADJUST HEIGHT AND WIDTH-->
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label col-md-3">Allowed</label>@Html.TextBoxFor(x => x.txtAllowedHeightft, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="CodeIntegration" style=" display:inline-block;">
+                        <br />
+                        <div class="col-md-2 text-center">
+                            Code Compliance Document
+                            @Html.TextBoxFor(X => X.txt1CCD, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                        </div>
+                        @* Code Integration Section *@
+                        <div class="col-md-2 text-center">
+                            Code Integration Section
+                            @Html.TextBoxFor(X => X.txt1CIS, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                        </div>
+                        @* Plan Sheet/ Page Number *@
+                        <div class="col-md-2 ">
+                            Plan Sheet/ Page Number
+                            @Html.TextBoxFor(X => X.txt1PgNo, new { @class = "form-control" })<br />
+                        </div>
+                        @* Applicant Comments *@
+                        <div class="col-md-2 text-center">
+                            Applicant Comments
+                            @Html.TextBoxFor(X => X.txt1ApplicantComments, new { @class = "form-control" })<br />
+                        </div>
+                        @* Back office Comments*@
+                        <div class="col-md-2 text-center">
+                            Back office Comments
+                            @Html.TextBoxFor(X => X.txt1BackOffComments, new { @class = "form-control" })<br />
+                        </div>
+                        @* Check Box-Remove , Deviation , Edit *@
+                        <div class="col-md-2">
+                            <div class="col-md-4 text-center">
+                                Remove<br />
+                                <input type="checkbox" id="chkRemove3" class="check" style="margin:10px;" />
+                            </div>
+                            <div class="col-md-4 text-center">
+                                Deviation<br />
+                                <input type="checkbox" id="chkDeviation3" class="check" style="margin:10px;" />
+                            </div>
+                            <div class=" col-md-2  text-center">
+                                Edit<br />
+                                <input type="checkbox" id="chkEdit3" class="check" style="margin:10px;" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12"><br /></div>
+                </div>
+
+
+                @*BuildingHeightInfo in SF*@
+
+                <div class="heightInSF" style="border-top:solid 1px; display:inline-block; ">
+                    <div>
+                        <br />
+                        <label class="col-md-3 text-left">Enter the building height in SF:</label>
+                        <div class="col-md-4">
+                            <label class="control-label col-md-3">Provided</label> @Html.TextBoxFor(x => x.txtProvidedHeightSF, new { @class = "form-control" }) <!--ADJUST HEIGHT AND WIDTH-->
+                        </div>
+                        <div class="col-md-4">
+                            <label class="control-label col-md-3">Allowed</label>@Html.TextBoxFor(x => x.txtAllowedHeightSF, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group CodeIntegration" style="display:inline-block;">
+                        <br />
+                        <div class="col-md-2">
+                            Code Compliance Document
+                            @Html.TextBoxFor(X => X.txt1CCD, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                        </div>
+                        <div class="col-md-2">
+                            Code Integration Section
+                            @Html.TextBoxFor(X => X.txt1CIS, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                        </div>
+                        <div class="col-md-2">
+                            Plan Sheet/ Page Number
+                            @Html.TextBoxFor(X => X.txt1PgNo, new { @class = "form-control" })<br />
+                        </div>
+                        <div class="col-md-2">
+                            Applicant Comments
+                            @Html.TextBoxFor(X => X.txt1ApplicantComments, new { @class = "form-control" })<br />
+                        </div>
+                        <div class="col-md-2">
+                            Back office Comments
+                            @Html.TextBoxFor(X => X.txt1BackOffComments, new { @class = "form-control" })<br />
+                        </div>
+                        <div class="col-md-2">
+                            <div class="col-md-4 ">
+                                Remove<br />
+                                <input type="checkbox" id="chkRemove3" class="check" style="margin:10px;" />
+                            </div>
+                            <div class="col-md-4">
+                                Deviation<br />
+                                <input type="checkbox" id="chkDeviation3" class="check" style="margin:10px;" />
+                            </div>
+                            <div class=" col-md-2">
+                                Edit<br />
+                                <input type="checkbox" id="chkEdit3" class="check" style="margin:10px;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+
+        @*UseOccupancies*@
+        <form class=" form-horizontal UseOccupancies ">
+            <br />
+            <div class="form-group">
+                <label class="col-md-2">Is an area increased utilized?</label>
+                <div class="col-md-1">
+                    @Html.RadioButton("RadYesNoAreaUtilized", "Yes") Yes
+                </div>
+                <div class=" col-md-1">
+                    @Html.RadioButton("RadYesNoAreaUtilized", "No") No
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2">Is this a mixed Use occupancy?</label>
+                <div class="col-md-1">
+                    @Html.RadioButton("RadYesNoAreaUtilized", "Yes") Yes
+                </div>
+                <div class=" col-md-1">
+                    @Html.RadioButton("RadYesNoAreaUtilized", "No") No
+                </div>
+            </div>
+            <div class="form-group">
+                <label class=" col-md-2"> Select all additional uses/occupancies</label>
+                <div class="col-md-2">
+                    @{
+                        var AdditionalOccupancies = new List<string>();
+                        AdditionalOccupancies.Add("a");
+                    }
+                    @Html.DropDownListFor(model => model.AdditionalOccupancies, new SelectList(AdditionalOccupancies), "*")
+                </div>
+                <div class=" col-md-3 col-md-offset-3">
+                    <br /><input type="button" value="Launch Code Integration" style="width:165px;white-space:normal;background-color: #b22b2b;border: none;color: white; padding:2px; height:30px;" />
+                </div>
+            </div>
+        </form>
+
+        @*Occupancy Load Grid*@
+           
+            <br />
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label class="col-sm-8 text-center">Square foot Grid</label>
+                    <div class="col-sm-4"></div>
+                </div>
+                <div>
+                    <div class="col-sm-2 col-sm-offset-1 text-center">B</div>
+                    <div class="col-sm-2 text-center">R-2</div>
+                    <div class="col-sm-2 text-center">Total</div>
+                    <div class="col-sm-5"><br /></div>
+                </div>
+                <div>
+                    <div class="col-sm-1">
+                        <div class=" col-sm-2 story"> <label>Story</label></div>
+                        <div class="col-sm-10 text-right">
+                            <div class="short-div">1</div><br /><br />
+                            <div class="short-div">2</div><br /><br />
+                            <div class="short-div">Total</div><br /><br />
+                        </div>
+                    </div>
+                    <div class="col-sm-2 ">
+                        @Html.TextBox("txtBstory1", "", new { @style = "border solid 1px;", @class = "form-control" })<br />
+                        @Html.TextBox("txtBstory2", "", new { @style = "border solid 1px;", @class = "form-control" })<br />
+                        @Html.TextBox("txtBstory1total", "", new { @style = "border solid 1px; background-color: #d3d3d3 ", @class = "form-control" })
+
+                    </div>
+                    <div class="col-sm-2 ">
+                        @Html.TextBox("txtR2story1", "", new { @style = "border solid 1px;", @class = "form-control" })<br />
+                        @Html.TextBox("txtR2story2", "", new { @style = "border solid 1px;", @class = "form-control" })<br />
+                        @Html.TextBox("txtR2story1total", "", new { @style = "border solid 1px; background-color:#d3d3d3", @class = "form-control" })
+
+                    </div>
+                    <div class="col-sm-2 ">
+                        @Html.TextBox("txtTotalstory1", "", new { @style = "border solid 1px; background-color:#d3d3d3", @class = "form-control" })<br />
+                        @Html.TextBox("txtTotalstory2", "", new { @style = "border solid 1px; background-color:#d3d3d3", @class = "form-control" })<br />
+                        @Html.TextBox("txtTotalstory1total", "", new { @style = "border solid 1px; background-color:#d3d3d3", @class = "form-control" })
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            @*</div>*@
+       
+
+    }
+</div>
+
+
+    @*Page Navigatiom: Previous/Save & Continue*@
+    <div class="container">
+        <div class="bottom" style="padding-top: 8em;padding-bottom:10em;">
+            <div class="col-lg-11">
+                @Html.ActionLink("Previous", "Index", "CodeIntegration", null, new { @class = "NextBtn" })
+            </div>
+            <div class="col-lg-1">
+                @Html.ActionLink("Next", "Index", "TypeofConstruction", null, new { @class = "NextBtn" })
+            </div>
+        </div>
+    </div>

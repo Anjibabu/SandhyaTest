@@ -1,0 +1,24 @@
+﻿@model DOSBPM.Models.AttestationandSubmit
+
+@{
+    ViewBag.Title = "Attestation and Submit";
+}
+
+<h3>Attestation and Submit</h3>
+<br />
+<div class="container-fluid">
+    <div class="col-lg-1 "></div>
+    <div class="col-lg-5 ">
+        <input type="checkbox" style="margin-right:30px" />Has the attestation been on the application
+    </div>
+
+</div>
+
+<div class="bottom" style="padding-top: 22em">
+    <div class="col-lg-11">
+        @Html.ActionLink("Previous", "Index", "Payment", null, new { @class = "NextBtn" })
+    </div>
+    <div class="col-lg-1">
+        @Html.ActionLink("Submit", "Index", "Summary", null, new { @class = "NextBtn" })
+    </div>
+    </div>

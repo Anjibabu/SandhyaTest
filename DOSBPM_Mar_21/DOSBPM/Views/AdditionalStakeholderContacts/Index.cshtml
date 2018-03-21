@@ -1,0 +1,204 @@
+﻿@*@model DOSBPM.Models.AdditionalStakeholderContacts*@
+@model DOSBPM.Models.PropertyOwnerOrganization
+
+@{
+    ViewBag.Title = "Additional Stakeholder Contacts";
+}
+
+<div class="container-fluid" id="AdditionalStakeholderContacts">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <div class="col-md-12">
+                <h3>Additional Stakeholder Organization Contact Person Information</h3>
+                <i>
+                    If any fields are blank with an *, you must enter the missing informaiton in the appropriate field. The Informaiton listed below
+                    is pre-populated from user profile. If the information needs to be updated, please select edit below.
+                </i>
+                <br /><br />
+            </div>
+            <div class="col-md-4">
+                <label><b>Select Stakeholder Type</b></label><br />
+                @{
+                    var TransType = new List<string>();
+                    TransType.Add("Property Owner Individual");
+                }
+                @Html.DropDownListFor(model => model.TransType, new SelectList(TransType), new { @class = "form-control" }) <br /><br />
+
+            </div>
+            <div class="col-md-9"></div>
+
+            <div class="col-md-6 ">
+                <label><b>Search for Stakeholder</b></label><br>
+
+                <div id="btnSearch" class="input-group col-lg-4 col-sm-2 ">
+                    <input id="serachText" type="text" class="form-control" placeholder="search" style="width:200px">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                </div>
+
+            </div>
+
+            <div class=" form-inline col-md-6 text-right">
+                <input type="checkbox" /> <label>Insurance Coverage requirements</label>
+                @Html.DropDownListFor(x => x.County, new SelectList(Model.Counties, "Value", "Text"), "Exceptions", new { @class = "form-control", style = "width:120px; height:30px" })
+                <br />
+            </div>
+
+            <div class="col-md-12">
+                <br />
+                @Html.CheckBox("Check this box to change or update information") &nbsp; Check this box to change or update information
+                <br />
+                @Html.CheckBox("Create new record") &nbsp; Create new record<br /><br />
+            </div>
+            <div class="col-md-3 ">
+                <label class="required">First Name</label> <br />
+                @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control ", maxlength = "5", style = "padding:4px 6px", required = "TRUE" })
+            </div>
+            <div class="col-md-3">
+                <label> Middle Name</label><br /> @Html.TextBoxFor(x => x.MiddleName, new { @class = "form-control", maxlength = "5" })
+            </div>
+            <div class="col-md-3">
+                <label class="required">Last Name</label><br />
+                @Html.TextBoxFor(x => x.LasttName, new { @class = "form-control", maxlength = "5", required = "TRUE" })
+            </div>
+            <div class="col-md-3">
+                <label>Suffix</label><br />
+                @Html.TextBoxFor(x => x.Suffix, new { @class = "form-control", maxlength = "5" })
+            </div>
+            <div class=" form-inline">
+                <br />
+                <div class="col-md-3">
+
+                    <label> Licence #(where appicable)</label>
+                    @Html.TextBoxFor(x => x.TelephoneNumber, new { @class = "form-control", maxlength = "10" })
+                </div>
+                <div class="col-md-3">
+                    <label> License Type</label><br />
+                    @Html.RadioButton("Radio", "Radio") PE &nbsp;
+                    @Html.RadioButton("Radio", "Radio") RA
+                    @*<input type="radio" value="PE" />*@
+                </div>
+
+            </div>
+            <div class="col-md-12"></div>
+            <div class="col-md-4">
+                <label class="required">Phone Number</label>  <br />
+                @Html.TextBoxFor(x => x.TelephoneNumber, new { @class = "form-control", maxlength = "10", required = "TRUE" })
+            </div>
+            <div class="col-md-4">
+                <label class="required">EmailAddress</label><br />
+                @Html.TextBoxFor(x => x.EmailAddress, new { @class = "form-control", maxlength = "10", style = "width:250px", required = "TRUE" })
+            </div><br />
+
+            <div class="col-md-3">
+                <lable>Mailing Address Line 1</lable><br />
+                @Html.TextBoxFor(x => x.MailingAddressLine1, new { @class = "form-control", maxlength = "10", required = "TRUE" })
+            </div>
+            <div class="col-md-12"></div>
+            <br />
+            <div class="col-md-3">
+                <lable class=" required">Mailing Address Line 2</lable><br />
+                @Html.TextBoxFor(x => x.MailingAddressLine2, new { @class = "form-control", maxlength = "10" })
+            </div>
+            <div class="col-md-12"></div>
+
+            <div class="col-md-3">
+                <lable class=" required">City</lable><br />
+
+                @Html.TextBoxFor(x => x.City, new { @class = "form-control", maxlength = "10", required = "TRUE" })
+            </div>
+            <div class="col-md-3">
+                <lable class="required">County</lable> <br />
+                @Html.DropDownListFor(x => x.County, new SelectList(Model.Counties, "Value", "Text"), "--Select--", new { @class = "form-control" })
+            </div>
+            <div class="col-md-12"></div>
+            <br />
+            <div class="col-md-3">
+
+                <lable class="required">State</lable> <br />
+                @Html.DropDownListFor(x => x.County, new SelectList(Model.Counties, "Value", "Text"), "--Select--", new { @class = "form-control" })
+            </div>
+            <div class="col-md-3">
+                Zip Code<br />
+                @Html.TextBoxFor(x => x.Zip, new { @class = "form-control", maxlength = "10", required = "TRUE" })
+            </div>
+            <div class="col-md-12"></div>
+            <br />
+            <div class="col-md-3">
+
+                <lable class="required">Country</lable> <br />
+                @Html.DropDownListFor(x => x.County, new SelectList(Model.Counties, "Value", "Text"), "--Select--", new { @class = "form-control" })
+            </div>
+            <div class="col-md-3">
+                <label>Zip 4</label><br />
+                @Html.TextBoxFor(x => x.Zip4, new { @class = "form-control", maxlength = "10" })
+            </div>
+            <div class="col-md-12"></div>
+            <div class="col-md-6"></div>
+            <div class="col-md-6 ">
+
+                <br />
+                <label class="required">What access rights should this stakeholder be granted:</label> <br /><br />
+                @Html.CheckBox("Spreak") &nbsp;  Speak on Behalf of the Owner <br />
+                @Html.CheckBox("View") &nbsp;  View application/certificate workflow and associated <br />documents<br />
+                @Html.CheckBox("Modify") &nbsp;  Modify application and associated documents<br />
+                @Html.CheckBox("Directly") &nbsp;  Directly Communicate with NYSDOS<br />
+                @Html.CheckBox("Schedule") &nbsp;  Schedule Inspections with NYSDOS<br />
+
+
+            </div>
+            <br />
+            <div class="col-md-12">
+                <br /><br /><br /><br />
+                <label>Comments</label><br />
+                @Html.TextAreaFor(model => model.Comments, new { @class = "form-control", maxlength = 2000, @cols = "75", @rows = "3" })
+            </div>
+        </div>
+        //Check Boxes
+
+
+        @*<div class="col-md-12">
+                <br /><br />
+                <div class="col-md-3">
+
+                    @Html.ActionLink("Previous", "Index", "AdditionalStakeholderOrganization", null, new { @class = "NextBtn" })
+                </div>
+                <div class="col-md-6 text-right">
+                    @Html.ActionLink("Next", "Index", "BuildingInfo", null, new { @class = "NextBtn" })
+                </div>
+            </div>*@
+        <div class="col-md-12">
+            <br /><br />
+            <div class="col-md-3 text-left ">
+
+                <input type="button" id="btnNext" class="NextBtn btn btn-default" value="Previous" style="background-color:#a90606; color:white" onclick="previousBtn_click()" />
+
+            </div>
+            <div class="col-md-6 text-right ">
+
+                <input type="button" id="btnNext" class="NextBtn btn btn-default" value="Next" style="background-color:#a90606; color:white" onclick=" nextBtn_click()" />
+
+            </div>
+        </div>
+        <div class="col-md-12">
+            <br /><br /><br /><br /><br /><br /><br />
+        </div>
+
+    }
+</div>
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<script>
+	function nextBtn_click() {
+        if (common.validate("AdditionalStakeholderContacts")) {
+			location.href = '@Url.Action("Index", "BuildingInfo")';
+		}
+	}
+	function previousBtn_click() {
+		location.href = '@Url.Action("Index", "AdditionalStakeholderOrganization")';
+	}
+	//location.href = '@Url.Action("Index", "PropertyOwnerInfo")' //previous
+
+	//location.href('@Url.Action("Index", "PropertyOwnerIndividual")') //next
+</script>

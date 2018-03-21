@@ -1,0 +1,11 @@
+﻿@model DOSBPM.Models.StakeholderContactInfo
+
+@{
+    ViewBag.Title = "Stakeholder Contact Info";
+}
+
+<h3>Stakeholder Contact Info</h3>
+
+@Html.ActionLink("Previous", "Index", "QualifyingInfo", null, new { @class = "NextBtn" })
+@Html.ActionLink("Next", "Index", "PropertyOwnerInfo", null, new { @class = "NextBtn" })
+

@@ -1,0 +1,364 @@
+﻿@model DOSBPM.Models.MeansofEgress
+
+@{
+    ViewBag.Title = "Means of Egress";
+}
+<div class="container-fluid">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <form>
+            <h3>Means of Egress</h3>
+            @*<div style="display:inline-block;">*@
+            @*1_ Occupant Load *@
+            <div style="padding-left:10px; display:inline-block; width:95%">
+                <br />
+                <div>
+                    <label class="col-md-2 Center">Create Occupant Load Grid</label>
+                    <div class="col-md-1">
+                        <input type="checkbox" class="RadYesNo" />
+                    </div>
+                </div>
+                <div class="CodeIntegration col-md-12" style="width:100%;display:inline-block;">
+                    <br />
+                    <div class="col-md-2">
+                        Code Compliance Document
+                        @Html.TextBoxFor(X => X.txt1CCD, new { @style = "background-color:#d3d3d3;", @class = "form-control ", @readonly = "readonly" })<br />
+                    </div><div class="col-md-2">
+                        Code Integration Section
+                        @Html.TextBoxFor(X => X.txt1CIS, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        Plan Sheet/ Page Number
+                        @Html.TextBoxFor(X => X.txt1PgNo, new { @class = "form-control" })<br />
+                    </div><div class="col-md-2">
+                        Applicant Comments
+                        @Html.TextBoxFor(X => X.txt1ApplicantComments, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        Back office Comments
+                        @Html.TextBoxFor(X => X.txt1BackOffComments, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        <div class="col-md-4 ">
+                            Remove<br />
+                            <input type="checkbox" id="chkRemove1" class="check" style="margin:10px;" />
+                        </div>
+                        <div class="col-md-4 ">
+                            Deviation<br />
+                            <input type="checkbox" id="chkDeviation1" class="check" style="margin:10px;" />
+                        </div>
+                        <div class=" col-md-2 ">
+                            Edit<br />
+                            <input type="checkbox" id="chkEdit1" class="check" style="margin:10px;" />
+                        </div>
+                    </div>
+                </div>
+
+                @*Occupancy Load Grid*@
+               
+                    <div class="OccupancyLoadGrid" style="display:inline-block;width:95%;">
+                        <div class="col-sm-12">
+                            <label class="col-sm-8 text-center">Occupancy Load Grid</label>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="col-sm-2 col-sm-offset-1 text-center">B</div>
+                            <div class="col-sm-2 text-center">R-2</div>
+                            <div class="col-sm-2 text-center">Total</div>
+                            <div class="col-sm-3 col-md-offset-2">
+                                <input type="button" value="Launch Code Integration" style="width:165px;white-space:normal;background-color: #b22b2b;border: none;color: white; padding:2px; height:30px;" />
+                            </div>
+                        </div>
+                        <div>
+                            <div class="col-sm-1">
+                                <div class=" col-sm-2 story"> <label>Story</label></div>
+                                <div class="col-sm-10 text-right">
+                                    <div class="short-div">1</div><br /><br />
+                                    <div class="short-div">2</div><br /><br />
+                                    <div class="short-div">Total</div><br /><br />
+                                </div>
+                            </div>
+                            <div class="col-sm-2 ">
+                                @Html.TextBox("txtBstory1", "", new { @style = "border solid 1px;", @class = "form-control" })<br />
+                                @Html.TextBox("txtBstory2", "", new { @style = "border solid 1px;", @class = "form-control" })<br />
+                                @Html.TextBox("txtBstory1total", "", new { @style = "border solid 1px; background-color: #d3d3d3 ", @class = "form-control" })
+
+                            </div>
+                            <div class="col-sm-2 ">
+                                @Html.TextBox("txtR2story1", "", new { @style = "border solid 1px;", @class = "form-control" })<br />
+                                @Html.TextBox("txtR2story2", "", new { @style = "border solid 1px;", @class = "form-control" })<br />
+                                @Html.TextBox("txtR2story1total", "", new { @style = "border solid 1px; background-color:#d3d3d3", @class = "form-control" })
+
+                            </div>
+                            <div class="col-sm-2 ">
+                                @Html.TextBox("txtTotalstory1", "", new { @style = "border solid 1px; background-color:#d3d3d3", @class = "form-control" })<br />
+                                @Html.TextBox("txtTotalstory2", "", new { @style = "border solid 1px; background-color:#d3d3d3", @class = "form-control" })<br />
+                                @Html.TextBox("txtTotalstory1total", "", new { @style = "border solid 1px; background-color:#d3d3d3", @class = "form-control" })
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="col-md-12">
+                    <label class="col-md-2 text-center ">Create Capacity of Exits Grid</label>
+                    <div class="col-md-1">
+                        <input type="checkbox" class="RadYesNo" />
+                    </div>
+                    <label class="col-md-2 Center">Create Travel Distance Grid</label>
+                    <div class="col-md-1">
+                        <input type="checkbox" class="RadYesNo" />
+                    </div><br /><br /><br />
+                </div>
+
+                @*Capacity of Exits Grid*@ <!--DISPLAY FALSE Remove Display=none to view on UI-->
+                <div class="OccupancyLoadGrid" style="display:inline-block;display:none;">
+                    <!--Remove display=none to view on UI-->
+                    <div class="col-sm-12">
+                        <label class="col-sm-8 text-center">Capacity of Exits Grid</label>
+                    </div>
+                    <div>
+                        <div class="col-sm-2 col-sm-offset-1 text-center">B</div>
+                        <div class="col-sm-2 text-center">R-2</div>
+                        <div class="col-sm-2 text-center">Total</div>
+                        <div class="col-sm-5"><br /></div>
+                    </div>
+                    <div>
+                        <div class="col-sm-1">
+                            <div class=" col-sm-2 story"> <label>Story</label></div>
+                            <div class="col-sm-10 text-right">
+                                <div class="short-div">1</div><br /><br />
+                                <div class="short-div">2</div><br /><br />
+                                <div class="short-div">Total</div><br /><br />
+                            </div>
+                        </div>
+                        <div class="col-sm-2 ">
+                            @Html.TextBox("txtBstory1", "", new { @style = "border solid 1px;", @class = "form-control" })<br />
+                            @Html.TextBox("txtBstory2", "", new { @style = "border solid 1px;", @class = "form-control" })<br />
+                            @Html.TextBox("txtBstory1total", "", new { @style = "border solid 1px; background-color: #d3d3d3 ", @class = "form-control" })
+                        </div>
+                        <div class="col-sm-2 ">
+                            @Html.TextBox("txtR2story1", "", new { @style = "border solid 1px;", @class = "form-control" })<br />
+                            @Html.TextBox("txtR2story2", "", new { @style = "border solid 1px;", @class = "form-control" })<br />
+                            @Html.TextBox("txtR2story1total", "", new { @style = "border solid 1px; background-color:#d3d3d3", @class = "form-control" })
+                        </div>
+                        <div class="col-sm-2 ">
+                            @Html.TextBox("txtTotalstory1", "", new { @style = "border solid 1px; background-color:#d3d3d3", @class = "form-control" })<br />
+                            @Html.TextBox("txtTotalstory2", "", new { @style = "border solid 1px; background-color:#d3d3d3", @class = "form-control" })<br />
+                            @Html.TextBox("txtTotalstory1total", "", new { @style = "border solid 1px; background-color:#d3d3d3", @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                @*Travel Distance Grid*@  <!--DISPLAY FALSE-->
+                <div class="OccupancyLoadGrid" style="display:inline-block;display:none;">
+                    <!--Remove display=none to view on UI-->
+                    <div class="col-sm-12">
+                        <label class="col-sm-8 text-center">Travel Distance Grid</label>
+                        <div class="col-sm-4"></div>
+                    </div>
+                    <div>
+                        <div class="col-sm-2 col-sm-offset-1 text-center">B</div>
+                        <div class="col-sm-2 text-center">R-2</div>
+                        <div class="col-sm-2 text-center">Total</div>
+                        <div class="col-sm-5"><br /></div>
+                    </div>
+                    <div>
+                        <div class="col-sm-1">
+                            <div class=" col-sm-2 story"> <label>Story</label></div>
+                            <div class="col-sm-10 text-right">
+                                <div class="short-div">1</div><br /><br />
+                                <div class="short-div">2</div><br /><br />
+                                <div class="short-div">Total</div><br /><br />
+                            </div>
+                        </div>
+                        <div class="col-sm-2 ">
+                            @Html.TextBox("txtBstory1", "", new { @style = "border solid 1px;", @class = "form-control" })<br />
+                            @Html.TextBox("txtBstory2", "", new { @style = "border solid 1px;", @class = "form-control" })<br />
+                            @Html.TextBox("txtBstory1total", "", new { @style = "border solid 1px; background-color: #d3d3d3 ", @class = "form-control" })
+                        </div>
+                        <div class="col-sm-2 ">
+                            @Html.TextBox("txtR2story1", "", new { @style = "border solid 1px;", @class = "form-control" })<br />
+                            @Html.TextBox("txtR2story2", "", new { @style = "border solid 1px;", @class = "form-control" })<br />
+                            @Html.TextBox("txtR2story1total", "", new { @style = "border solid 1px; background-color:#d3d3d3", @class = "form-control" })
+                        </div>
+                        <div class="col-sm-2 ">
+                            @Html.TextBox("txtTotalstory1", "", new { @style = "border solid 1px; background-color:#d3d3d3", @class = "form-control" })<br />
+                            @Html.TextBox("txtTotalstory2", "", new { @style = "border solid 1px; background-color:#d3d3d3", @class = "form-control" })<br />
+                            @Html.TextBox("txtTotalstory1total", "", new { @style = "border solid 1px; background-color:#d3d3d3", @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+
+           
+
+            @*2_ Egress applicable to this project*@
+            <div style="padding-left:10px; display:inline-block; border:solid 1px ;border-bottom:none; width:95%">
+                <br />
+                <div >
+                    <label class="col-md-4">Select all egress systems applicable to this project</label>
+                    @{
+                        var ddlEgressSystems = new List<string>();
+                        //ddlEgressSystems.Add("  suffix           ");
+                    }
+                    @Html.DropDownListFor(model => model.ddlEgressSystems, new SelectList(ddlEgressSystems), "*", new { @style = " width:170px; border:solid 1px;", @class = "form-control" })
+                </div>
+                <div class="CodeIntegration col-md-12" style="width:100%">
+                    <br /> <div class="col-md-2">
+
+                        Code Compliance Document
+                        @Html.TextBoxFor(X => X.txt2CCD, new { @style = "background-color:#d3d3d3;", @class = "form-control ", @readonly = "readonly" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        Code Integration Section
+                        @Html.TextBoxFor(X => X.txt2CIS, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        Plan Sheet/ Page Number
+                        @Html.TextBoxFor(X => X.txt2PgNo, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        Applicant Comments
+                        @Html.TextBoxFor(X => X.txt2ApplicantComments, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        Back office Comments
+                        @Html.TextBoxFor(X => X.txt2BackOffComments, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        <div class="col-md-4 ">
+                            Remove<br />
+                            <input type="checkbox" id="chkRemove2" class="check" style="margin:10px;" />
+                        </div>
+                        <div class="col-md-4 ">
+                            Deviation<br />
+                            <input type="checkbox" id="chkDeviation2" class="check" style="margin:10px;" />
+                        </div>
+                        <div class=" col-md-2 ">
+                            Edit<br />
+                            <input type="checkbox" id="chkEdit2" class="check" style="margin:10px;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @*3_ Corridors in the building *@
+            <div style="padding-left:10px;width:95%; display:inline-block; border:solid 1px ;border-bottom:none;">
+                <br />
+                <div >
+                    <label class="col-md-3 ">Are there corridors in this building?</label>
+                    <div class="col-md-2 ">
+                        <div class="col-md-6"><input type="radio" class="RadYesNo" /><label>Yes</label></div>
+                        <div class="col-md-6"><input type="radio" class="RadYesNo" /><label>No</label></div>
+                    </div>
+                    <label class="col-md-2 col-md-offset-1 ">Enter minimum corridor width</label>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(x => x.txtcorridorWidth, new { @style = " border: solid 1px ; width:170px;", @class = "form-control" })
+                    </div>
+                </div>
+                <div class="CodeIntegration col-md-12" style="width:100%;">
+                    <br/>
+                    <div class="col-md-2">
+                        Code Compliance Document
+                        @Html.TextBoxFor(X => X.txt3CCD, new { @style = "background-color:#d3d3d3;", @class = "form-control ", @readonly = "readonly" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        Code Integration Section
+                        @Html.TextBoxFor(X => X.txt3CIS, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        Plan Sheet/ Page Number
+                        @Html.TextBoxFor(X => X.txt3PgNo, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        Applicant Comments
+                        @Html.TextBoxFor(X => X.txt3ApplicantComments, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        Back office Comments
+                        @Html.TextBoxFor(X => X.txt3BackOffComments, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        <div class="col-md-4 text-center">
+                            Remove<br />
+                            <input type="checkbox" id="chkRemove3" class="check" style="margin:10px;" />
+                        </div>
+                        <div class="col-md-4 text-center">
+                            Deviation<br />
+                            <input type="checkbox" id="chkDeviation3" class="check" style="margin:10px;" />
+                        </div>
+                        <div class=" col-md-2  text-center">
+                            Edit<br />
+                            <input type="checkbox" id="chkEdit3" class="check" style="margin:10px;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @*4_ Dead Ends in Bilding *@
+            <div style="padding-left:10px;width:95%; display:inline-block; border:solid 1px;">
+                <br />
+                <div>
+                    <label class="col-md-4">Are there any dead ends in this building?</label>
+                    <div class="col-md-2">
+                        <div class="col-md-6"><input type="radio" class="RadYesNo" /><label>Yes</label></div>
+                        <div class="col-md-6"><input type="radio" class="RadYesNo" /><label>No</label></div>
+                    </div>
+                </div>
+                <div class="CodeIntegration col-md-12" style="width:100%;">
+                    <br /><div class="col-md-2">
+                        Code Compliance Document
+                        @Html.TextBoxFor(X => X.txt4CCD, new { @style = "background-color:#d3d3d3;", @class = "form-control ", @readonly = "readonly" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        Code Integration Section
+                        @Html.TextBoxFor(X => X.txt4CIS, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        Plan Sheet/ Page Number
+                        @Html.TextBoxFor(X => X.txt4PgNo, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        Applicant Comments
+                        @Html.TextBoxFor(X => X.txt4ApplicantComments, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        Back office Comments
+                        @Html.TextBoxFor(X => X.txt4BackOffComments, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        <div class="col-md-4 text-center">
+                            Remove<br />
+                            <input type="checkbox" id="chkRemove4" class="check" style="margin:10px;" />
+                        </div>
+                        <div class="col-md-4 text-center">
+                            Deviation<br />
+                            <input type="checkbox" id="chkDeviation4" class="check" style="margin:10px;" />
+                        </div>
+                        <div class=" col-md-2  text-center">
+                            Edit<br />
+                            <input type="checkbox" id="chkEdit4" class="check" style="margin:10px;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*</div>*@
+
+            <div class=" col-md-offset-5">
+                <br /><br /><br />
+                <input type="button" value="Launch Code Integration" style="width:165px;white-space:normal;background-color: #b22b2b;border: none;color: white; padding:2px; height:30px;" />
+            </div>
+            @*Page Navigatiom: Previous/Save & Continue*@
+            <div class="bottom" style="padding-bottom:10em">
+                <div class="col-lg-11">
+                    @Html.ActionLink("Previous", "Index", "FireProtectionSystems", null, new { @class = "NextBtn" })
+                </div>
+                <div class="col-lg-1">
+                    @Html.ActionLink("Next", "Index", "Accessibility", null, new { @class = "NextBtn" })
+                </div>
+            </div>
+                </div>
+        </form>
+    }
+</div>

@@ -1,0 +1,61 @@
+﻿@model DOSBPM.Models.AdditionalInfo
+
+@{
+    ViewBag.Title = "Additional Info";
+}
+<div class="container-fluid">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <div class="col-md-12">
+
+            <h3>Additional Information</h3>
+            <br /><br />          
+            <label>Has Work covered by this application been started or completed?</label> <br /><br />
+            <div class="col-md-2 text-center">
+                <input type="radio" value="" id="" /> &nbsp; Yes
+            </div>
+            <div class="col-md-2 text-center">
+                <input type="radio" value="" id="" /> &nbsp; No
+
+            </div>  <br /><br />
+        </div>
+
+        <div class="col-md-8">
+            <label>
+                If Yes, please provide a written explanation as to why work was started or<br />
+                completed. Answering yes to this question and providing an explanation is<br />
+                not an authorization to complete work without a permit. No work that<br />
+                requires a permit is permitted to be started without first obtaining a permit<br />
+                from NYSDOS DBSC unless otherwise outlines in regulations.
+
+            </label><br /><br />
+            @Html.TextAreaFor(model => model.Notes, new { @class = "form-control", maxlength = 2000, @cols = "50", @rows = "10" })
+        </div>
+
+       
+        <div class="col-md-12">
+              <br /><br /><br /><br />
+            <div class="col-md-3">
+
+                @Html.ActionLink("Previous", "Index", "BuildingInfo", null, new { @class = "NextBtn" })
+            </div>
+            <div class="col-md-6 text-right">
+                @Html.ActionLink("Next", "Index", "ProjectDescription", null, new { @class = "NextBtn" })
+            </div>
+            <br /><br />
+        </div>
+        <div class="col-md-12"><br /><br /><br /><br /> </div>
+    </div>
+        }
+    </div>
+
+                
+                
+
+
+
+
+

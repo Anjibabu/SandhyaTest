@@ -1,0 +1,146 @@
+﻿@*@model DOSBPM.Models.BuildingInfo*@
+@model DOSBPM.Models.PropertyOwnerInfo
+
+@{
+    ViewBag.Title = "Building Info";
+}
+<div class="container-fluid" id="BuildingInfo">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <div class="col-md-12">
+                <h3>Building Information</h3><br /><br />
+                <label class="required"><i> Below Fields are mandatory</i> </label><br /><br />
+
+                <div class="form-group">
+                    <div class="col-md-2">
+                        <label> <b> Search for Building</b></label><br />
+                        <div class="input-group">
+                            @Html.TextBoxFor(x => x.searchStakeHolderName, new { @class = "form-control ", placeholder = "Search", maxlength = "15", style = "width:250px" })
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                        </div><br />
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    @Html.CheckBox("Check this box to change or update information") &nbsp; Check this box to change or update information
+                    <br />
+                    @Html.CheckBox("Create new record") &nbsp; Create new record<br /><br />
+                </div>
+
+                <div class="col-md-3">
+                    <label class="required">Building  Name</label> <br />
+                    @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control ", maxlength = "5", style = "padding:4px 6px", required = "TRUE" })
+                </div>
+
+                <div class="col-md-10"></div><br />
+
+                @*<div class="row"></div><br />*@
+                <div class="col-md-3">
+                    <br />
+                    <lable class="required">Address Line 1</lable><br />
+                    @Html.TextBoxFor(x => x.MailingAddressLine1, new { @class = "form-control", maxlength = "10", required = "TRUE" })
+                </div>
+                <div class="col-md-7">
+                    <br />
+                    <label> <b>Directions to the site </b></label><br>
+                    @Html.TextAreaFor(x => x.SiteDirection, new { @class = "form-control", maxlength = "100" })
+                </div>
+                <div class="row"><br /></div><br />
+                <div class="col-md-3">
+                    <lable>Address Line 2</lable><br />
+                    @Html.TextBoxFor(x => x.MailingAddressLine2, new { @class = "form-control", maxlength = "10" })
+                </div>
+                <div class="row"><br /></div><br />
+                <div class="col-md-3">
+                    <lable class=" required">City</lable><br />
+
+                    @Html.TextBoxFor(x => x.City, new { @class = "form-control", maxlength = "10", required = "TRUE" })
+                </div>
+                <div class="row"><br /></div><br />
+                <div class="col-md-3">
+                    <lable class="required">State</lable> <br />
+                    @Html.DropDownListFor(x => x.State, new SelectList(Model.StatesList, "Value", "Text"), "--Select--", new { @class = "form-control", required = "TRUE" })
+                </div>
+                <div class="row"><br /></div><br />
+                <div class="col-md-3">
+                    <label class="required">Zip Code</label><br />
+                    @Html.TextBoxFor(x => x.Zip, new { @class = "form-control", maxlength = "10", required = "TRUE"})
+                </div>
+                <div class="row"><br /></div><br />
+                <div class="col-md-3">
+                    Zip 4<br />
+                    @Html.TextBoxFor(x => x.Zip4, new { @class = "form-control", maxlength = "10" })
+                </div>
+                <div class="row"><br /></div><br />
+                <div class="col-md-3">
+                    <lable class="required">County</lable> <br />
+                    @Html.DropDownListFor(x => x.County, new SelectList(Model.CountiesList, "Value", "Text"), "--Select--", new { @class = "form-control", required = "TRUE" })
+                </div>
+                <div class="row"><br /></div><br />
+                <div class="col-md-3">
+
+                    <lable class="required">Country</lable> <br />
+                    @Html.DropDownListFor(x => x.Country, new SelectList(Model.CountryList, "Value", "Text"), "--Select--", new { @class = "form-control", required = "TRUE" })
+                </div>
+                <div class="row"><br /></div>
+
+                <br />
+                <div class="col-md-3">
+
+                    <label>Parcel Tax ID Number</label><br />
+                    @Html.TextBoxFor(model => model.ParcelTaxID, new { @class = "form-control", maxlength = 10, required = "TRUE" }) <br /><br />
+
+
+                </div>
+                <div class="row"><br /></div><br />
+
+                <div class="col-md-9 text-right">
+
+                    <input type="checkbox" /> &nbsp; <label> NYSDOS Approval for a Building not in Applicant's profile</label><br /><br />
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+
+            <div class="col-md-3 ">
+
+                <input type="button" id="btnNext" class="NextBtn btn btn-default" value="Previous" style="background-color:#a90606; color:white" onclick="previousBtn_click()" />
+
+            </div>
+            <div class="col-md-6 text-right ">
+
+                <input type="button" id="btnNext" class="NextBtn btn btn-default" value="Next" style="background-color:#a90606; color:white" onclick="nextBtn_click()" />
+
+            </div>
+        </div>
+
+
+        <div class="col-md-12">
+            <br /><br /><br /><br /><br /><br />
+        </div>
+
+    }
+</div>
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<script>
+	function nextBtn_click() {
+        if (common.validate("BuildingInfo")) {
+			location.href = '@Url.Action("Index", "AdditionalInfo")';
+		}
+	}
+	function previousBtn_click() {
+		location.href = '@Url.Action("Index", "PropertyOwnerIndividual")';
+	}
+	//location.href = '@Url.Action("Index", "PropertyOwnerInfo")' //previous
+
+	//location.href('@Url.Action("Index", "PropertyOwnerIndividual")') //next
+</script>
+
+
+
+
+

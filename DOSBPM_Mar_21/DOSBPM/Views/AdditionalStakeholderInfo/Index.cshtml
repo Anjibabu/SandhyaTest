@@ -1,0 +1,119 @@
+﻿@model DOSBPM.Models.AdditionalStakeholderInfo
+
+@{
+    ViewBag.Title = "Additional Stakeholder Information";
+}
+
+
+
+<div class="container-fluid">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <div class="col-md-12">
+                <h3>Additional Stakeholder Information</h3>
+                <i>
+                    If any fields are blank with an *, you must enter the missing informaiton in the appropriate field. The Informaiton listed below
+                    is pre-populated from user profile. If the information needs to be updated, please select edit below.
+                </i>
+                <br />
+                <br />
+            </div>
+            <div class="col-md-6 ">
+                <label><b>Select Stateholder Type</b></label>
+
+                @{
+                    var StakeholderType = new List<string>();
+                    StakeholderType.Add("Onwer's Representative ( Organization)");
+                    StakeholderType.Add("Primary Contractor ( Organization)");
+                    StakeholderType.Add("Contractor ( Organization)");
+                    StakeholderType.Add("Subcontractor ( Organization)");
+                    StakeholderType.Add("Registered Design Professional ( Organization)");
+                    StakeholderType.Add("Material Testing Agency ( Organization)");
+                    StakeholderType.Add("Other ( Organization)"); <br />
+
+                    StakeholderType.Add("Onwer's Representative ( Individual)");
+                    StakeholderType.Add("Primary Contractor ( Individual)");
+                    StakeholderType.Add("Contractor ( Individual)");
+                    StakeholderType.Add("Subcontractor ( Individual)");
+                    StakeholderType.Add("Registered Design Professional ( Individual)");
+                    StakeholderType.Add("Material Testing Agency ( Individual)");
+                    StakeholderType.Add("Other ( Individual)");
+
+                }
+
+                @Html.DropDownListFor(model => model.Comments, new SelectList(StakeholderType), "-- Select --", new { @class = "form-control", style = "width:600px" })
+            </div>
+            <br /><br />
+            <div class="col-md-6">
+                <br /><br /><br />
+                <label><b>Mandatory Stakeholder Entries</b></label> <br />
+                <div>
+                    @Html.CheckBox("Property Owner") <label>Property Owner</label> <br />
+                </div>
+                <div class="form-inline">
+                    @Html.CheckBox("Registered Design Professional") <label>Registered Design Professional</label>
+                    @{
+                        var Exceptions = new List<string>();
+                        Exceptions.Add("Exceptions");
+                    }
+                    @Html.DropDownListFor(model => model.Exceptions, new SelectList(Exceptions), "-- Select --", new { @class = "form-control", style = "width:100px; height:30px" })
+                </div>
+                <br />
+                @Html.CheckBox("Property Owner") <label>Applicant Indicated (Indicate in summary to the left</label><br /><br /><br /><br /><br />
+
+            </div>
+
+            <div class="form-inline">
+                <div class="col-md-2">
+                    <br /><label>Property Owner Contact Person</label>
+                </div>
+                <div class="col-md-2 text-center">
+                    <label> RDP</label><br />
+                    <input type="checkbox" style="padding-right:10px" />
+                    @*@Html.CheckBox("RDP", new { @class = "", style = "" })*@
+                </div>
+                <div class="col-md-2 text-center">
+                    <label>Applicant</label><br />
+                    <input type="checkbox" />
+                    @* @Html.CheckBox("Applicant", new { @class = "", style = "" })*@
+                </div>
+                <div class="col-md-3 text-center">
+                    <label>Primary Contractor</label><br />
+                    <input type="checkbox" />
+                    @*@Html.CheckBox("Primary", new { @class = "", style = "" })*@
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <br /><br /><br /><br />
+            </div>
+            <div class="col-md-12">
+                <br /><br />
+                <div class="col-md-3 text-left ">
+
+                    <input type="button" id="btnNext" class="NextBtn btn btn-default" value="Previous" style="background-color:#a90606; color:white" onclick="location.href = '@Url.Action("Index", "PropertyOwnerContact")'" />
+
+                </div>
+                <div class="col-md-6 text-right ">
+
+                    <input type="button" id="btnNext" class="NextBtn btn btn-default" value="Next" style="background-color:#a90606; color:white" onclick="location.href = '@Url.Action("Index", "AdditionalStakeholderOrganization")'" />
+
+                </div>
+            </div>
+            <div class="col-md-12">
+
+            </div>
+
+        </div>
+    }
+</div>
+
+
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<script src="~/Scripts/BPM_Js/Common.js"></script>
+<script>
+
+</script>

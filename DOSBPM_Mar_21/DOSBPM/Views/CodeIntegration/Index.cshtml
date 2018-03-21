@@ -1,0 +1,157 @@
+﻿@model DOSBPM.Models.CodeIntegration
+
+@{
+    ViewBag.Title = "CodeIntegration";
+}
+
+<div class="container-fluid">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <form>
+            <h3>Code Integration</h3> <br />
+            <div style=" width:95%;display:inline-block;">
+                <div class="CodeIntegration col-md-12" id="parkingCI" style="width:100%;">
+                    <label class="col-md-2"></label>
+                    <div class="col-md-3">Code Compliance Document</div>
+                    <div class="col-md-3">
+                        Code Integration Section
+                    </div>
+                </div>
+                <div class="CodeIntegration col-md-12" id="Atriums" style="width:100%;">
+                    <label class="col-md-2"><br />Atriums</label>
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(X => X.txtCCD, new { @style = "background-color:#d3d3d3;", @class = "form-control ", @readonly = "readonly" })<br />
+                    </div>
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(X => X.txtCIS, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                    </div>
+                </div>
+                <div class="CodeIntegration col-md-12" id="Atriums" style="width:100%;">
+                    <label class="col-md-2"><br /></label>
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(X => X.txtCCD, new { @style = "background-color:#d3d3d3;", @class = "form-control ", @readonly = "readonly" })<br />
+                    </div>
+                    <div class="col-md-3 ">
+                        @Html.TextBoxFor(X => X.txtCIS, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                    </div>
+                </div>
+
+                <div class="CodeIntegration col-md-12" id="Group I-2" style="width:100%;">
+                    <label class="col-md-2"><br />Group I-2</label>
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(X => X.txtCCD, new { @style = "background-color:#d3d3d3;", @class = "form-control ", @readonly = "readonly" })<br />
+                    </div>
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(X => X.txtCIS, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                    </div>
+                </div>
+                <div class="CodeIntegration col-md-12" id="Hazardous Materials" style="width:100%;">
+                    <label class="col-md-2"><br />Hazardous Materials</label>
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(X => X.txtCCD, new { @style = "background-color:#d3d3d3;", @class = "form-control ", @readonly = "readonly" })<br />
+                    </div>
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(X => X.txtCIS, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <label class="col-md-3">  Selection for</label>
+                    <div class="col-md-2 ">
+                        @Html.DropDownListFor(x => x.Atrium, new SelectList(Model.SelectAtriums, "Id", "Text"), "  -----Atriums-----  ", new { @class = "form-control" })<br />
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label class="col-md-3">Code Compliance Document</label>
+                    <div class="col-md-2 ">
+                        @Html.DropDownListFor(x => x.Atrium, new SelectList(Model.SelectAtriums, "Id", "Text"), "  -----Atriums-----  ", new { @class = "form-control" })<br />
+                    </div>
+                </div>
+                <div class="form-group">
+                    Search Document<br />
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" />
+                        @*<span class="input-group-addon">
+                                <i class="fa fa-search"></i>
+                            </span>*@
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </form>
+        <div class="bottom" style="padding-top: 16em;padding-bottom:10em">
+            <div class="col-lg-11">
+                @Html.ActionLink("Previous", "Index", "SpecialDetailedRequirementsBasedonUseandOccupancy", null, new { @class = "NextBtn" })
+            </div>
+            <div class="col-lg-1">
+                @Html.ActionLink("Next", "Index", "GeneralBuildingHeightsandAreas", null, new { @class = "NextBtn" })
+            </div>
+        </div>
+    }
+</div>
+
+
+@*<h3></h3>
+
+    <div class="container-fluid">
+        <div class="col-md-2">
+            <br /><br />
+            Atriums<br /><br /><br />
+            GroupI-2<br /><br />
+            Hazardous Material<br />
+            <br />
+            <br />
+            Selection For:<br /><br />
+            Code Compliance Document<br />
+
+            <br />
+            <br />
+            <div class="form-group">
+                Search Document<br />
+                <div class="input-group">
+                    <input type="text" class="form-control"
+                           placeholder="Search" />
+                    <span class="input-group-addon">
+                        <i class="fa fa-search"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            Code Compliance Document<br /><br />
+            @Html.TextBox("txt", "2015 IBC", new { @class = "", @readonly = "readonly", @style = "background-color:gray" })<br /><br />
+            @Html.TextBox("txt", "2015 IBC", new { @class = "", @readonly = "readonly", @style = "background-color:gray" })<br /><br />
+            @Html.TextBox("txt", "2015 IBC", new { @class = "", @readonly = "readonly", @style = "background-color:gray" })<br /><br />
+            @Html.TextBox("txt", "2015 IBC", new { @class = "", @readonly = "readonly", @style = "background-color:gray" })<br /><br />
+
+            @Html.DropDownListFor(x => x.Atrium, new SelectList(Model.SelectAtriums, "Id", "Text"), "  -----Atriums-----  ")<br /><br />
+            @Html.DropDownListFor(x => x.Atrium, new SelectList(Model.SelectAtriums, "Id", "Text"), "  -----Atriums-----  ")<br /><br />
+        </div>
+
+        <div class="col-md-3">
+            Code Integration Section<br /><br />
+            @Html.TextBox("txt", "Section 402.2 Atriums", new { @class = "", @readonly = "readonly", @style = "background-color:gray" })<br /><br />
+            @Html.TextBox("txt", "Section 402.2 Atriums", new { @class = "", @readonly = "readonly", @style = "background-color:gray" })<br /><br />
+            @Html.TextBox("txt", "Section 402.2 Atriums", new { @class = "", @readonly = "readonly", @style = "background-color:gray" })<br /><br />
+            @Html.TextBox("txt", "Section 402.2 Atriums", new { @class = "", @readonly = "readonly", @style = "background-color:gray" })<br /><br />
+
+        </div>
+
+    </div>
+
+
+    <div class="bottom" style="padding-top: 22em">
+        <div class="col-lg-11">
+            @Html.ActionLink("Previous", "Index", "SpecialDetailedRequirementsBasedonUseandOccupancy", null, new { @class = "NextBtn" })
+        </div>
+        <div class="col-lg-1">
+            @Html.ActionLink("Next", "Index", "GeneralBuildingHeightsandAreas", null, new { @class = "NextBtn" })
+        </div>
+    </div>*@
+
+

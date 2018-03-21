@@ -1,0 +1,441 @@
+﻿@model DOSBPM.Models.Accessibility
+
+@{
+    ViewBag.Title = "Accessibility";
+}
+
+<div class="container-fluid">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <form>
+        <h3>Accessibility</h3><br /><br />
+                                    <label>Which of the following accessible features are included on this project:</label><br /><br />
+        <div class="col-md-6" style="display:inline-block">
+            <label class="col-md-6 ">Accessible Parking</label>
+            <div class="col-md-6">
+                <div class="col-md-6"><input type="radio" class="RadYesNo" />&nbsp;&nbsp;&nbsp;<label>Yes</label>  </div>
+                <div class="col-md-6"><input type="radio" class="RadYesNo" />&nbsp;&nbsp;&nbsp;<label>No</label> </div>
+            </div>
+            <br /><br />
+            <label class="col-md-6">Accessble Routes</label>
+            <div class="col-md-6">
+                <div class="col-md-6"><input type="radio" class="RadYesNo" />&nbsp;&nbsp;&nbsp;<label>Yes</label>  </div>
+                <div class="col-md-6"><input type="radio" class="RadYesNo" />&nbsp;&nbsp;&nbsp;<label>No</label> </div>
+            </div>
+            <br /><br />
+            <label class="col-md-6 ">Accessible Emtrances</label>
+            <div class="col-md-6">
+                <div class="col-md-6"><input type="radio" class="RadYesNo" />&nbsp;&nbsp;&nbsp;<label>Yes</label>  </div>
+                <div class="col-md-6"><input type="radio" class="RadYesNo" />&nbsp;&nbsp;&nbsp;<label>No</label> </div>
+            </div>
+            <br /><br />
+            <label class="col-md-6 ">AccessibleExits</label>
+            <div class="col-md-6">
+                <div class="col-md-6"><input type="radio" class="RadYesNo" />&nbsp;&nbsp;&nbsp;<label>Yes</label>  </div>
+                <div class="col-md-6"><input type="radio" class="RadYesNo" />&nbsp;&nbsp;&nbsp;<label>No</label> </div>
+            </div>
+            <br /><br />
+            <label class="col-md-6 ">Accessible Elevators</label>
+            <div class="col-md-6">
+                <div class="col-md-6"><input type="radio" class="RadYesNo" />&nbsp;&nbsp;&nbsp;<label>Yes</label>  </div>
+                <div class="col-md-6"><input type="radio" class="RadYesNo" />&nbsp;&nbsp;&nbsp;<label>No</label> </div>
+            </div>
+            <br /><br />
+            <label class="col-md-6 ">Accessible Bathrooms</label>
+            <div class="col-md-6">
+                <div class="col-md-6"><input type="radio" class="RadYesNo" />&nbsp;&nbsp;&nbsp;<label>Yes</label>  </div>
+                <div class="col-md-6"><input type="radio" class="RadYesNo" />&nbsp;&nbsp;&nbsp;<label>No</label> </div>
+            </div>
+            <br /><br />
+            <label class="col-md-6 ">Special Occupancies</label>
+            <div class="col-md-6">
+                <div class="col-md-6"><input type="radio" class="RadYesNo" />&nbsp;&nbsp;&nbsp;<label>Yes</label>  </div>
+                <div class="col-md-6"><input type="radio" class="RadYesNo" />&nbsp;&nbsp;&nbsp;<label>No</label> </div>
+            </div>
+            <br /><br />
+            <label class="col-md-6 ">Special Recreational Facilities</label>
+            <div class="col-md-6">
+                <div class="col-md-6"><input type="radio" class="RadYesNo" />&nbsp;&nbsp;&nbsp;<label>Yes</label>  </div>
+                <div class="col-md-6"><input type="radio" class="RadYesNo" />&nbsp;&nbsp;&nbsp;<label>No</label> </div>
+            </div>
+            <br /><br />
+            <label class="col-md-6 ">Additional Accessible Items</label>
+            <div class="col-md-6">
+                <div class="col-md-6"><input type="radio" class="RadYesNo" />&nbsp;&nbsp;&nbsp;<label>Yes</label>  </div>
+                <div class="col-md-6"><input type="radio" class="RadYesNo" />&nbsp;&nbsp;&nbsp;<label>No</label> </div>
+            </div>
+        </div><br />
+
+        <div class="col-md-3 col-md-offset-2">
+            <input type="button" value="Create Code Integration Table" style="width:165px;white-space:normal;background-color: #b22b2b;border: none;color: white; padding:2px; height:auto;" />
+        </div>
+
+        @* codeIntegration *@
+        <div style=" width:95%;display:inline-block;">
+            <div class="CodeIntegration" id="parkingCI" style="width:100%;">
+                <br />
+                <div class="col-md-10">
+                    <div class="col-md-4">
+                        <label class="col-md-5"></label>
+                        <div class="col-md-7">Code Compliance Document</div>
+                    </div>
+                    <div class="col-md-2">
+                        Code Integration Section
+                    </div>
+                    <div class="col-md-2">
+                        Plan Sheet/ Page Number
+                    </div>
+                    <div class="col-md-2">
+                        Applicant Comments
+                    </div>
+                    <div class="col-md-2">
+                        Back office Comments
+                    </div>
+                </div>
+                <div class="col-md-2 text-left">
+                    <div class="col-md-4 ">
+                        Remove<br />
+                    </div>
+                    <div class="col-md-4 ">
+                        Deviation<br />
+                    </div>
+                    <div class=" col-md-2 ">
+                        Edit<br />
+                    </div>
+                </div>
+            </div>
+
+            <div class="CodeIntegration" id="parkingCI" style="width:100%;">
+                <br />
+                <div class="col-md-10">
+                    <div class="col-md-4">
+                        <label class="col-md-5"><br />Parking</label>
+                        <div class="col-md-7">
+                            @Html.TextBoxFor(X => X.txt1CCD, new { @style = "background-color:#d3d3d3;", @class = "form-control ", @readonly = "readonly" })<br />
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt1CIS, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt1PgNo, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt1ApplicantComments, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt1BackOffComments, new { @class = "form-control" })<br />
+                    </div>
+                </div>
+                <div class="col-md-2 text-left">
+                    <div class="col-md-4 ">
+                        <input type="checkbox" id="chkRemove1" class="check" style="margin:10px;" />
+                    </div>
+                    <div class="col-md-4 ">
+                        <input type="checkbox" id="chkDeviation1" class="check" style="margin:10px;" />
+                    </div>
+                    <div class=" col-md-2 ">
+                        <input type="checkbox" id="chkEdit1" class="check" style="margin:10px;" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="CodeIntegration" id="RoutesCI" style="width:100%; display:none">
+                <br />
+                <div class="col-md-10">
+                    <div class="col-md-4">
+                        <label class="col-md-5">Routes</label>
+                        <div class="col-md-7">
+                            @Html.TextBoxFor(X => X.txt2CCD, new { @style = "background-color:#d3d3d3;", @class = "form-control ", @readonly = "readonly" })<br />
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt2CIS, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt2PgNo, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt2ApplicantComments, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt2BackOffComments, new { @class = "form-control" })<br />
+                    </div>
+                </div>
+                <div class="col-md-2 text-left">
+                    <div class="col-md-4 ">
+                        <input type="checkbox" id="chkRemove2" class="check" style="margin:10px;" />
+                    </div>
+                    <div class="col-md-4 ">
+                        <input type="checkbox" id="chkDeviation2" class="check" style="margin:10px;" />
+                    </div>
+                    <div class=" col-md-2 ">
+                        <input type="checkbox" id="chkEdit2" class="check" style="margin:10px;" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="CodeIntegration" id="EntrancesCI" style="width:100%;">
+                <br />
+                <div class="col-md-10">
+                    <div class="col-md-4">
+                        <label class="col-md-5">Entrances</label>
+                        <div class="col-md-7">
+                            @Html.TextBoxFor(X => X.txt3CCD, new { @style = "background-color:#d3d3d3;", @class = "form-control ", @readonly = "readonly" })<br />
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt3CIS, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt3PgNo, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt3ApplicantComments, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt3BackOffComments, new { @class = "form-control" })<br />
+                    </div>
+                </div>
+                <div class="col-md-2 text-left">
+                    <div class="col-md-4 ">
+                        <input type="checkbox" id="chkRemove3" class="check" style="margin:10px;" />
+                    </div>
+                    <div class="col-md-4 ">
+                        <input type="checkbox" id="chkDeviation3" class="check" style="margin:10px;" />
+                    </div>
+                    <div class=" col-md-2 ">
+                        <input type="checkbox" id="chkEdit3" class="check" style="margin:10px;" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="CodeIntegration" id="ExitsCI" style="width:100%;">
+                <br />
+                <div class="col-md-10">
+                    <div class="col-md-4">
+                        <label class="col-md-5">Exits</label>
+                        <div class="col-md-7">
+                            @Html.TextBoxFor(X => X.txt4CCD, new { @style = "background-color:#d3d3d3;", @class = "form-control ", @readonly = "readonly" })<br />
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt4CIS, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt4PgNo, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt4ApplicantComments, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt4BackOffComments, new { @class = "form-control" })<br />
+                    </div>
+                </div>
+                <div class="col-md-2 text-left">
+                    <div class="col-md-4 ">
+                        <input type="checkbox" id="chkRemove4" class="check" style="margin:10px;" />
+                    </div>
+                    <div class="col-md-4 ">
+                        <input type="checkbox" id="chkDeviation4" class="check" style="margin:10px;" />
+                    </div>
+                    <div class=" col-md-2 ">
+                        <input type="checkbox" id="chkEdit4" class="check" style="margin:10px;" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="CodeIntegration" id="ElevatorsCI" style="width:100%;">
+                <br />
+                <div class="col-md-10">
+                    <div class="col-md-4">
+                        <label class="col-md-5">Elevators</label>
+                        <div class="col-md-7">
+                            @Html.TextBoxFor(X => X.txt5CCD, new { @style = "background-color:#d3d3d3;", @class = "form-control ", @readonly = "readonly" })<br />
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt5CIS, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt5PgNo, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt5ApplicantComments, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt5BackOffComments, new { @class = "form-control" })<br />
+                    </div>
+                </div>
+                <div class="col-md-2 text-left">
+                    <div class="col-md-4 ">
+                        <input type="checkbox" id="chkRemove5" class="check" style="margin:10px;" />
+                    </div>
+                    <div class="col-md-4 ">
+                        <input type="checkbox" id="chkDeviation5" class="check" style="margin:10px;" />
+                    </div>
+                    <div class=" col-md-2 ">
+                        <input type="checkbox" id="chkEdit5" class="check" style="margin:10px;" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="CodeIntegration" id="BathroomsCI" style="width:100%;">
+                <br />
+                <div class="col-md-10">
+                    <div class="col-md-4">
+                        <label class="col-md-5">Bathrooms</label>
+                        <div class="col-md-7">
+                            @Html.TextBoxFor(X => X.txt6CCD, new { @style = "background-color:#d3d3d3;", @class = "form-control ", @readonly = "readonly" })<br />
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt6CIS, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt6PgNo, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt6ApplicantComments, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt6BackOffComments, new { @class = "form-control" })<br />
+                    </div>
+                </div>
+                <div class="col-md-2 text-left">
+                    <div class="col-md-4 ">
+                        <input type="checkbox" id="chkRemove6" class="check" style="margin:10px;" />
+                    </div>
+                    <div class="col-md-4 ">
+                        <input type="checkbox" id="chkDeviation6" class="check" style="margin:10px;" />
+                    </div>
+                    <div class=" col-md-2 ">
+                        <input type="checkbox" id="chkEdit6" class="check" style="margin:10px;" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="CodeIntegration" id="SpecialOccupanciesCI" style="width:100%;">
+                <br />
+                <div class="col-md-10">
+                    <div class="col-md-4">
+                        <label class="col-md-5">Special Occupancies</label>
+                        <div class="col-md-7">
+                            @Html.TextBoxFor(X => X.txt7CCD, new { @style = "background-color:#d3d3d3;", @class = "form-control ", @readonly = "readonly" })<br />
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt7CIS, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt7PgNo, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt7ApplicantComments, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt7BackOffComments, new { @class = "form-control" })<br />
+                    </div>
+                </div>
+                <div class="col-md-2 text-left">
+                    <div class="col-md-4 ">
+                        <input type="checkbox" id="chkRemove7" class="check" style="margin:10px;" />
+                    </div>
+                    <div class="col-md-4 ">
+                        <input type="checkbox" id="chkDeviation7" class="check" style="margin:10px;" />
+                    </div>
+                    <div class=" col-md-2 ">
+                        <input type="checkbox" id="chkEdit7" class="check" style="margin:10px;" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="CodeIntegration" id="RecreationalFacilitiesCI" style="width:100%;">
+                <br />
+                <div class="col-md-10">
+                    <div class="col-md-4">
+                        <label class="col-md-5">Recreational Facilities</label>
+                        <div class="col-md-7">
+                            @Html.TextBoxFor(X => X.txt8CCD, new { @style = "background-color:#d3d3d3;", @class = "form-control ", @readonly = "readonly" })<br />
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt8CIS, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt8PgNo, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt8ApplicantComments, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt8BackOffComments, new { @class = "form-control" })<br />
+                    </div>
+                </div>
+                <div class="col-md-2 text-left">
+                    <div class="col-md-4 ">
+                        <input type="checkbox" id="chkRemove8" class="check" style="margin:10px;" />
+                    </div>
+                    <div class="col-md-4 ">
+                        <input type="checkbox" id="chkDeviation8" class="check" style="margin:10px;" />
+                    </div>
+                    <div class=" col-md-2 ">
+                        <input type="checkbox" id="chkEdit8" class="check" style="margin:10px;" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="CodeIntegration" id="AccessibleItemsCI" style="width:100%;">
+                <br />
+                <div class="col-md-10">
+                    <div class="col-md-4">
+                        <label class="col-md-5">Accessible Items</label>
+                        <div class="col-md-7">
+                            @Html.TextBoxFor(X => X.txt9CCD, new { @style = "background-color:#d3d3d3;", @class = "form-control ", @readonly = "readonly" })<br />
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt9CIS, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt9PgNo, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt9ApplicantComments, new { @class = "form-control" })<br />
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(X => X.txt9BackOffComments, new { @class = "form-control" })<br />
+                    </div>
+                </div>
+                <div class="col-md-2 text-left">
+                    <div class="col-md-4 ">
+                        <input type="checkbox" id="chkRemove9" class="check" style="margin:10px;" />
+                    </div>
+                    <div class="col-md-4 ">
+                        <input type="checkbox" id="chkDeviation9" class="check" style="margin:10px;" />
+                    </div>
+                    <div class=" col-md-2 ">
+                        <input type="checkbox" id="chkEdit9" class="check" style="margin:10px;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*</div>*@
+        <br /><br />
+        @*Page Navigatiom: Previous/Save & Continue*@
+        <div class="bottom" style="padding-bottom:10em">
+            <div class="col-lg-11">
+                @Html.ActionLink("Previous", "Index", "MeansofEgress", null, new { @class = "NextBtn" })
+            </div>
+            <div class="col-lg-1">
+                @Html.ActionLink("Next", "Index", "InteriorEnvironmentandExteriorWallsandRooftopStructures", null, new { @class = "NextBtn" })
+            </div>
+        </div>
+
+    </form>
+    }
+</div>
+

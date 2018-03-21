@@ -1,0 +1,169 @@
+﻿@model DOSBPM.Models.OccupancyHeightsandAreas
+
+@{
+    ViewBag.Title = "Occupancy Heights and Areas";
+}
+
+<div class="container-fluid">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <div class="col-md-12">
+                <h3>Occupancy Heights and Areas</h3><br />
+                @Html.CheckBox("Check") &nbsp; Check this box to change or update information <br /><br />
+            </div>
+            <br />
+            <div class="col-md-12"></div><br />
+            <div class=" col-md-4">
+
+                <label>Select the Proposed Primary Use and Occupancy Classification</label>
+            </div>
+
+            <div class=" col-md-4">
+                @{
+                    var PrimaryUse = new List<string>();
+                    PrimaryUse.Add("Contact Person");
+                }
+
+                @Html.DropDownListFor(model => model.PrimaryUse, new SelectList(PrimaryUse), "-- Select --", new { @class = "form-control", style = "width:150px" })<br />
+
+
+            </div>
+            <div class="col-md-12"></div>
+
+            <div class="col-md-4">
+                <label>Is this mixed use building?</label>
+            </div>
+            <div class="col-md-4" style=" ">
+
+                <input type="radio" />&nbsp; Yes &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" />&nbsp; No
+            </div>
+            <div class="col-md-12"> <br /></div>
+
+            <div class="col-md-4">
+
+                <label>Select the type of construction (Select only one):</label>
+            </div>
+            <div class="col-md-4">
+                @{
+                    var ConstructionType = new List<string>();
+                    ConstructionType.Add("Construction");
+                }
+
+                @Html.DropDownListFor(model => model.ConstructionType, new SelectList(ConstructionType), "-- Select --", new { @class = "form-control", style = "width:150px" }) <br />
+            </div>
+            <div class="col-md-12"></div>
+            <div class="col-md-4">
+                <label> Does the building have an<br />automatic sprinkler system? </label>
+            </div>
+            <div class="col-md-4" style=" ">
+
+                <input type="radio" />&nbsp; Yes &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" />&nbsp; No
+            </div>
+            <div class="col-md-12"> <br /></div>
+            <div class="col-md-4">
+                <label>Enter the building height in stories:</label> <br />
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.BuildingHeightinStories, new { @class = "form-control ", style = "width:150px" })
+            </div>
+            <div class="col-md-12"> <br /></div>
+            <div class="col-md-4">
+                <label>Enter the building height in Feet:</label> <br />
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.BuildingHeightinFeets, new { @class = "form-control ", style = "width:150px" })
+            </div>
+            <div class="col-md-12"> <br /></div>
+
+            <div class="col-md-4">
+                <label>Enter the largest floor area in square feet:</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.FloorAreainStories, new { @class = "form-control ", style = "width:150px" })
+            </div>
+            <div class="col-md-12"> <br /></div>
+            <div class="col-md-4">
+                <label>Enter the total floor area in square feet:</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.FloorAreainStories, new { @class = "form-control ", style = "width:150px" })
+            </div>
+            <div class="col-md-12"> <br /></div>
+            <div class="col-md-4">
+                <label> Enter the year the building was originally constructed:</label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.BuildingYear, new { @class = "form-control ", style = "width:150px" })
+            </div>
+            <div class="col-md-12"> <br /></div>
+            <div class="col-md-4">
+                <label> Will any materials be abandoned in place? </label>
+            </div>
+
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.abandoned, new { @class = "form-control ", style = "width:150px" })
+            </div>
+
+            <div class="col-md-12"> <br /></div>
+            <div class="col-md-4">
+                <label> What materials will be abandoned in place? </label>
+            </div>
+            <div class="col-md-4">
+                @Html.TextAreaFor(model => model.abandoned, new { @class = "form-control ", style = "width:150px" })
+            </div>
+            <div class="col-md-12"> <br /></div>
+
+            <div class="col-md-8"></div>
+            <div class="col-md-4">
+
+                <br /><br /><br /><br />
+                <label>Comments(Applicant)</label><br />
+                @Html.TextAreaFor(model => model.ApplicantComments, new { @class = "form-control", maxlength = 2000, @cols = "75", @rows = "3" })
+
+            </div>
+            <div class="col-md-8"></div>
+            <div class="col-md-4">
+                <br />
+                <label>Comments(Reviewer)</label><br />
+                @Html.TextAreaFor(model => model.ReviewerComments, new { @class = "form-control", maxlength = 2000, @cols = "75", @rows = "3" })
+
+            </div>
+
+            <div class="col-md-12">
+                <br /><br /><br /><br />
+                <div class="col-md-3 ">
+
+                    <input type="button" id="btnNext" value="Previous" class="NextBtn btn btn-default" style="background-color:#a90606; color:white" onclick="location.href = '@Url.Action("Index", "ProjectDescription")'" />
+
+                </div>
+                <div class="col-md-6 text-right ">
+
+                    <input type="button" id="btnNext" value="Next" class="NextBtn btn btn-default" style="background-color:#a90606; color:white" onclick="location.href = '@Url.Action("Index", "VarianceQuestions")'" />
+
+                </div>
+            </div>
+            <div class="col-md-12">
+                <br /><br /><br /><br /><br /><br />
+            </div>
+        </div>
+
+
+
+    }
+</div>
+
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<script>
+
+    
+    $('input[type="radio"]').on('change', function () {
+        $('input[type="radio"]').not(this).prop('checked', false);
+    });
+
+</script>

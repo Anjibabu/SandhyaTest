@@ -1,0 +1,236 @@
+﻿@model DOSBPM.Models.SiteandUtilities
+
+@{
+    ViewBag.Title = "Site and Utilities";
+}
+<div class="container-fluid">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <div class="col-md-12">
+            <h3>Site and Utilities</h3><br />
+            <i>The information listed below that is noted as existing information is pre-populated from your user profile where possible. If any existing information fileds are blank with an*, you must enter the missing information the appropriate field</i><br /><br />
+            <input type="checkbox" /> Check this box to change or update information
+            <br /><br />
+        </div>
+
+        <div class="col-md-3">
+            <br />
+            <label class="required">Is the site in a floodplain?</label>
+        </div>
+        <div class="col-md-1">
+            Yes <br />
+            <input type="radio" />
+        </div>
+
+        <div class="col-md-1">
+            No <br />
+            <input type="radio" />
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <br />
+            <input type="checkbox" />
+            <i style="font-size:9px">&nbsp; If Yes triggers floodplain upload prior to submission</i>
+        </div>
+        <div class="col-md-12"><br /></div>
+        <div class="col-md-3">
+            <br />
+            <label class="required">Is the site in welland?</label>
+        </div>
+        <div class="col-md-1">
+            Yes <br />
+            <input type="radio" />
+        </div>
+
+        <div class="col-md-1">
+            No <br />
+            <input type="radio" />
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <br />
+            <input type="checkbox" />
+            <i style="font-size:9px">&nbsp; If Yes triggers floodplain upload prior to submission</i>
+        </div>
+        <div class="col-md-12"><br /></div>
+        <div class="col-md-3">
+
+            <label class="required">Select the water supply type</label>
+        </div>
+        <div class="col-md-3">
+            @Html.DropDownList("ListItem", null, new { @class = "form-control", style = "height:30px" })
+        </div>
+
+        <div class="form-inline col-md-4">
+            @Html.TextBox("txt", null, new { @class = "form-control", style = "height:30px" })
+            <i style="font-size:90%"> Please enter the utility Provider</i>
+
+        </div>
+        <div class="col-md-12"></div>
+        <div class="col-md-3">
+            <label class="required">Select the waste water supply type*</label>
+        </div>
+        <div class="col-md-3">
+            @Html.DropDownList("ListItem", null, new { @class = "form-control", style = "height:30px" })
+        </div>
+
+        <div class="form-inline col-md-4">
+            @Html.TextBox("txt", null, new { @class = "form-control", style = "height:30px" })
+            <i style="font-size:90%"> Please enter the utility Provider</i>
+
+        </div>
+        <div class="col-md-12"></div>
+        <div class="col-md-3">
+
+            <label>Select the electrical services supply type(Select all that apply)</label>
+        </div>
+        <div class="col-md-3">
+            @Html.DropDownList("ListItem", null, new { @class = "form-control", style = "height:30px" })
+        </div>
+
+        <div class="form-inline col-md-4">
+            @Html.TextBox("txt", null, new { @class = "form-control", style = "height:30px" })
+            <i style="font-size:90%"> Please enter the utility Provider</i>
+
+        </div>
+        <div class="col-md-12"></div>
+        <div class="col-md-3">
+
+            <label>  How will your natural gas or Other be abanded</label>
+        </div>
+        <div class="col-md-3">
+            @Html.TextBox("txt", null, new { @class = "form-control", style = "height:30px; width:300px" })
+        </div>
+
+        <div class="form-inline col-md-4">
+
+
+
+        </div>
+
+        <div class="col-md-12"></div>
+        <div class="col-md-3">
+
+            <label>Select the number of Propane Tanks</label>
+        </div>
+        <div class="col-md-3">
+            @Html.DropDownList("ListItem", null, new { @class = "form-control", style = "height:30px" })
+        </div>
+
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-12"></div>
+        <div class="col-md-3">
+
+            <label>  Select the number of Fuel Oil tanks</label>
+        </div>
+        <div class="col-md-3">
+            @Html.DropDownList("ListItem", null, new { @class = "form-control", style = "height:30px" })
+        </div>
+        <div class="col-md-12"></div>
+        <div class="col-md-3">
+
+            <label>Select the number of Propane Tanks</label>
+        </div>
+        <div class="col-md-3">
+            @Html.DropDownList("ListItem", null, new { @class = "form-control", style = "height:30px" })
+        </div>
+
+        <div class="col-md-12"><br /></div>
+        <div class="col-md-3"></div>
+
+        <div class="col-md-3 ">
+            <h4><u>Propane Tank 1</u></h4>
+            <br />
+        </div>
+        <div class="col-md-12"></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2">
+            <input type="radio" /> Above Grade
+        </div>
+        <div class="col-md-2">
+            <input type="radio" /> below Grade
+        </div>
+        <div class="col-md-12"></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2">
+            <input type="radio" /> Interior
+        </div>
+        <div class="col-md-2">
+            <input type="radio" /> Exterior
+        </div>
+
+        <div class="col-md-12"><br /></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2">
+            <label>Capacity(US Gallons)</label>
+        </div>
+        <div class=" col-md-2">
+            @Html.TextBox("txt", null, new { @class = "form-control", style = "height:30px;width:150px" })
+        </div>
+        <div class="col-md-12"><br /></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2">
+            <label>Provider </label>
+
+        </div>
+        <div class=" col-md-2">
+            @Html.TextBox("txt", null, new { @class = "form-control", style = "height:30px;width:150px" })
+        </div>
+        <div class="col-md-12"><br /></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2">
+            <label>Tank Location</label>
+
+        </div>
+        <div class=" col-md-2">
+            @Html.TextBox("txt", null, new { @class = "form-control", style = "height:30px;width:150px" })
+        </div>
+        <div class="col-md-12"><br /></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2">
+            <label>How will this abonded</label>
+
+        </div>
+        <div class=" col-md-2">
+            @Html.TextBox("txt", null, new { @class = "form-control", style = "height:30px;width:150px" })
+        </div>
+        <br />
+
+        <div class="col-md-12">
+            <br /><br /><br /><br />
+            <div class="col-md-3 ">
+
+                <input type="button" id="btnNext" value="Previous" class="NextBtn btn btn-default" style="background-color:#a90606; color:white" onclick="location.href = '@Url.Action("Index", "VarianceQuestions")'" />
+
+            </div>
+            <div class="col-md-8 text-right ">
+
+                <input type="button" id="btnNext" value="Next" class="NextBtn btn btn-default" style="background-color:#a90606; color:white" onclick="location.href = '@Url.Action("Index", "MiscAdditionalInfo")'" />
+
+            </div>
+        </div>
+        <div class="col-md-12">
+            <br /><br /><br /><br /><br /><br />
+        </div>
+    
+    </div>
+        }
+    </div>
+           
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,155 @@
+﻿@model DOSBPM.Models.TypeofConstruction
+
+@{
+    ViewBag.Title = "Type of Construction";
+}
+
+<div class="container-fluid">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <form>
+            <h3>Type of Construction</h3> <br />
+            <div style="width:95%; display:inline-block; border:none ;">
+                <label class="col-md-6"> What is the fire-resistance rating, in hours of each of the following items:</label>
+                <label class="col-md-6">List design criteria or calculated value</label>
+                <div class="col-md-12">
+                    <label class="col-md-3">Primary Structural Frame</label>
+                    <div class="col-md-2">@Html.TextBoxFor(x => x.txtFRPrimaryStructuralFrame, new { @class = "form-control" })  </div>
+                    <div class="col-md-2 col-md-offset-1">@Html.TextBoxFor(x => x.txtCalPrimaryStructuralFrame, new { @class = "form-control " })<br /></div>
+                </div>
+                <div class="col-md-12">
+                    <label class="col-md-3">Bearing Walls(Exterior)</label>
+                    <div class="col-md-2">@Html.TextBoxFor(x => x.txtFRBearingWalls_Exterior, new { @class = "form-control  " })</div>
+                    <div class="col-md-2 col-md-offset-1">@Html.TextBoxFor(x => x.txtCalBearingWalls_Exterior, new { @class = "form-control " })<br /></div>
+                </div>
+                <div class="col-md-12">
+                    <label class="col-md-3">Bearing Walls(Interior)</label>
+                    <div class="col-md-2">@Html.TextBoxFor(x => x.txtFRBearingWalls_Interior, new { @class = "form-control " })</div>
+                    <div class="col-md-2 col-md-offset-1"> @Html.TextBoxFor(x => x.txtCalBearingWalls_Interior, new { @class = "form-control " }) <br /></div>
+                </div>
+                <div class="col-md-12">
+                    <label class="col-md-3">Non-Bearing Walls and Partitions(Exterior)</label>
+                    <div class="col-md-2">@Html.TextBoxFor(x => x.txtFRNonBearingWalls_Exterior, new { @class = "form-control " })</div>
+                    <div class="col-md-2 col-md-offset-1">@Html.TextBoxFor(x => x.txtCalNonBearingWalls_Exterior, new { @class = "form-control " })<br /></div>
+                </div>
+                <div class="col-md-12">
+                    <label class="col-md-3">Non-Bearing Walls and Partitions(Interior)</label>
+                    <div class="col-md-2">  @Html.TextBoxFor(x => x.txtFRNonBearingWalls_Interior, new { @class = "form-control " })</div>
+                    <div class="col-md-2 col-md-offset-1">@Html.TextBoxFor(x => x.txtCalNonBearingWalls_Interior, new { @class = "form-control " })<br /></div>
+                </div>
+                <div class="col-md-12">
+                    <label class="col-md-3">Floor Construction </label>
+                    <div class="col-md-2"> @Html.TextBoxFor(x => x.txtFRFloorConstruction, new { @class = "form-control " })</div>
+                    <div class="col-md-2 col-md-offset-1"> @Html.TextBoxFor(x => x.txtCalFloorConstruction, new { @class = "form-control " })<br /></div>
+                </div>
+                <div class="col-md-12">
+                    <label class="col-md-3">Roof Construction</label>
+                    <div class="col-md-2">@Html.TextBoxFor(x => x.txtFRRoofConstruction, new { @class = "form-control " })</div>
+                    <div class="col-md-2 col-md-offset-1"> @Html.TextBoxFor(x => x.txtCalRoofConstruction, new { @class = "form-control " })<br /></div>
+                    <div class="col-md-2  col-md-offset-2">
+                        <input type="button" value="Launch Fire resistance Rating Code Integration" style="width:165px;white-space:normal;background-color: #b22b2b;border: none;color: white; padding:2px; height:auto" />
+                    </div>
+                </div>
+            </div>
+            @* Fire Resistance Code Integration *@
+            <div class="CodeIntegration col-md-12" style="width:95%;display:inline-block;">
+                <br />
+                <div class="col-md-2">
+                    Code Compliance Document
+                    @Html.TextBoxFor(X => X.txtCCD, new { @style = "background-color:#d3d3d3;", @class = "form-control ", @readonly = "readonly" })<br />
+                </div><div class="col-md-2">
+                    Code Integration Section
+                    @Html.TextBoxFor(X => X.txtCIS, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                </div>
+                <div class="col-md-2">
+                    Plan Sheet/ Page Number
+                    @Html.TextBoxFor(X => X.txtPgNo, new { @class = "form-control" })<br />
+                </div><div class="col-md-2">
+                    Applicant Comments
+                    @Html.TextBoxFor(X => X.txtApplicantComments, new { @class = "form-control" })<br />
+                </div>
+                <div class="col-md-2">
+                    Back office Comments
+                    @Html.TextBoxFor(X => X.txtBackOffComments, new { @class = "form-control" })<br />
+                </div>
+                <div class="col-md-2">
+                    <div class="col-md-4 ">
+                        Remove<br />
+                        <input type="checkbox" id="chkRemove1" class="check" style="margin:10px;" />
+                    </div>
+                    <div class="col-md-4 ">
+                        Deviation<br />
+                        <input type="checkbox" id="chkDeviation1" class="check" style="margin:10px;" />
+                    </div>
+                    <div class=" col-md-2 ">
+                        Edit<br />
+                        <input type="checkbox" id="chkEdit1" class="check" style="margin:10px;" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12"><br /></div>
+
+            @* Separation distance Code Integration *@
+            <div>
+                <label class="col-md-3">  What is the separation distance in feet:</label>
+                <div class="col-md-2 ">
+                    @Html.TextBoxFor(x => x.txtStoragePlan, new { @class = "form-control" })<br />
+                </div>
+                <div class="col-md-3 col-md-offset-3">
+                    <input type="button" value="Launch Separation Distance Code Integration" style="width:165px;white-space:normal;background-color: #b22b2b;border: none;color: white; padding:2px; height:auto;" />
+                </div>
+            </div>
+            <div class="CodeIntegration col-md-12" style="width:95%;display:inline-block;">
+                <br />
+                <div class="col-md-2">
+                    Code Compliance Document
+                    @Html.TextBoxFor(X => X.txtCCD, new { @style = "background-color:#d3d3d3;", @class = "form-control ", @readonly = "readonly" })<br />
+                </div><div class="col-md-2">
+                    Code Integration Section
+                    @Html.TextBoxFor(X => X.txtCIS, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                </div>
+                <div class="col-md-2">
+                    Plan Sheet/ Page Number
+                    @Html.TextBoxFor(X => X.txtPgNo, new { @class = "form-control" })<br />
+                </div><div class="col-md-2">
+                    Applicant Comments
+                    @Html.TextBoxFor(X => X.txtApplicantComments, new { @class = "form-control" })<br />
+                </div>
+                <div class="col-md-2">
+                    Back office Comments
+                    @Html.TextBoxFor(X => X.txtBackOffComments, new { @class = "form-control" })<br />
+                </div>
+                <div class="col-md-2">
+                    <div class="col-md-4 ">
+                        Remove<br />
+                        <input type="checkbox" id="chkRemove1" class="check" style="margin:10px;" />
+                    </div>
+                    <div class="col-md-4 ">
+                        Deviation<br />
+                        <input type="checkbox" id="chkDeviation1" class="check" style="margin:10px;" />
+                    </div>
+                    <div class=" col-md-2 ">
+                        Edit<br />
+                        <input type="checkbox" id="chkEdit1" class="check" style="margin:10px;" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12"><br /></div>
+
+
+
+
+
+        </form>
+        <div class="bottom" style="padding-top: 6em;padding-bottom:25em">
+            <div class="col-md-11">
+                @Html.ActionLink("Previous", "Index", "GeneralBuildingHeightsandAreas", null, new { @class = "NextBtn" })
+            </div>
+            <div class="col-md-1">
+                @Html.ActionLink("Next", "Index", "FireandSmokeProtectionFeatures", null, new { @class = "NextBtn" })
+            </div>
+        </div>
+    }
+</div>
+

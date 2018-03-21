@@ -1,0 +1,168 @@
+﻿@model DOSBPM.Models.PropertyOwnerIndividual
+
+@{
+    ViewBag.Title = "Property Owner Information";
+}
+<script src="~/Scripts/BPM_Js/Common.js"></script>
+
+<div class="container-fluid" id="PropertyOwnerIndividualPage">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-group">
+
+
+        @*-------------Individula  Details-----------*@
+        <div class="col-md-12">
+            <h3>Property Owner Individual Information</h3>
+            <br />
+        </div>
+        @*<div class="col-md-4">
+            <div class="form-group">
+                <b> Search for Stakeholder Name</b> <br />
+                <div class="input-group">
+                    @Html.TextBoxFor(x => x.searchStakeHolderName, new { @class = "form-control ", placeholder = "Search", maxlength = "15", style = "width:250px" })
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+                </div>
+            </div>
+        </div><br />*@
+        <div class="col-md-6 ">
+            <label><b>Search for Stakeholder</b></label><br>
+
+            <div id="btnSearch" class="input-group col-lg-4 col-sm-4">
+                <input id="serachText" type="text" class="form-control" placeholder="search" style="width:200px">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+            </div>
+            <br />
+        </div>
+
+        <div class="col-md-12">
+            @Html.CheckBox("Check this box to change or update information") &nbsp; Check this box to change or update information
+            <br />
+            @Html.CheckBox("Create new record") &nbsp; Create new record<br /><br />
+        </div>
+        <div class="col-md-3 ">
+            <label class="required">First Name</label> <br />
+            @Html.TextBoxFor(x => x.FirstName, new { @class = "form-control ", maxlength = "5", required = "TRUE", style = "padding:4px 6px" })
+        </div>
+        <div class="col-md-3">
+            <label> Middle Name</label><br /> @Html.TextBoxFor(x => x.MiddleName, new { @class = "form-control", maxlength = "5" })
+        </div>
+        <div class="col-md-3">
+            <label class="required">Last Name</label><br />
+            @Html.TextBoxFor(x => x.LasttName, new { @class = "form-control", maxlength = "5", required = "TRUE" })
+        </div>
+        <div class="col-md-3">
+            <label>Suffix</label><br />
+            @Html.TextBoxFor(x => x.Suffix, new { @class = "form-control", maxlength = "5" })
+        </div><br />
+
+        <div class="col-md-4">
+            <label>Authority in Charge of the Property  </label> <br />
+            @Html.TextBoxFor(x => x.Authority, new { @class = "form-control", maxlength = "30" })
+        </div>
+        <div class="col-md-10"></div><br />
+        <div class="col-md-3">
+            <label class="required">Job Title</label> <br />
+            @Html.TextBoxFor(x => x.JobTitle, new { @class = "form-control", maxlength = "30", required = "TRUE" })
+        </div>
+        <div class="col-md-10"></div><br />
+        <br />
+        <div class="col-md-3">
+            <label class="required">Telephone Number</label>  <br />
+            @Html.TextBoxFor(x => x.TelephoneNumber, new { @class = "form-control", maxlength = "10", required = "TRUE" })
+        </div>
+        <div class="col-md-4">
+            <label class="required">EmailAddress</label><br />
+            @Html.TextBoxFor(x => x.EmailAddress, new { @class = "form-control", maxlength = "10", required = "TRUE" })
+        </div><br />
+        <div class="row"></div><br />
+        <div class="col-md-3">
+            Property Owner<br />
+            @Html.TextBoxFor(x => x.PropertyOwner, new { @class = "form-control", maxlength = "10" })
+        </div>
+        <div class="row"></div><br />
+
+        <div class="col-md-3">
+            <lable class=" required"> Mailing Address Line 1</lable><br />
+            @Html.TextBoxFor(x => x.MailingAddressLine1, new { @class = "form-control", maxlength = "10", required = "TRUE" })
+        </div>
+        <div class="row"></div><br />
+        <div class="col-md-3">
+            Mailing Address Line 2<br />
+            @Html.TextBoxFor(x => x.MailingAddressLine2, new { @class = "form-control", maxlength = "10" })
+        </div>
+        <div class="row"></div><br />
+        <div class="col-md-3">
+            <lable class=" required">City</lable><br />
+            @Html.TextBoxFor(x => x.City, new { @class = "form-control", maxlength = "10", required = "TRUE" })
+        </div>
+
+        <div class="col-md-3">
+            <lable class=" required">County</lable><br />
+            @Html.DropDownListFor(x => x.County, new SelectList(Model.Counties, "Value", "Text"), "--Select--", new { @class = "form-control", required = "TRUE" })
+        </div>
+        <div class="row"></div><br />
+        <div class="col-md-3">
+
+            <lable class=" required">State</lable>  <br />
+            @Html.DropDownListFor(x => x.County, new SelectList(Model.Counties, "Value", "Text"), "--Select--", new { @class = "form-control", required = "TRUE" })
+        </div>
+        <div class="col-md-3">
+            <lable class=" required">Zip Code</lable><br />
+            @Html.TextBoxFor(x => x.Zip, new { @class = "form-control", maxlength = "10", required = "TRUE" })
+        </div>
+        <div class="row"></div><br />
+        <div class="col-md-3">
+
+            Country<br />
+            @Html.DropDownListFor(x => x.County, new SelectList(Model.Counties, "Value", "Text"), "--Select--", new { @class = "form-control" })
+        </div>
+        <div class="col-md-3">
+            Zip 4<br />
+            @Html.TextBoxFor(x => x.Zip4, new { @class = "form-control", maxlength = "10" })
+        </div>  <br />
+        <div class="row"></div><br />
+        <div class="col-md-4">
+            <br /><br /><br /><br />
+            <label>Comments</label><br />
+            @Html.TextAreaFor(model => model.Comments, new { @class = "form-control", maxlength = 2000, @cols = "75", @rows = "3" })
+        </div>
+        <div class="row"></div><br />
+        <div class="col-md-12">
+            <br /><br /><br /><br />
+            <div class="col-md-3 ">
+
+                <input type="button" id="btnNext" value="Previous" class="NextBtn btn btn-default" style="background-color:#a90606; color:white" onclick="previousBtn_click()" />
+
+            </div>
+            <div class="col-md-6 text-right ">
+
+                <input type="button" id="btnNext" value="Next" class="NextBtn btn btn-default" style="background-color:#a90606; color:white" onclick="nextBtn_click()" />
+
+            </div>
+        </div>
+        <div class="col-md-12">
+            <br /><br /><br /><br /><br />
+        </div>
+        <div class="col-md-12">
+
+
+        </div>
+    </div>
+    }
+</div>
+
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<script>
+	function nextBtn_click() {
+		if (common.validate("PropertyOwnerIndividualPage")) {
+            location.href = '@Url.Action("Index", "AdditionalStakeholderInfo")'; 
+		}
+	}
+	function previousBtn_click() {
+		location.href = '@Url.Action("Index", "PropertyOwnerContact")';
+	}
+
+</script>

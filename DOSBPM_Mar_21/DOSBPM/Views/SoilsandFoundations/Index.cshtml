@@ -1,0 +1,106 @@
+﻿@model DOSBPM.Models.SoilsandFoundations
+
+@{
+    ViewBag.Title = "Soils and Foundations";
+}
+
+<div class="container-fluid">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <form>
+            <h3>Soils and Foundations</h3><br\>
+                <div style="padding-left:10px;width:95%; display:inline-block; ">
+                    <label class="col-md-4"> Is there a geotechnical report provided for this project</label>
+                    <div class="col-md-2 ">
+                        <div class="col-md-6"><input type="radio" class="RadYesNo" /><label>Yes</label></div>
+                        <div class="col-md-6"><input type="radio" class="RadYesNo" /><label>No</label></div>
+                    </div>
+                    <div class="col-md-12"> <br /> <input type="checkbox" id="Upload Report" /> Upload Report<br /></div>
+                    <div class="col-md-12"><br /></div>
+                    <div class="CodeIntegration col-md-12" style="width:100%; border:solid 1px;">
+                        <br />
+                        <label class="col-md-12">If no report provided please select applicable code section<br /><br /></label>
+                        <div class="col-md-2">
+                            Code Compliance Document
+                            @Html.TextBoxFor(X => X.txtCCD, new { @style = "background-color:#d3d3d3;", @class = "form-control ", @readonly = "readonly" })<br />
+                        </div>
+                        <div class="col-md-2">
+                            Code Integration Section
+                            @Html.TextBoxFor(X => X.txtCIS, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                        </div>
+                        <div class="col-md-2">
+                            Plan Sheet/ Page Number
+                            @Html.TextBoxFor(X => X.txtPgNo, new { @class = "form-control" })<br />
+                        </div>
+                        <div class="col-md-2">
+                            Applicant Comments
+                            @Html.TextBoxFor(X => X.txtApplicantComments, new { @class = "form-control" })<br />
+                        </div>
+                        <div class="col-md-2">
+                            Back office Comments
+                            @Html.TextBoxFor(X => X.txtBackOffComments, new { @class = "form-control" })<br />
+                        </div>
+                        <div class="col-md-2 ">
+                            <div class="col-md-4  ">
+                                Remove<br />
+                                <input type="checkbox" id="chkRemove" class="check" style="margin:10px;" />
+                            </div>
+                            <div class="col-md-4 ">
+                                Deviation<br />
+                                <input type="checkbox" id="chkDeviation" class="check" style="margin:10px;" />
+                            </div>
+                            <div class=" col-md-2  ">
+                                Edit<br />
+                                <input type="checkbox" id="chkEdit3" class="check" style="margin:10px;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="display:inline-block">
+                    <div class=" col-md-7">
+                        <br />
+                        <div class=" col-md-6">What type of soils are on site      </div>
+                        <div class=" col-md-3">
+                            @Html.TextBoxFor(x => x.txtSoilType, new { @class = "form-control" })
+                        </div>
+                        <div class="col-md-12"><br /></div>
+                        <div class=" col-md-6">What is the soil bearing capacity used</div>
+                        <div class=" col-md-3">
+                            @Html.TextBoxFor(x => x.txtSoilBearingCapacity, new { @class = "form-control" })
+                        </div>
+                        <div class="col-md-12"><br /></div>
+                        <div class=" col-md-6">Damp proofing and water proofing provided</div>
+                        <div class=" col-md-3">
+                            <div class="col-md-6"><input type="radio" class="RadYesNo" /><label>Yes</label></div>
+                            <div class="col-md-6"><input type="radio" class="RadYesNo" /><label>No</label></div>
+                        </div>
+                        <div class="col-md-12"><br /></div>
+                        <div class=" col-md-6">Prescriptive design employed</div>
+                        <div class=" col-md-3">
+                            <div class="col-md-6"><input type="radio" class="RadYesNo" /><label>Yes</label></div>
+                            <div class="col-md-6"><input type="radio" class="RadYesNo" /><label>No</label></div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 text-center">
+                        <br /><br />
+                        <input type="button" value="Launch Code Integration" style="width:165px;white-space:normal;background-color: #b22b2b;border: none;color: white; padding:2px; height:30px;" />
+                    </div>
+                </div>
+                <!--Page Navigatiom: Previous/Save & Continue -->
+                <div class="bottom" style="padding-top:10em">
+                    <div class="col-lg-11">
+                        @Html.ActionLink("Previous", "Index", "StructrualDesign", null, new { @class = "NextBtn" })
+                    </div>
+                    <div class="col-lg-1">
+                        @Html.ActionLink("Next", "Index", "ConstructionMaterials", null, new { @class = "NextBtn" })
+                    </div>
+                </div>
+
+
+        </form>
+    }
+</div>

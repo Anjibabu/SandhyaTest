@@ -1,0 +1,53 @@
+﻿@model DOSBPM.Models.ProjectDescription
+
+@{
+    ViewBag.Title = "Project Description";
+}
+<div class="container-fluid">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <div class="col-md-12">
+
+            <h3>Project Description</h3><br />
+
+            <label class="required"> Please provide a description of the project</label> <br /><br />
+            @Html.TextAreaFor(model => model.Notes, new { @class = "form-control", maxlength = 2000, @cols = "100", @rows = "8" })<br />
+
+            <div class="">
+                <label>Project Type: New Construction </label><br /><br />
+                <label class="required">Type of work</label>  <br />
+
+                @{
+                    var TypeofWork = new List<string>();
+                    TypeofWork.Add("ABCD");
+                    TypeofWork.Add("BPM");
+                }
+
+                @Html.DropDownListFor(model => model.TypeofWork, new SelectList(TypeofWork), "-- Select --", new { @class = "form-control" })
+            </div>
+        </div>
+       
+        <div class=" col-md-12">
+            <br /><br /> <br /><br /> <br /><br /> <br /><br />
+            <div class="col-md-3"  style="position: fixed; left:60px" >
+
+                <input type="button" id="btnNext" class="NextBtn btn btn-default" value="Previous" style="background-color:#a90606" onclick="location.href='@Url.Action("Index", "AdditionalInfo")'" />
+
+            </div>
+            <div class="col-md-6 text-right"  style="position: fixed; right:100px">
+
+                <input type="button" id="btnNext" class="NextBtn btn btn-default" value="Next" style="background-color:#a90606" onclick="location.href('@Url.Action("Index", "OccupancyHeightsandAreas")')" />
+
+            </div>
+        </div>
+
+    </div>
+    }
+    </div>
+
+
+

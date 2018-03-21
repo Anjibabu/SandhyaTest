@@ -1,0 +1,200 @@
+﻿@model DOSBPM.Models.Payment
+
+@{
+    ViewBag.Title = "Payment";
+}
+<div class="container-fluid" id="Payment">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <div class="col-md-12">
+                <h3>Payment</h3><br />
+
+                <label>Payment Transation Type: Demolition Permit</label><br /><br />
+            </div>
+
+            @*<div class="form-horizontal">
+                    <div class="col-md-6">
+                        <label>Amount Due </label>
+                        @Html.TextBoxFor(x => x.AmountDue, new { @class = "form-control", maxlength = 5, style = " width:150px;height:30px; margin-right:100px" })<br />
+
+                    </div><br />
+
+
+                </div>*@
+
+            <form class="form-inline">
+                <label class="col-md-3 control-label" style="padding-top:6px">Amount Due</label>
+
+                <div class="col-md-4">
+                    @Html.TextBoxFor(x => x.AmountDue, new { @class = "form-control", maxlength = 5, style = " width:150px;height:28px;" })
+                </div>
+
+
+            </form>
+            <div class="col-md-12"><br /></div>
+            <form class="form-inline">
+                <label class="col-md-3 control-label" style="padding-top:6px">Amount Required</label>
+
+                <div class="col-md-4">
+                    @Html.TextBoxFor(x => x.AmountRequired, new { @class = "form-control", maxlength = 5, style = " width:150px;height:28px;" })
+                </div>
+
+            </form>
+            <div class="col-md-12"><br /></div>
+            <form class="form-inline">
+                <label class="col-md-3 control-label" style="padding-top:6px">Refund Due</label>
+
+                <div class="col-md-4">
+                    @Html.TextBoxFor(x => x.RefundDue, new { @class = "form-control", maxlength = 5, style = " width:150px;height:28px;" })
+                </div>
+
+            </form>
+            <div class="col-md-12"><br /></div>
+            <form class="form-inline">
+                <label class="col-md-3 control-label" style="padding-top:6px">Over Payment</label>
+
+                <div class="col-md-4">
+                    @Html.TextBoxFor(x => x.OverPayment, new { @class = "form-control", maxlength = 5, style = " width:150px;height:28px;" })
+                </div>
+                <br /><br />
+            </form>
+
+            <div class="col-md-12 ">
+                <h3>Payee Information</h3><br />
+                @Html.CheckBox("Check this box to change or update information") &nbsp; Check this box to change or update information
+                <br />
+                <br />
+            </div>
+            <div class="col-md-3 ">
+                <label class="required"> First Name</label><br />
+                @Html.TextBoxFor(x => x.PayeeFirstName, new { @class = "form-control", maxlength = 30, required = "TRUE" })<br />
+            </div>
+            <div class="col-md-3">
+                <label class="required"> Middle Name</label><br />
+                @Html.TextBoxFor(x => x.PayeeMiddleName, new { @class = "form-control", maxlength = 30 })<br />
+            </div>
+            <div class="col-md-3">
+                <label class="required"> Last Name</label><br />
+                @Html.TextBoxFor(x => x.PayeeLastName, new { @class = "form-control", maxlength = 30, required = "TRUE" })<br />
+            </div>
+            <div class="col-md-3">
+                <label class="required"> Suffix</label><br />
+                @Html.TextBoxFor(x => x.PayeeSuffix, new { @class = "form-control", maxlength = 30 })<br />
+            </div>
+
+            <div class="col-md-3 ">
+                <label class="required"> Business Name</label><br />
+                @Html.TextBoxFor(x => x.PayeeBusineessName, new { @class = "form-control", maxlength = 30, style = "width:250px; height:30px" })<br />
+            </div>
+            <div class="row"></div>
+            <div class="col-md-3 ">
+                <label class="required"> Mailing Adress Line1</label><br />
+                @Html.TextBoxFor(x => x.PayeeAddressLine1, new { @class = "form-control", maxlength = 30, style = "height:30px", required = "TRUE" })<br />
+            </div>
+            <div class="col-md-3 ">
+                <label class="required">Zip Code</label><br />
+                @Html.TextBoxFor(x => x.PayeeZipCode, new { @class = "form-control", maxlength = 30, style = "height:30px" })<br />
+            </div>
+            <div class="row"></div>
+            <div class="col-md-3 ">
+                <label class="required"> Mailing Adress Line2</label><br />
+                @Html.TextBoxFor(x => x.PayeeAdressLine2, new { @class = "form-control", maxlength = 30, style = "height:30px" })<br />
+            </div>
+            <div class="col-md-3 ">
+                <label>Payee Zip+4</label><br />
+                @Html.TextBoxFor(x => x.Zip4, new { @class = "form-control", maxlength = 30, style = "height:30px", required = "TRUE" })<br />
+            </div>
+            <div class="row"></div>
+            <div class="col-md-3 ">
+                <label class="required"> City</label><br />
+                @Html.DropDownListFor(x => x.PaymentType, new SelectList(Model.PaymentTypes, "Value", "Text"), "--Select--", new { @class = "form-control", style = "height:30px", required = "TRUE" })<br />
+            </div>
+            <div class="col-md-3 ">
+                <label class="required"> County</label><br />
+                @Html.DropDownListFor(x => x.PaymentType, new SelectList(Model.PaymentTypes, "Value", "Text"), "--Select--", new { @class = "form-control", style = "height:30px", required = "TRUE" })<br />
+            </div>
+            <div class="row"></div>
+            <div class="col-md-3 ">
+                <label class="required">State</label><br />
+                @Html.TextBoxFor(x => x.PayeeState, new { @class = "form-control", maxlength = 30, style = "height:30px" })<br />
+            </div>
+            <div class="col-md-3 ">
+                <label class="required">Country</label><br />
+                @Html.TextBoxFor(x => x.Country, new { @class = "form-control", maxlength = 30, style = "height:30px" })<br />
+            </div>
+            <div class="row"></div>
+            <div class="col-md-4 ">
+                <label class="required">Payment Type</label><br />
+
+                @Html.DropDownListFor(x => x.PaymentType, new SelectList(Model.PaymentTypes, "Value", "Text"), "--Select--", new { @class = "form-control", maxlength = 30, style = "height:30px", required = "TRUE" })<br />
+            </div>
+            <div class="row"></div>
+            <div class="col-md-4 ">
+                <label>Check/Money Order/Voucher Number</label><br />
+                @Html.TextBox("Check/Money Order Number", null, new { @class = "form-control", maxlength = 30, style = "height:30px" })<br />
+            </div>
+            <div class="row"></div>
+            <div class="col-md-4 ">
+                <label>Check/Money Order/Voucher Amount</label><br />
+                @Html.TextBox("Check/Money OrderAmount", null, new { @class = "form-control", maxlength = 30, style = "height:30px" })<br />
+            </div>
+
+            <div class="col-md-8">
+                <br /><br />
+                <input type="button" value="Additional Payment/Payee" class="btn btn-default btn-block" style="background-color:coral;padding: 8px 12px; " />
+                <br />
+            </div>
+            <div class="row"></div>
+            <div class="col-md-12">
+                <br /><br /><br /><br />
+                <label>Comments</label><br />
+                @Html.TextArea("Comments", null, new { @class = "form-control", maxlength = "2000", @cols = "75", @rows = "3" })<br /><br />
+            </div>
+            <div class="col-md-12">
+                @Html.CheckBox("Fee WorkSheet Included") &nbsp; Fee WorkSheet Included
+                <br />
+            </div>
+
+            <div class="col-md-12" style="">
+                <br />
+                <div class="col-md-3">
+
+                    <input type="button" id="btnNext" class="NextBtn btn btn-default" value="Previous" style="background-color:#a90606; color:white" onclick="previousBtn_click()" />
+
+                </div>
+                <div class="col-md-6 text-right ">
+
+                    <input type="button" id="btnNext" class="NextBtn btn btn-default" value="Next" style="background-color:#a90606; color:white" onclick="nextBtn_click()" />
+
+                </div>
+            </div>
+            <div class="col-md-12">
+                <br /><br /><br /><br /><br /><br />
+            </div>
+
+
+
+        </div>
+
+    }
+</div>
+<script src="~/Scripts/BPM_Js/Common.js"></script>
+
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<script>
+       function nextBtn_click() {
+        if (common.validate("Payment")) {
+                     location.href = '@Url.Action("Index", "AttestationandSubmit")';
+              }
+       }
+       function previousBtn_click() {
+              location.href = '@Url.Action("Index", "Uploads")';
+       }
+       //location.href = '@Url.Action("Index", "PropertyOwnerInfo")' //previous
+
+       //location.href('@Url.Action("Index", "PropertyOwnerIndividual")') //next
+</script>

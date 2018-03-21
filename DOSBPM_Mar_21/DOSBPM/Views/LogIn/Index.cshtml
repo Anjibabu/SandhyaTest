@@ -1,0 +1,95 @@
+﻿@model DOSBPM.Models.LogIn
+
+@{
+    ViewBag.Title = "LogIn";
+}
+
+@{
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/CSS/StyleSheet.css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+
+<body oncontextmenu=" return disableRightClick();">
+
+    <div class=" navbar-header navbar-fixed-top  " >
+        <img src="~/Content/Images/VHeader.PNG" />
+    </div>
+    <div class="container body-content">
+        <footer>
+            <p>&copy; @DateTime.Now.Year Department of State - New York</p>
+        </footer>
+    </div>
+
+    <div class="navbar-fixed-bottom  ">
+        <img src="~/Content/Images/VFooter.png" />
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @*@RenderSection("scripts", required: false)*@
+</body>
+</html>
+
+<h3>LogIn</h3>
+
+<div class="row">
+    <div class="col-md-8">
+        <section id="loginForm">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <h4>Use a local account to log in.</h4>
+                <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <div class="checkbox">
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                @Html.LabelFor(m => m.RememberMe)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Log in" class="btn btn-default" />
+                        </div>
+                    </div>
+            }
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery.validate")
+}
+
+@*For Disabling Right Click*@
+<script type="text/javascript">
+    function disableRightClick() {
+        alert("Sorry, right click is not allowed !!");
+        return false;
+    }
+</script>

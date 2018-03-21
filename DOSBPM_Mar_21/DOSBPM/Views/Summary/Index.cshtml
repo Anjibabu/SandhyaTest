@@ -1,0 +1,251 @@
+﻿@model DOSBPM.Models.Summary
+
+@{
+    ViewBag.Title = "Summary";
+}
+
+<h3>Summary</h3>
+
+<div class="abc">
+
+    <a href="#demo1" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Property Owner Info (Expand/Collapse)</a>
+    <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "PropertyOwnerInfo")'" />
+    <div id="demo1" class="collapse">
+        @RenderPage("~/Views/PropertyOwnerInfo/Index.cshtml")<br />
+    </div>
+    <br />
+
+    @*<a href="#demo2" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Property Owner Contact (Expand/Collapse)</a>
+    <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "PropertyOwnerContact")'" />
+    <div id="demo2" class="collapse">
+        @RenderPage("~/Views/PropertyOwnerContact/Index.cshtml")<br />
+    </div>*@
+
+    @*<br />
+    <a href="#demo3" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Additional Stakeholder Info (Expand/Collapse)</a>
+    <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "AdditionalStakeholderInfo")'" />
+    <div id="demo3" class="collapse">
+        @RenderPage("~/Views/AdditionalStakeholderInfo/Index.cshtml")<br />
+    </div>
+    <br />*@
+
+    @*<a href="#demo4" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Additional Stakeholder Contacts (Expand/Collapse)</a>
+    <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "AdditionalStakeholderContacts")'" />
+    <div id="demo4" class="collapse">
+        @RenderPage("~/Views/AdditionalStakeholderContacts/Index.cshtml")<br />
+    </div>
+    <br />*@
+
+    <a href="#demo5" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Project Description (Expand/Collapse)</a>
+    <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "ProjectDescription")'" />
+    <div id="demo5" class="collapse">
+        @RenderPage("~/Views/ProjectDescription/Index.cshtml")<br />
+    </div>
+    <br />
+
+    <a href="#demo6" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Occupancy Heights and Areas (Expand/Collapse)</a>
+    <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "OccupancyHeightsandAreas")'" />
+    <div id="demo6" class="collapse">
+        @RenderPage("~/Views/OccupancyHeightsandAreas/Index.cshtml")<br />
+    </div>
+    <br />
+
+    <a href="#demo7" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Variance Questions (Expand/Collapse)</a>
+    <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "VarianceQuestions")'" />
+    <div id="demo7" class="collapse">
+        @RenderPage("~/Views/VarianceQuestions/Index.cshtml")<br />
+    </div>
+    <br />
+
+    @*<a href="#demo8" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Site and Utilities (Expand/Collapse)</a>
+        <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "SiteandUtilities")'" />
+        <div id="demo8" class="collapse">
+            @RenderPage("~/Views/SiteandUtilities/Index.cshtml")<br />
+        </div>*@
+
+
+    @*<a href="#demo9" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Misc AdditionalInfo (Expand/Collapse)</a>
+        <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "MiscAdditionalInfo")'" />
+        <div id="demo9" class="collapse">
+            @RenderPage("~/Views/MiscAdditionalInfo/Index.cshtml")<br />
+        </div>*@
+
+
+
+    <a href="#demo10" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Special Detailed Requirements Based on Use and Occupancy (Expand/Collapse)</a>
+    <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "SpecialDetailedRequirementsBasedonUseandOccupancy")'" />
+    <div id="demo10" class="collapse">
+        @RenderPage("~/Views/SpecialDetailedRequirementsBasedonUseandOccupancy/Index.cshtml")<br />
+    </div>
+    <br />
+
+
+    @*<a href="#demo11" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Code Integration (Expand/Collapse)</a>
+        <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "CodeIntegration")'" />
+        <div id="demo11" class="collapse">
+            @RenderPage("~/Views/CodeIntegration/Index.cshtml")<br />
+        </div>*@
+
+
+    <a href="#demo12" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">General Building Heights and Areas (Expand/Collapse)</a>
+    <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "GeneralBuildingHeightsandAreas")'" />
+    <div id="demo12" class="collapse">
+        @RenderPage("~/Views/GeneralBuildingHeightsandAreas/Index.cshtml")<br />
+    </div>
+    <br />
+
+    <a href="#demo13" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Type of Construction (Expand/Collapse)</a>
+    <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "TypeofConstruction")'" />
+    <div id="demo13" class="collapse">
+        @RenderPage("~/Views/TypeofConstruction/Index.cshtml")<br />
+    </div>
+    <br />
+
+
+    <a href="#demo14" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Fire and Smoke Protection Features (Expand/Collapse)</a>
+    <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "FireandSmokeProtectionFeatures")'" />
+    <div id="demo14" class="collapse">
+        @RenderPage("~/Views/FireandSmokeProtectionFeatures/Index.cshtml")<br />
+    </div>
+    <br />
+
+    <a href="#demo15" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Interior Finishes (Expand/Collapse)</a>
+    <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "InteriorFinishes")'" />
+    <div id="demo15" class="collapse">
+        @RenderPage("~/Views/InteriorFinishes/Index.cshtml")<br />
+    </div>
+    <br />
+
+    <a href="#demo16" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Fire Protection Systems (Expand/Collapse)</a>
+    <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "FireProtectionSystems")'" />
+    <div id="demo16" class="collapse">
+        @RenderPage("~/Views/FireProtectionSystems/Index.cshtml")<br />
+    </div>
+    <br />
+
+    <a href="#demo17" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Means of Egress (Expand/Collapse)</a>
+    <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "MeansofEgress")'" />
+    <div id="demo17" class="collapse">
+        @RenderPage("~/Views/MeansofEgress/Index.cshtml")<br />
+    </div>
+    <br />
+
+    <a href="#demo18" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Accessibility (Expand/Collapse)</a>
+    <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "Accessibility")'" />
+    <div id="demo18" class="collapse">
+        @RenderPage("~/Views/Accessibility/Index.cshtml")<br />
+    </div>
+    <br />
+
+    <a href="#demo19" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">InteriorEnvironment and ExteriorWalls and Rooftop Structures (Expand/Collapse)</a>
+    <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "InteriorEnvironmentandExteriorWallsandRooftopStructures")'" />
+    <div id="demo19" class="collapse">
+        @RenderPage("~/Views/InteriorEnvironmentandExteriorWallsandRooftopStructures/Index.cshtml")<br />
+    </div>
+    <br />
+
+    <a href="#demo20" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Energy Requirements (Expand/Collapse)</a>
+    <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "EnergyRequirements")'" />
+    <div id="demo20" class="collapse">
+        @RenderPage("~/Views/EnergyRequirements/Index.cshtml")<br />
+    </div>
+    <br />
+
+    <a href="#demo21" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Structrual Design (Expand/Collapse)</a>
+    <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "StructrualDesign")'" />
+    <div id="demo21" class="collapse">
+        @RenderPage("~/Views/StructrualDesign/Index.cshtml")<br />
+    </div>
+    <br />
+
+    <a href="#demo22" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Soils and Foundations (Expand/Collapse)</a>
+    <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "SoilsandFoundations")'" />
+    <div id="demo22" class="collapse">
+        @RenderPage("~/Views/SoilsandFoundations/Index.cshtml")<br />
+    </div>
+    <br />
+
+    <a href="#demo23" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Construction Materials (Expand/Collapse)</a>
+    <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "ConstructionMaterials")'" />
+    <div id="demo23" class="collapse">
+        @RenderPage("~/Views/ConstructionMaterials/Index.cshtml")<br />
+    </div>
+    <br />
+
+    <a href="#demo24" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Electrical Requirements (Expand/Collapse)</a>
+    <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "ElectricalRequirements")'" />
+    <div id="demo24" class="collapse">
+        @RenderPage("~/Views/ElectricalRequirements/Index.cshtml")<br />
+    </div>
+    <br />
+
+    <a href="#demo25" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Mechanical Requirements (Expand/Collapse)</a>
+    <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "MechanicalRequirements")'" />
+    <div id="demo25" class="collapse">
+        @RenderPage("~/Views/MechanicalRequirements/Index.cshtml")<br />
+    </div>
+    <br />
+
+    <a href="#demo26" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Plumbing Requirements (Expand/Collapse)</a>
+    <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "PlumbingRequirements")'" />
+    <div id="demo26" class="collapse">
+        @RenderPage("~/Views/PlumbingRequirements/Index.cshtml")<br />
+    </div>
+    <br />
+
+    <a href="#demo27" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Fuel Gas Requirements (Expand/Collapse)</a>
+    <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "FuelGasRequirements")'" />
+    <div id="demo27" class="collapse">
+        @RenderPage("~/Views/FuelGasRequirements/Index.cshtml")<br />
+    </div>
+    <br />
+
+
+    <a href="#demo28" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Elevators and Conveying Systems (Expand/Collapse)</a>
+    <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "ElevatorsandConveyingSystems")'" />
+    <div id="demo28" class="collapse">
+        @RenderPage("~/Views/ElevatorsandConveyingSystems/Index.cshtml")<br />
+    </div>
+    <br />
+
+    <a href="#demo29" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Safeguards During Construction (Expand/Collapse)</a>
+    <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "SafeguardsDuringConstruction")'" />
+    <div id="demo29" class="collapse">
+        @RenderPage("~/Views/SafeguardsDuringConstruction/Index.cshtml")<br />
+    </div>
+    <br />
+
+
+    <a href="#demo30" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Uploads (Expand/Collapse)</a>
+    <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "Uploads")'" />
+    <div id="demo30" class="collapse">
+        @RenderPage("~/Views/Uploads/Index.cshtml")<br />
+    </div>
+    <br />
+
+    @*<a href="#demo31" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Payment (Expand/Collapse)</a>
+        <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "Payment")'" />
+        <div id="demo31" class="collapse">
+            @RenderPage("~/Views/Payment/Index.cshtml")<br />
+        </div>*@
+
+
+    <a href="#demo32" class="btn btn-info" style="background-color:#007681" data-toggle="collapse">Attestation and Submit (Expand/Collapse)</a>
+    <input class="btn btn-info" value="Edit" style="background-color:#007681" onclick="location.href='@Url.Action("Index", "AttestationandSubmit")'" />
+    <div id="demo32" class="collapse">
+        @RenderPage("~/Views/AttestationandSubmit/Index.cshtml")<br />
+    </div>
+    <br />
+
+
+</div>
+
+<div class="bottom" style="padding-top: 47em">
+    <div class="col-lg-11">
+        @Html.ActionLink("Previous", "Index", "AttestationandSubmit", null, new { @class = "NextBtn" })
+    </div>
+
+</div>
+
+
+

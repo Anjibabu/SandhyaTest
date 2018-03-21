@@ -1,0 +1,117 @@
+﻿@model DOSBPM.Models.MiscAdditionalInfo
+
+@{
+    ViewBag.Title = "Misc Additional Info";
+}
+<div class="container-fluid">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <div class="col-md-12">
+            <h3>Misc Additional Info</h3><br />
+        </div>
+        <div class="col-md-3">
+            <label class="required"> Are there special inspections Required for the work being performed?</label>
+        </div>
+        <div class="col-md-1">
+            Yes <br />
+            <input type="radio" />
+        </div>
+
+        <div class="col-md-1">
+            No <br />
+            <input type="radio" />
+        </div>
+
+        <div class="form-inline col-md-3">
+
+            @Html.DropDownList("ListItem", null, new { @class = "form-control", style = "height:30px; width:150px" })<i style="font-size:85%">&nbsp; If yes Triggers drop down and select all that apply</i>
+        </div>
+        <div class="col-md-12"><br /></div>
+        <div class="col-md-3">
+            <label>  Has the asbestos survey been completed per DOL Rule 56?</label>
+        </div>
+        <div class="col-md-1">
+            Yes <br />
+            <input type="radio" />
+        </div>
+
+        <div class="col-md-1">
+            No <br />
+            <input type="radio" />
+        </div>
+
+        <div class="form-inline col-md-2">
+            <br />
+            <input type="checkbox" />
+            <i style="font-size:85%">&nbsp; If yes triggers absestors report upload prior to submission</i>
+        </div>
+        <div class="form-inline col-md-4">
+            <br />
+            @Html.TextBox("txt", null, new { @class = "form-control", style = "height:30px; width:200px" })<i style="font-size:85%">If no, please enter why not.<br /> Note: based on the year of construction of this building, an abestors report will be required prior to isuuing a permit</i>
+        </div>
+        <div class="col-md-12"><br /></div>
+        <div class="col-md-3">
+            <label> Enter the estimated Cost of Construction/Demolition in whole dollars:</label>
+        </div>
+        <div class="col-md-4">
+            @Html.TextBox("txt", null, new { @class = "form-control", style = "height:30px; width:200px" })
+        </div>
+        <div class="col-md-12"><br /></div>
+        <div class="col-md-3">
+            <label> Substitute your own code review for Checklist PartII?</label>
+        </div>
+        <div class="col-md-1">
+            Yes <br />
+            <input type="radio" />
+        </div>
+
+        <div class="col-md-1">
+            No <br />
+            <input type="radio" />
+        </div>
+
+        <div class="form-inline col-md-4">
+            <br />
+            <input type="checkbox" />
+            <i style="font-size:85%">&nbsp; If yes triggers code review upload prior to submission</i>
+        </div>
+        <div class="col-md-12"><br /></div>
+
+        <div class="col-md-8"></div>
+        <div class="col-md-4">
+            <br /><br /><br /><br />
+            <label>Comments(Applicant)</label><br />
+            @Html.TextArea("ApplicantComment",null, new { @class = "form-control", maxlength = 2000, @cols = "75", @rows = "3" })
+        </div>
+        <div class="col-md-8"></div>
+        <div class="col-md-4">
+            <br />
+            <label>Comments(Reviewer)</label><br />
+            @Html.TextArea("ReviewrComment",null, new { @class = "form-control", maxlength = 2000, @cols = "75", @rows = "3" })
+
+        </div>
+
+        <div class="col-md-12">
+            <br /><br /><br /><br />
+            <div class="col-md-3 ">
+
+                <input type="button" id="btnNext" value="Previous" class="NextBtn btn btn-default" style="background-color:#a90606; color:white" onclick="location.href = '@Url.Action("Index", "SiteandUtilities")'" />
+
+            </div>
+            <div class="col-md-8 text-right ">
+
+                <input type="button" id="btnNext" value="Next" class="NextBtn btn btn-default" style="background-color:#a90606; color:white" onclick="location.href = '@Url.Action("Index", "Uploads")'" />
+
+            </div>
+        </div>
+        <div class="col-md-12">
+            <br /><br /><br /><br /><br /><br />
+        </div>
+
+    </div>
+        }
+    </div>

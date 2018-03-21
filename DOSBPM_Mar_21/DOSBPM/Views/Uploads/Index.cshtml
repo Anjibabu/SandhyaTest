@@ -1,0 +1,77 @@
+﻿@model DOSBPM.Models.Uploads
+
+@{
+    /**/
+
+    ViewBag.Title = "Uploads";
+}
+@using (Html.BeginForm("Index", "Uploads", FormMethod.Post))
+{
+
+    @Html.AntiForgeryToken()
+
+    <h3>Uploads</h3>
+
+    <div class="form-group">
+
+        <div class="col-md-12">
+            @Html.EditorFor(model => model.CityName, new { htmlAttributes = new { @class = "form-control" } })
+
+        </div>
+    </div>
+
+
+    @*<div>
+            <p>Need to insert uploads page</p><br />
+            <p>Should pull in list of all uploads based on previously entered information</p>
+            <p>Paper application and fee worksheet uploads reqired</p>
+        </div>
+        <br />*@
+
+    @*<div class="bottom" style="padding-top: 35em">
+            <div class="col-lg-11">
+                @Html.ActionLink("Previous", "Index", "SafeguardsDuringConstruction", null, new { @class = "NextBtn" })
+            </div>
+            <div class="col-lg-1">
+                @Html.ActionLink("Next", "Index", "Payment", null, new { @class = "NextBtn" })
+            </div>
+        </div>*@
+}
+
+@*<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>*@
+
+    @*<link href="~/Content/jquery-ui.css" rel="stylesheet" />
+
+<link href="~/Content/jquery-ui.theme.min.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-ui.min.js"></script>*@
+
+<script>
+    //$(document).ready(function () {
+    //    $("#CityName").({
+    //        source: function (request, response) {
+    //            $.ajax({
+    //                url: "/Uploads/Index",
+    //                type: "POST",
+    //                dataType: "json",
+    //                data: { Prefix: request.term },
+    //                success: function (data) {
+    //                    response($.map(data, function (item) {
+    //                        return { label: item.CityName, value: item.CityName };
+    //                    }))
+
+    //                }
+    //            })
+    //        },
+    //        messages: {
+    //            noResults: "", results: ""
+    //        }
+    //    });
+    //})
+    //$(document).ready(function () {
+    //    $('#CityName').autocomplete({
+    //        source: '/Uploads/Index'
+    //    });
+    //});
+</script>

@@ -1,0 +1,338 @@
+﻿@model DOSBPM.Models.FireandSmokeProtectionFeatures
+
+@{
+    ViewBag.Title = "Fire and Smoke Protection Features";
+}
+
+<div class="container-fluid">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <form>
+            <h3>Fire and Smoke Protection Features</h3>
+            <div style="display:inline-block;">
+                @*fire Walls and Fire resistance Ratings in hours*@
+                <div style="padding-left:10px; display:inline-block;border:solid 1px;border-bottom:none; width:95%">
+                    <br />
+                    <div class="col-md-12">
+                        <label class="col-md-3 text-left">Are there Fire Walls</label>
+                        <div class="col-md-2">
+                            <div class="col-md-6"><input type="radio" class="RadYesNo" /> Yes </div>
+                            <div class="col-md-6"><input type="radio" class="RadYesNo" />No</div>
+                        </div>
+                        <div class="col-md-7">
+                            <label class="col-md-6">What are the fire-resistance rating(s) in hours</label>
+                            <div class="col-md-3">@Html.TextBoxFor(x => x.txtAllowedHeightSF, new { @class = "form-control" })</div>
+                        </div>
+                    </div><br /><br /><br />
+                    <div class="form-group CodeIntegration" style="width:95%; ">
+                        @* Code Compliance Doc *@
+                        <div class="col-md-2">
+                            Code Compliance Document
+                            @Html.TextBoxFor(X => X.txt3CCD, new { @style = "background-color:#d3d3d3;", @class = "form-control ", @readonly = "readonly" })<br />
+                        </div>
+                        @* Code Integration Section *@
+                        <div class="col-md-2">
+                            Code Integration Section
+                            @Html.TextBoxFor(X => X.txt3CIS, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                        </div>
+                        @* Plan Sheet/ Page Number *@
+                        <div class="col-md-2">
+                            Plan Sheet/ Page Number
+                            @Html.TextBoxFor(X => X.txt3PgNo, new { @class = "form-control" })<br />
+                        </div>
+                        @* Applicant Comments *@
+                        <div class="col-md-2">
+                            Applicant Comments
+                            @Html.TextBoxFor(X => X.txt3ApplicantComments, new { @class = "form-control" })<br />
+                        </div>
+                        @* Back office Comments*@
+                        <div class="col-md-2">
+                            Back office Comments
+                            @Html.TextBoxFor(X => X.txt3BackOffComments, new { @class = "form-control" })<br />
+                        </div>
+                        @* Check Box-Remove , Deviation , Edit *@
+                        <div class="col-md-2">
+                            <div class="col-md-4 ">
+                                Remove<br />
+                                <input type="checkbox" id="chkRemove3" class="check" style="margin:10px;" />
+                            </div>
+                            <div class="col-md-4 ">
+                                Deviation<br />
+                                <input type="checkbox" id="chkDeviation3" class="check" style="margin:10px;" />
+                            </div>
+                            <div class=" col-md-2 ">
+                                Edit<br />
+                                <input type="checkbox" id="chkEdit3" class="check" style="margin:10px;" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                @*Fire Barrier Location*@
+                <div style="padding-left:10px; display:inline-block; border:solid 1px ;border-bottom:none; width:95%">
+                    <br />
+                    <div class="col-md-12">
+                        <label class="col-md-3 text-left">Select all the locations where fire barriers are included in this project</label>
+                        <div class="col-md-2">
+                            @{
+                                var BarrierLocations = new List<string>();
+                                BarrierLocations.Add("Suffix");
+                            }
+
+                            @Html.DropDownListFor(model => model.BarrierLocations, new SelectList(BarrierLocations), "-- Select --", new { @class = "form-control" })<br />
+                        </div>
+                        <div class="col-md-7">
+                            <label class="col-md-6">What are the fire-resistance rating(s) in hours</label>
+                            <div class="col-md-3">@Html.TextBoxFor(x => x.txtAllowedHeightSF, new { @class = "form-control" })</div>
+                        </div>
+                    </div><br /><br /><br />
+                    <div class="form-group CodeIntegration" style="width:100%">
+                        @* Code Compliance Doc *@
+                        <div class="col-md-2">
+                            Code Compliance Document
+                            @Html.TextBoxFor(X => X.txt3CCD, new { @style = "background-color:#d3d3d3;", @class = "form-control ", @readonly = "readonly" })<br />
+                        </div>
+                        @* Code Integration Section *@
+                        <div class="col-md-2">
+                            Code Integration Section
+                            @Html.TextBoxFor(X => X.txt3CIS, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                        </div>
+                        @* Plan Sheet/ Page Number *@
+                        <div class="col-md-2">
+                            Plan Sheet/ Page Number
+                            @Html.TextBoxFor(X => X.txt3PgNo, new { @class = "form-control" })<br />
+                        </div>
+                        @* Applicant Comments *@
+                        <div class="col-md-2">
+                            Applicant Comments
+                            @Html.TextBoxFor(X => X.txt3ApplicantComments, new { @class = "form-control" })<br />
+                        </div>
+                        @* Back office Comments*@
+                        <div class="col-md-2">
+                            Back office Comments
+                            @Html.TextBoxFor(X => X.txt3BackOffComments, new { @class = "form-control" })<br />
+                        </div>
+                        @* Check Box-Remove , Deviation , Edit *@
+                        <div class="col-md-2">
+                            <div class="col-md-4 ">
+                                Remove<br />
+                                <input type="checkbox" id="chkRemove3" class="check" style="margin:10px;" />
+                            </div>
+                            <div class="col-md-4 ">
+                                Deviation<br />
+                                <input type="checkbox" id="chkDeviation3" class="check" style="margin:10px;" />
+                            </div>
+                            <div class=" col-md-2 ">
+                                Edit<br />
+                                <input type="checkbox" id="chkEdit3" class="check" style="margin:10px;" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                @*Fire Partition Location*@
+                <div style="padding-left:10px;width:95%; display:inline-block; border:solid 1px ;border-bottom:none;">
+                    <br />
+                    <div class="col-md-12">
+                        <label class="col-md-3 text-left">Select all the locations where fire partitions are included in this project</label>
+                        <div class="col-md-2">
+                            @{
+                                var PartitionLocations = new List<string>();
+                                PartitionLocations.Add("Suffix");
+                            }
+
+                            @Html.DropDownListFor(model => model.PartitionLocations, new SelectList(PartitionLocations), "-- Select --", new { @class = "form-control" })<br />
+                        </div>
+                        <div class="col-md-7">
+                            <label class="col-md-6">What are the fire-resistance rating(s) in hours</label>
+                            <div class="col-md-3">@Html.TextBoxFor(x => x.txtAllowedHeightSF, new { @class = "form-control" })</div>
+                        </div>
+                    </div><br /><br /><br />
+                    <div class="form-group CodeIntegration" style="width:100%;">
+
+                        @* Code Compliance Doc *@
+
+                        <div class="col-md-2">
+                            Code Compliance Document
+                            @Html.TextBoxFor(X => X.txt3CCD, new { @style = "background-color:#d3d3d3;", @class = "form-control ", @readonly = "readonly" })<br />
+                        </div>
+                        @* Code Integration Section *@
+                        <div class="col-md-2">
+                            Code Integration Section
+                            @Html.TextBoxFor(X => X.txt3CIS, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                        </div>
+                        @* Plan Sheet/ Page Number *@
+                        <div class="col-md-2">
+                            Plan Sheet/ Page Number
+                            @Html.TextBoxFor(X => X.txt3PgNo, new { @class = "form-control" })<br />
+                        </div>
+                        @* Applicant Comments *@
+                        <div class="col-md-2">
+                            Applicant Comments
+                            @Html.TextBoxFor(X => X.txt3ApplicantComments, new { @class = "form-control" })<br />
+                        </div>
+                        @* Back office Comments*@
+                        <div class="col-md-2">
+                            Back office Comments
+                            @Html.TextBoxFor(X => X.txt3BackOffComments, new { @class = "form-control" })<br />
+                        </div>
+                        @* Check Box-Remove , Deviation , Edit *@
+                        <div class="col-md-2">
+                            <div class="col-md-4 text-center">
+                                Remove<br />
+                                <input type="checkbox" id="chkRemove3" class="check" style="margin:10px;" />
+                            </div>
+                            <div class="col-md-4 text-center">
+                                Deviation<br />
+                                <input type="checkbox" id="chkDeviation3" class="check" style="margin:10px;" />
+                            </div>
+                            <div class=" col-md-2  text-center">
+                                Edit<br />
+                                <input type="checkbox" id="chkEdit3" class="check" style="margin:10px;" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                @*Additional Features*@
+                <div style="padding-left:10px; display:inline-block; border:solid 1px ;border-bottom:none;width:95%">
+                    <br />
+                    <div class="col-md-12">
+                        <label class="col-md-4 text-left">Select all additional features applicable to this project</label>
+                        <div class="col-md-2">
+                            @{
+                                var AddtionalFeatures = new List<string>();
+                                AddtionalFeatures.Add("Suffix");
+                            }
+
+                            @Html.DropDownListFor(model => model.AddtionalFeatures, new SelectList(AddtionalFeatures), "-- Select --", new { @class = "form-control" })<br />
+                        </div>
+                    </div><br /><br /><br />
+                    <div class="form-group CodeIntegration" style="width:100%;">
+                        <div class="col-md-2">
+                            Code Compliance Document
+                            @Html.TextBoxFor(X => X.txt3CCD, new { @style = "background-color:#d3d3d3;", @class = "form-control ", @readonly = "readonly" })<br />
+                        </div>
+                        <div class="col-md-2">
+                            Code Integration Section
+                            @Html.TextBoxFor(X => X.txt3CIS, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                        </div>
+                        <div class="col-md-2">
+                            Plan Sheet/ Page Number
+                            @Html.TextBoxFor(X => X.txt3PgNo, new { @class = "form-control" })<br />
+                        </div>
+                        <div class="col-md-2">
+                            Applicant Comments
+                            @Html.TextBoxFor(X => X.txt3ApplicantComments, new { @class = "form-control" })<br />
+                        </div>
+                        <div class="col-md-2">
+                            Back office Comments
+                            @Html.TextBoxFor(X => X.txt3BackOffComments, new { @class = "form-control" })<br />
+                        </div>
+                        <div class="col-md-2">
+                            <div class="col-md-4 text-center">
+                                Remove<br />
+                                <input type="checkbox" id="chkRemove3" class="check" style="margin:10px;" />
+                            </div>
+                            <div class="col-md-4 text-center">
+                                Deviation<br />
+                                <input type="checkbox" id="chkDeviation3" class="check" style="margin:10px;" />
+                            </div>
+                            <div class=" col-md-2  text-center">
+                                Edit<br />
+                                <input type="checkbox" id="chkEdit3" class="check" style="margin:10px;" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                @*Additional Information*@
+                <div style="padding-left:10px; display:inline-block; border:solid 1px ; width:95%">
+                    <br />
+                    <div class="col-md-12">
+                        <label class="col-md-3 text-left">Select all additional features applicable to this project</label>
+                        <div class="col-md-2">
+                            <div class="col-md-6"><input type="radio" class="RadYesNo" /> Yes </div>
+                            <div class="col-md-6"><input type="radio" class="RadYesNo" />No</div>
+                        </div>
+                        <div class="col-md-7">
+                            <label class="col-md-6">What are the fire-resistance rating(s) in hours</label>
+                            <div class="col-md-3">@Html.TextBoxFor(x => x.txtAllowedHeightSF, new { @class = "form-control" })</div>
+                        </div>
+                    </div><br /><br /><br />
+                    <div class="CodeIntegration" style="width:100%;">
+                        @*display:none;*@
+
+                        @* Code Compliance Doc *@
+
+                        <div class="col-md-2">
+                            Code Compliance Document
+                            @Html.TextBoxFor(X => X.txt3CCD, new { @style = "background-color:#d3d3d3;", @class = "form-control ", @readonly = "readonly" })<br />
+                        </div>
+                        @* Code Integration Section *@
+                        <div class="col-md-2">
+                            Code Integration Section
+                            @Html.TextBoxFor(X => X.txt3CIS, new { @style = "background-color:#d3d3d3", @class = "form-control ", @readonly = "readonly" })<br />
+                        </div>
+                        @* Plan Sheet/ Page Number *@
+                        <div class="col-md-2">
+                            Plan Sheet/ Page Number
+                            @Html.TextBoxFor(X => X.txt3PgNo, new { @class = "form-control" })<br />
+                        </div>
+                        @* Applicant Comments *@
+                        <div class="col-md-2">
+                            Applicant Comments
+                            @Html.TextBoxFor(X => X.txt3ApplicantComments, new { @class = "form-control" })<br />
+                        </div>
+                        @* Back office Comments*@
+                        <div class="col-md-2">
+                            Back office Comments
+                            @Html.TextBoxFor(X => X.txt3BackOffComments, new { @class = "form-control" })<br />
+                        </div>
+                        @* Check Box-Remove , Deviation , Edit *@
+                        <div class="col-md-2">
+                            <div class="col-md-4 text-center">
+                                Remove<br />
+                                <input type="checkbox" id="chkRemove3" class="check" style="margin:10px;" />
+                            </div>
+                            <div class="col-md-4 text-center">
+                                Deviation<br />
+                                <input type="checkbox" id="chkDeviation3" class="check" style="margin:10px;" />
+                            </div>
+                            <div class=" col-md-2  text-center">
+                                Edit<br />
+                                <input type="checkbox" id="chkEdit3" class="check" style="margin:10px;" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class=" col-md-offset-5">
+                <br /><br /><br />
+                <input type="button" value="Launch Code Integration" style="width:165px;white-space:normal;background-color: #b22b2b;border: none;color: white; padding:2px; height:30px;" />
+            </div>
+            @*Page Navigatiom: Previous/Save & Continue*@
+            <div class="bottom" style="padding-bottom:10em">
+                <div class="col-lg-11">
+                    @Html.ActionLink("Previous", "Index", "TypeofConstruction", null, new { @class = "NextBtn" })
+                </div>
+                <div class="col-lg-1">
+                    @Html.ActionLink("Next", "Index", "InteriorFinishes", null, new { @class = "NextBtn" })
+                </div>
+            </div>
+
+
+        </form>
+                                }
+</div>

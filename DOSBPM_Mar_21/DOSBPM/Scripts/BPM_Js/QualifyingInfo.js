@@ -1,0 +1,83 @@
+﻿var qualify = (function () {
+
+	var publicMethods = {};
+
+	publicMethods.init = function () {
+
+		$("#ddTransactionType").on("change", qualify.onTransactionTypeChange);
+
+		$('input[type="checkbox"]').on('change', function () {
+			$('input[type="checkbox"]').not(this).prop('checked', false);
+		});
+		debugger;
+		qualify.onTransactionTypeChange();
+	}
+
+	publicMethods.onTransactionTypeChange = function () {
+		debugger;
+		var selectedType = $("#ddTransactionType").find("option:selected").text();
+		if (selectedType == "Demoloition Permit Application") {
+			$("#divDPA").show();
+			$("#divBPA").hide();
+			$("#ddTransactionType").removeClass("ValidationError");
+			$('#chkPD,#chkED').prop('checked', false)
+		} else if (selectedType == "Building Permit Application") {
+			$("#divBPA").show();
+			$("#divDPA").hide();
+			$('#chkEB,#chkNB').prop('checked', false);
+			$("#ddTransactionType").removeClass("ValidationError");
+		} else {
+			$("#ddTransactionType").addClass("ValidationError");
+		}
+	}
+
+	publicMethods.validate = function () {
+		var isValid = common.validate("QualifyingInfoForm");
+		debugger;
+		var selectedType = $("#ddTransactionType").find("option:selected").text();
+		if (selectedType == "Demoloition Permit Application") {
+			if ($("#IsPartialDemolition:checked,#IsEntireBuildingDemolition:checked").length == 0) {
+				alert("Please select Project Type.");
+				isValid = false;
+			}
+		} else if (selectedType == "Building Permit Application") {
+			if ($("#IsExistingBuilding:checked,#IsNewConstruction:checked").length == 0) {
+				alert("Please select Project Type.");
+				isValid = false;
+			}
+		}
+		return isValid;
+	}
+
+
+	publicMethods.onNextBtnClick = function () {
+		var selectedValue = $("#ddTransactionType").val();
+		if (selectedValue == "Building Permit Application") {
+			var ischkEB = $("#chkEB:checked").length == 1;
+			var ischkNB = $("#chkNB:checked").length == 1;
+			if (ischkEB || ischkNB) {
+				window.location.href = 'PropertyOwnerInfo';
+			} else {
+				$("#ddTransactionType").removeClass("ValidationError");
+				alert("Please check any of the check box.")
+			}
+		} else if (selectedValue == "Demoloition Permit Application") {
+			var ischkPD = $("#chkPD:checked").length == 1;
+			var ischkED = $("#chkED:checked").length == 1;
+			if (ischkPD || ischkED) {
+				window.location.href = 'PropertyOwnerInfo';
+			} else {
+				$("#ddTransactionType").removeClass("ValidationError");
+				alert("Please check any of the check box.")
+			}
+
+		} else {
+			//alert(Please select the transaction type);
+			$("#ddTransactionType").addClass("ValidationError");
+		}
+	}
+
+
+
+	return publicMethods;
+})();
