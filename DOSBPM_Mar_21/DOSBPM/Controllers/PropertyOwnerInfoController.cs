@@ -95,5 +95,18 @@ namespace DOSBPM.Controllers
 
             return RedirectToAction("Index", "PropertyOwnerContact");
         }
+
+		[HttpPost]
+		public JsonResult GetStackHolder(string stackHolder)
+		{
+			List<L_StakeHolderType> stackHolders = new List<L_StakeHolderType>();
+
+			var data = db.L_StakeHolderType.Where(a => a.StkHoldType_Name.Contains(stackHolder));
+			if (data != null)
+			{
+				stackHolders = data.ToList();
+			}
+			return Json(stackHolders, JsonRequestBehavior.AllowGet);
+		}
     }
 }
