@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\akari\Downloads\DOSBPM(27Feb)_March19\DOSBPM(27Feb)_LatestCode\DOSBPM\BPM_Model.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\akari\Documents\GitHub\SandhyaTest\DOSBPM_Mar_21\DOSBPM\BPM_Model.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

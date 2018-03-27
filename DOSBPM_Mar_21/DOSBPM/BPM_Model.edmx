@@ -152,14 +152,14 @@
             <PropertyRef Name="BldgAppInfo_ID" />
           </Key>
           <Property Name="BldgAppInfo_ID" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="BldgAppInfo_Type" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="BldgAppInfo_EstimatedCost" Type="varchar" MaxLength="15" />
           <Property Name="BldgAppInfo_Description" Type="varchar" MaxLength="2000" />
           <Property Name="BldgAppInfo_TypeOfWork" Type="varchar" MaxLength="10" />
-          <Property Name="BldgAppInfo_AdditionalInformation" Type="varchar" MaxLength="2000" />
+          <Property Name="BldgAppInfo_AdditionalInformation" Type="varchar" MaxLength="1" />
           <Property Name="TransType_ID" Type="varchar" MaxLength="10" />
           <Property Name="WorkType_ID" Type="varchar" MaxLength="10" />
-          <Property Name="PmtInfo_ID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="PmtInfo_ID" Type="varchar" MaxLength="20" />
+          <Property Name="BldgAppInfo_ProjectType" Type="varchar" MaxLength="40" />
         </EntityType>
         <EntityType Name="T_BuildingInformation">
           <Key>
@@ -168,7 +168,7 @@
           <Property Name="BldgInfo_ID" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="BldgInfo_Name" Type="varchar" MaxLength="150" />
           <Property Name="ParcelTax_ID" Type="varchar" MaxLength="20" />
-          <Property Name="Application_ID" Type="varchar" MaxLength="20" />
+          <Property Name="bldgAppInfo_ID" Type="varchar" MaxLength="20" />
           <Property Name="Address_ID" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="T_IndividualAdditionalInformation">
@@ -224,6 +224,7 @@
           <Property Name="AppID" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="UserID" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="JsonData" Type="varchar(max)" />
+          <Property Name=" UpdatedDate" Type="datetime" />
         </EntityType>
         <Association Name="FK__L_County__State___4F7CD00D">
           <End Role="L_State" Type="Self.L_State" Multiplicity="0..1" />
@@ -285,7 +286,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__T_Buildin__Addre__5629CD9C">
+        <Association Name="FK__T_Buildin__Addre__70DDC3D8">
           <End Role="T_Address" Type="Self.T_Address" Multiplicity="1" />
           <End Role="T_BuildingInformation" Type="Self.T_BuildingInformation" Multiplicity="*" />
           <ReferentialConstraint>
@@ -297,19 +298,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__T_Buildin__Appli__571DF1D5">
-          <End Role="T_BuildingApplicationInformation" Type="Self.T_BuildingApplicationInformation" Multiplicity="0..1" />
-          <End Role="T_BuildingInformation" Type="Self.T_BuildingInformation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="T_BuildingApplicationInformation">
-              <PropertyRef Name="BldgAppInfo_ID" />
-            </Principal>
-            <Dependent Role="T_BuildingInformation">
-              <PropertyRef Name="Application_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__T_Buildin__Trans__5441852A">
+        <Association Name="FK__T_Buildin__Trans__73BA3083">
           <End Role="L_TransactionType" Type="Self.L_TransactionType" Multiplicity="0..1" />
           <End Role="T_BuildingApplicationInformation" Type="Self.T_BuildingApplicationInformation" Multiplicity="*" />
           <ReferentialConstraint>
@@ -321,7 +310,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__T_Buildin__WorkT__5535A963">
+        <Association Name="FK__T_Buildin__WorkT__74AE54BC">
           <End Role="L_WorkType" Type="Self.L_WorkType" Multiplicity="0..1" />
           <End Role="T_BuildingApplicationInformation" Type="Self.T_BuildingApplicationInformation" Multiplicity="*" />
           <ReferentialConstraint>
@@ -342,30 +331,6 @@
             </Principal>
             <Dependent Role="T_IndividualInformation">
               <PropertyRef Name="Address_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__T_Individ__bldgA__59FA5E80">
-          <End Role="T_BuildingApplicationInformation" Type="Self.T_BuildingApplicationInformation" Multiplicity="1" />
-          <End Role="T_IndividualInformation" Type="Self.T_IndividualInformation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="T_BuildingApplicationInformation">
-              <PropertyRef Name="BldgAppInfo_ID" />
-            </Principal>
-            <Dependent Role="T_IndividualInformation">
-              <PropertyRef Name="bldgAppInfo_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__T_Individ__BldgI__5AEE82B9">
-          <End Role="T_BuildingInformation" Type="Self.T_BuildingInformation" Multiplicity="1" />
-          <End Role="T_IndividualInformation" Type="Self.T_IndividualInformation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="T_BuildingInformation">
-              <PropertyRef Name="BldgInfo_ID" />
-            </Principal>
-            <Dependent Role="T_IndividualInformation">
-              <PropertyRef Name="BldgInfo_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -405,18 +370,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__T_Organiz__BLdgA__5DCAEF64">
-          <End Role="T_BuildingApplicationInformation" Type="Self.T_BuildingApplicationInformation" Multiplicity="1" />
-          <End Role="T_OrganizationInformation" Type="Self.T_OrganizationInformation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="T_BuildingApplicationInformation">
-              <PropertyRef Name="BldgAppInfo_ID" />
-            </Principal>
-            <Dependent Role="T_OrganizationInformation">
-              <PropertyRef Name="BLdgAppInfo_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__T_Organiz__BldgA__5EBF139D">
           <End Role="T_IndividualInformation" Type="Self.T_IndividualInformation" Multiplicity="1" />
           <End Role="T_OrganizationInformation" Type="Self.T_OrganizationInformation" Multiplicity="*" />
@@ -429,18 +382,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__T_Organiz__BldgI__5FB337D6">
-          <End Role="T_BuildingInformation" Type="Self.T_BuildingInformation" Multiplicity="1" />
-          <End Role="T_OrganizationInformation" Type="Self.T_OrganizationInformation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="T_BuildingInformation">
-              <PropertyRef Name="BldgInfo_ID" />
-            </Principal>
-            <Dependent Role="T_OrganizationInformation">
-              <PropertyRef Name="BldgInfo_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+        <Function Name="usp_getstackHolderInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SearchStr" Type="varchar" Mode="In" />
+          <Parameter Name="type" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="DEV_CODES_APPDBModelStoreContainer">
           <EntitySet Name="L_AdditionalFireSmokeFeatures" EntityType="Self.L_AdditionalFireSmokeFeatures" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="L_AsbestoesReason" EntityType="Self.L_AsbestoesReason" Schema="dbo" store:Type="Tables" />
@@ -486,32 +431,20 @@
             <End Role="L_State" EntitySet="L_State" />
             <End Role="T_Address" EntitySet="T_Address" />
           </AssociationSet>
-          <AssociationSet Name="FK__T_Buildin__Addre__5629CD9C" Association="Self.FK__T_Buildin__Addre__5629CD9C">
+          <AssociationSet Name="FK__T_Buildin__Addre__70DDC3D8" Association="Self.FK__T_Buildin__Addre__70DDC3D8">
             <End Role="T_Address" EntitySet="T_Address" />
             <End Role="T_BuildingInformation" EntitySet="T_BuildingInformation" />
           </AssociationSet>
-          <AssociationSet Name="FK__T_Buildin__Appli__571DF1D5" Association="Self.FK__T_Buildin__Appli__571DF1D5">
-            <End Role="T_BuildingApplicationInformation" EntitySet="T_BuildingApplicationInformation" />
-            <End Role="T_BuildingInformation" EntitySet="T_BuildingInformation" />
-          </AssociationSet>
-          <AssociationSet Name="FK__T_Buildin__Trans__5441852A" Association="Self.FK__T_Buildin__Trans__5441852A">
+          <AssociationSet Name="FK__T_Buildin__Trans__73BA3083" Association="Self.FK__T_Buildin__Trans__73BA3083">
             <End Role="L_TransactionType" EntitySet="L_TransactionType" />
             <End Role="T_BuildingApplicationInformation" EntitySet="T_BuildingApplicationInformation" />
           </AssociationSet>
-          <AssociationSet Name="FK__T_Buildin__WorkT__5535A963" Association="Self.FK__T_Buildin__WorkT__5535A963">
+          <AssociationSet Name="FK__T_Buildin__WorkT__74AE54BC" Association="Self.FK__T_Buildin__WorkT__74AE54BC">
             <End Role="L_WorkType" EntitySet="L_WorkType" />
             <End Role="T_BuildingApplicationInformation" EntitySet="T_BuildingApplicationInformation" />
           </AssociationSet>
           <AssociationSet Name="FK__T_Individ__Addre__59063A47" Association="Self.FK__T_Individ__Addre__59063A47">
             <End Role="T_Address" EntitySet="T_Address" />
-            <End Role="T_IndividualInformation" EntitySet="T_IndividualInformation" />
-          </AssociationSet>
-          <AssociationSet Name="FK__T_Individ__bldgA__59FA5E80" Association="Self.FK__T_Individ__bldgA__59FA5E80">
-            <End Role="T_BuildingApplicationInformation" EntitySet="T_BuildingApplicationInformation" />
-            <End Role="T_IndividualInformation" EntitySet="T_IndividualInformation" />
-          </AssociationSet>
-          <AssociationSet Name="FK__T_Individ__BldgI__5AEE82B9" Association="Self.FK__T_Individ__BldgI__5AEE82B9">
-            <End Role="T_BuildingInformation" EntitySet="T_BuildingInformation" />
             <End Role="T_IndividualInformation" EntitySet="T_IndividualInformation" />
           </AssociationSet>
           <AssociationSet Name="FK__T_Individ__IndiI__5812160E" Association="Self.FK__T_Individ__IndiI__5812160E">
@@ -526,16 +459,8 @@
             <End Role="T_Address" EntitySet="T_Address" />
             <End Role="T_OrganizationInformation" EntitySet="T_OrganizationInformation" />
           </AssociationSet>
-          <AssociationSet Name="FK__T_Organiz__BLdgA__5DCAEF64" Association="Self.FK__T_Organiz__BLdgA__5DCAEF64">
-            <End Role="T_BuildingApplicationInformation" EntitySet="T_BuildingApplicationInformation" />
-            <End Role="T_OrganizationInformation" EntitySet="T_OrganizationInformation" />
-          </AssociationSet>
           <AssociationSet Name="FK__T_Organiz__BldgA__5EBF139D" Association="Self.FK__T_Organiz__BldgA__5EBF139D">
             <End Role="T_IndividualInformation" EntitySet="T_IndividualInformation" />
-            <End Role="T_OrganizationInformation" EntitySet="T_OrganizationInformation" />
-          </AssociationSet>
-          <AssociationSet Name="FK__T_Organiz__BldgI__5FB337D6" Association="Self.FK__T_Organiz__BldgI__5FB337D6">
-            <End Role="T_BuildingInformation" EntitySet="T_BuildingInformation" />
             <End Role="T_OrganizationInformation" EntitySet="T_OrganizationInformation" />
           </AssociationSet>
         </EntityContainer>
@@ -640,6 +565,10 @@
             <End Role="T_IndividualInformation" EntitySet="T_IndividualInformation" />
             <End Role="T_OrganizationInformation" EntitySet="T_OrganizationInformation" />
           </AssociationSet>
+          <FunctionImport Name="usp_getstackHolderInfo" ReturnType="Collection(DEV_CODES_APPDBModel.usp_getstackHolderInfo_Result)">
+            <Parameter Name="SearchStr" Mode="In" Type="String" />
+            <Parameter Name="type" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="L_AdditionalFireSmokeFeatures">
           <Key>
@@ -808,15 +737,16 @@
           <Property Name="BldgAppInfo_EstimatedCost" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="BldgAppInfo_Description" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
           <Property Name="BldgAppInfo_TypeOfWork" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="BldgAppInfo_AdditionalInformation" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="BldgAppInfo_AdditionalInformation" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="TransType_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="WorkType_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="PmtInfo_ID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PmtInfo_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="L_TransactionType" Relationship="DEV_CODES_APPDBModel.FK__T_Buildin__Trans__5441852A" FromRole="T_BuildingApplicationInformation" ToRole="L_TransactionType" />
           <NavigationProperty Name="L_WorkType" Relationship="DEV_CODES_APPDBModel.FK__T_Buildin__WorkT__5535A963" FromRole="T_BuildingApplicationInformation" ToRole="L_WorkType" />
           <NavigationProperty Name="T_BuildingInformation" Relationship="DEV_CODES_APPDBModel.FK__T_Buildin__Appli__571DF1D5" FromRole="T_BuildingApplicationInformation" ToRole="T_BuildingInformation" />
           <NavigationProperty Name="T_IndividualInformation" Relationship="DEV_CODES_APPDBModel.FK__T_Individ__bldgA__59FA5E80" FromRole="T_BuildingApplicationInformation" ToRole="T_IndividualInformation" />
           <NavigationProperty Name="T_OrganizationInformation" Relationship="DEV_CODES_APPDBModel.FK__T_Organiz__BLdgA__5DCAEF64" FromRole="T_BuildingApplicationInformation" ToRole="T_OrganizationInformation" />
+          <Property Name="BldgAppInfo_ProjectType" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="T_BuildingInformation">
           <Key>
@@ -831,6 +761,7 @@
           <NavigationProperty Name="T_BuildingApplicationInformation" Relationship="DEV_CODES_APPDBModel.FK__T_Buildin__Appli__571DF1D5" FromRole="T_BuildingInformation" ToRole="T_BuildingApplicationInformation" />
           <NavigationProperty Name="T_IndividualInformation" Relationship="DEV_CODES_APPDBModel.FK__T_Individ__BldgI__5AEE82B9" FromRole="T_BuildingInformation" ToRole="T_IndividualInformation" />
           <NavigationProperty Name="T_OrganizationInformation" Relationship="DEV_CODES_APPDBModel.FK__T_Organiz__BldgI__5FB337D6" FromRole="T_BuildingInformation" ToRole="T_OrganizationInformation" />
+          <Property Name="bldgAppInfo_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="T_IndividualAdditionalInformation">
           <Key>
@@ -896,6 +827,7 @@
           <Property Name="AppID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="UserID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="JsonData" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="C_UpdatedDate" Type="DateTime" Precision="3" />
         </EntityType>
         <Association Name="FK__L_State__Country__5070F446">
           <End Type="DEV_CODES_APPDBModel.L_Country" Role="L_Country" Multiplicity="0..1" />
@@ -1113,6 +1045,24 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="usp_getstackHolderInfo_Result">
+          <Property Type="Int32" Name="ZIP" Nullable="false" />
+          <Property Type="String" Name="StkHoldType_ID" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="StkHoldType_Name" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="IndiInfo_FirstName" Nullable="false" MaxLength="75" />
+          <Property Type="String" Name="IndiInfo_LastName" Nullable="false" MaxLength="75" />
+          <Property Type="String" Name="Address_ID" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="Address_1" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="Address_2" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="City" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="StateName" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="CountryName" Nullable="false" MaxLength="40" />
+          <Property Type="String" Name="County_ID" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="State_ID" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Country_ID" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="ContAdd_TelephoneNumber" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="ContAdd_EmailID" Nullable="true" MaxLength="150" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1282,6 +1232,7 @@
           <EntitySetMapping Name="T_BuildingApplicationInformation">
             <EntityTypeMapping TypeName="DEV_CODES_APPDBModel.T_BuildingApplicationInformation">
               <MappingFragment StoreEntitySet="T_BuildingApplicationInformation">
+                <ScalarProperty Name="BldgAppInfo_ProjectType" ColumnName="BldgAppInfo_ProjectType" />
                 <ScalarProperty Name="PmtInfo_ID" ColumnName="PmtInfo_ID" />
                 <ScalarProperty Name="WorkType_ID" ColumnName="WorkType_ID" />
                 <ScalarProperty Name="TransType_ID" ColumnName="TransType_ID" />
@@ -1289,7 +1240,6 @@
                 <ScalarProperty Name="BldgAppInfo_TypeOfWork" ColumnName="BldgAppInfo_TypeOfWork" />
                 <ScalarProperty Name="BldgAppInfo_Description" ColumnName="BldgAppInfo_Description" />
                 <ScalarProperty Name="BldgAppInfo_EstimatedCost" ColumnName="BldgAppInfo_EstimatedCost" />
-                <ScalarProperty Name="BldgAppInfo_Type" ColumnName="BldgAppInfo_Type" />
                 <ScalarProperty Name="BldgAppInfo_ID" ColumnName="BldgAppInfo_ID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1297,8 +1247,8 @@
           <EntitySetMapping Name="T_BuildingInformation">
             <EntityTypeMapping TypeName="DEV_CODES_APPDBModel.T_BuildingInformation">
               <MappingFragment StoreEntitySet="T_BuildingInformation">
+                <ScalarProperty Name="bldgAppInfo_ID" ColumnName="bldgAppInfo_ID" />
                 <ScalarProperty Name="Address_ID" ColumnName="Address_ID" />
-                <ScalarProperty Name="Application_ID" ColumnName="Application_ID" />
                 <ScalarProperty Name="ParcelTax_ID" ColumnName="ParcelTax_ID" />
                 <ScalarProperty Name="BldgInfo_Name" ColumnName="BldgInfo_Name" />
                 <ScalarProperty Name="BldgInfo_ID" ColumnName="BldgInfo_ID" />
@@ -1356,6 +1306,7 @@
           <EntitySetMapping Name="temp_BPMData">
             <EntityTypeMapping TypeName="DEV_CODES_APPDBModel.temp_BPMData">
               <MappingFragment StoreEntitySet="temp_BPMData">
+                <ScalarProperty Name="C_UpdatedDate" ColumnName=" UpdatedDate" />
                 <ScalarProperty Name="JsonData" ColumnName="JsonData" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="AppID" ColumnName="AppID" />
@@ -1363,6 +1314,28 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_getstackHolderInfo" FunctionName="DEV_CODES_APPDBModel.Store.usp_getstackHolderInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DEV_CODES_APPDBModel.usp_getstackHolderInfo_Result">
+                <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+                <ScalarProperty Name="StkHoldType_ID" ColumnName="StkHoldType_ID" />
+                <ScalarProperty Name="StkHoldType_Name" ColumnName="StkHoldType_Name" />
+                <ScalarProperty Name="IndiInfo_FirstName" ColumnName="IndiInfo_FirstName" />
+                <ScalarProperty Name="IndiInfo_LastName" ColumnName="IndiInfo_LastName" />
+                <ScalarProperty Name="Address_ID" ColumnName="Address_ID" />
+                <ScalarProperty Name="Address_1" ColumnName="Address_1" />
+                <ScalarProperty Name="Address_2" ColumnName="Address_2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="County_ID" ColumnName="County_ID" />
+                <ScalarProperty Name="State_ID" ColumnName="State_ID" />
+                <ScalarProperty Name="Country_ID" ColumnName="Country_ID" />
+                <ScalarProperty Name="ContAdd_TelephoneNumber" ColumnName="ContAdd_TelephoneNumber" />
+                <ScalarProperty Name="ContAdd_EmailID" ColumnName="ContAdd_EmailID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

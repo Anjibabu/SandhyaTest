@@ -26,6 +26,7 @@ namespace DOSBPM
         public string ParcelTax_ID { get; set; }
         public string Application_ID { get; set; }
         public string Address_ID { get; set; }
+        public string bldgAppInfo_ID { get; set; }
     
         public virtual T_Address T_Address { get; set; }
         public virtual T_BuildingApplicationInformation T_BuildingApplicationInformation { get; set; }

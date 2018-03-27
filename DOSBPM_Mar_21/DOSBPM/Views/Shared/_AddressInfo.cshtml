@@ -1,0 +1,100 @@
+﻿@model DOSBPM.Models.AddressInfo
+ 
+	 
+<div class="form-horizontal">
+	<h4>AddressInfo</h4>
+	@Html.HiddenFor(model => model.AddressId)
+	@Html.HiddenFor(model => model.StkHoldTypeId)
+	@Html.HiddenFor(model => model.StkHoldTypeName)
+
+
+	<div class="col-md-12">
+		<div class="col-md-12">
+			<label>Mailing Address Line 1</label>
+		</div>
+		<br />
+		<div class="col-md-12">
+			@Html.EditorFor(model => model.Address1, new { htmlAttributes = new { @class = "form-control" } })
+		</div>
+	</div>
+	<div class="col-md-12">
+		<div class="col-md-12">
+			<label>Mailing Address Line 2</label>
+		</div>
+		<br />
+		<div class="col-md-12">
+			@Html.EditorFor(model => model.Address2, new { htmlAttributes = new { @class = "form-control" } })
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="col-md-12">
+			<label>City</label>
+		</div>
+		<div class="col-md-12">
+			@Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="col-md-12">
+			<label>County</label>
+		</div>
+		<div class="col-md-12">
+			@Html.DropDownListFor(x => x.CountyId, Model.CountiesList, "--Select--", new { @class = "form-control" })
+		</div>
+	</div>
+
+	<div class="col-md-6">
+		<div class="col-md-12">
+			<label>State</label>
+		</div>
+		<div class="col-md-12">
+			@Html.DropDownListFor(x => x.StateId, Model.StatesList, "--Select--", new { @class = "form-control" })
+		</div>
+	</div>
+
+	<div class="col-md-6">
+		<div class="col-md-12">
+			<label>Zip Code</label>
+		</div>
+		<div class="col-md-12">
+			@Html.EditorFor(model => model.Zip, new { htmlAttributes = new { @class = "form-control" } })
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div class="col-md-12">
+			<label>Country</label>
+		</div>
+		<div class="col-md-12">
+			@Html.DropDownListFor(x => x.CountryId, Model.CountryList, "--Select--", new { @class = "form-control" })
+		</div>
+	</div>
+
+	<div class="col-md-6">
+		<div class="col-md-12">
+			<label>Zip 4</label>
+		</div>
+		<div class="col-md-12">
+			@Html.EditorFor(model => model.Zip4Format, new { htmlAttributes = new { @class = "form-control" } })
+		</div>
+	</div>
+
+	@*<div class="col-md-6">
+			<div class="col-md-6">
+				@Html.LabelFor(model => model.TelephoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+			</div>
+			<div class="col-md-6">
+				@Html.EditorFor(model => model.TelephoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+			</div>
+		</div>
+
+		<div class="col-md-6">
+			<div class="col-md-6">
+				@Html.LabelFor(model => model.EmailId, htmlAttributes: new { @class = "control-label col-md-2" })
+			</div>
+			<div class="col-md-6">
+				@Html.EditorFor(model => model.EmailId, new { htmlAttributes = new { @class = "form-control" } })
+			</div>
+		</div>*@
+
+</div>
+

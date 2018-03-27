@@ -17,10 +17,6 @@ namespace DOSBPM.Controllers
         {
             Log.Info("Building Info Controller Started");
             var objList = new PropertyOwnerInfo();
-            objList.StatesList = GetStates();
-            objList.CountryList = GetCountries();
-
-            objList.CountiesList = GetCounties();
 
             return View(objList);
         }

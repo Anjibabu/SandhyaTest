@@ -8,6 +8,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using DOSBPM.Models;
 using Newtonsoft.Json;
+using DOSBPM.Repository;
 
 namespace DOSBPM.Controllers
 {
@@ -45,14 +46,12 @@ namespace DOSBPM.Controllers
                                                         new SelectListItem {Value="Property Owner Individual", Text="Property Owner Individual", Selected=(buildApp.PropertyOwnerInfoData?.PropertyOwnerType=="Property Owner Individual")}
 
                                                     };
+			buildApp.PropertyOwnerInfoData = (buildApp.PropertyOwnerInfoData == null) ? new PropertyOwnerInfo() : buildApp.PropertyOwnerInfoData;
+			buildApp.PropertyOwnerInfoData.AddressInfo = (buildApp.PropertyOwnerInfoData.AddressInfo == null)?new AddressInfo(): buildApp.PropertyOwnerInfoData.AddressInfo;
 
-            ViewBag.StatesList = GetStates();
-            ViewBag.CountryList = GetCountries();
-            ViewBag.CountiesList = GetCounties();
+			//  buildApp.PropertyOwnerInfoData = ;
 
-            //  buildApp.PropertyOwnerInfoData = ;
-
-            return View(buildApp.PropertyOwnerInfoData);
+			return View(buildApp.PropertyOwnerInfoData);
 
 
         }
@@ -99,13 +98,9 @@ namespace DOSBPM.Controllers
 		[HttpPost]
 		public JsonResult GetStackHolder(string stackHolder)
 		{
-			List<L_StakeHolderType> stackHolders = new List<L_StakeHolderType>();
-
-			var data = db.L_StakeHolderType.Where(a => a.StkHoldType_Name.Contains(stackHolder));
-			if (data != null)
-			{
-				stackHolders = data.ToList();
-			}
+			List<IndividualInformation> stackHolders = new List<IndividualInformation>();
+			var resp = new PropertyInfoData();
+			stackHolders = resp.GetPropertyIndividualInfoData(stackHolder);
 			return Json(stackHolders, JsonRequestBehavior.AllowGet);
 		}
     }

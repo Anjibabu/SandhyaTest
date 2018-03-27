@@ -1,4 +1,6 @@
-﻿@model DOSBPM.Models.PropertyOwnerInfo
+﻿@using DOSBPM.Models
+@model DOSBPM.Models.PropertyOwnerInfo
+
 @*@model DOSBPM.Models.PropertyOwnerOrganization*@
 
 @{
@@ -11,6 +13,10 @@
 	{
 		@Html.AntiForgeryToken()
 
+
+		
+
+
 		<div class="form-group">
 			<div class="col-md-12">
 
@@ -22,51 +28,33 @@
 				<br />
 
 				<label><b>Select Stakeholder Type</b> </label><br />
-
-				@*@{
-						var TransTypes = new List<string>();
-						TransTypes.Add("Property Owner Organization");
-						//TransTypes.Add("Contact Person");
-						TransTypes.Add("Property Owner Individual");
-					}*@
-
-
 				<div>
-					@* @Html.DropDownListFor(model => model.Comments, new SelectList(TransTypes), "-- Select --", new { @class = "form-control", id = "ddTransTypes" })*@
-					@Html.DropDownListFor(model => model.PropertyOwnerType, (List<SelectListItem>)ViewBag.info, new { @class = "form-control", id = "ddTransTypes" })
+					@Html.DropDownListFor(model => model.PropertyOwnerType, (List<SelectListItem>)ViewBag.info, "--Select Stakeholder Type--", new { @class = "form-control", id = "ddTransTypes" })
 				</div>
-				@*<div class="col-md-3" style="position:fixed; bottom:150px">
+				 
+				<br />
+				<div class="col-md-6 ">
+					<label><b>Search for Stakeholder</b></label><br>
+					<div id="btnSearch" class="input-group col-lg-4 col-sm-6">
+						<input id="serachText1" type="text" class="form-control" placeholder="search">
+						<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+					</div>
 
-						<input type="button" id="btnBack" class="BackBtn btn btn-default" value="Back" style="background-color:#a90606; color:white" onclick="location.href='@Url.Action("Index", "QualifyingInfo")'" />
+				</div>
 
-					</div>*@
+				<br />
+
+				<div class="col-md-12 ">
+					@Html.CheckBox("Check this box to change or update information") &nbsp; Check this box to change or update information
+					<br />
+					@Html.CheckBox("Create new record") &nbsp; Create new record<br /><br />
+				</div>
 				<br />
 				@*-------------PropertyOwnerOrganizationPage----------------------*@
 				<div id="PropertyOwnerInformation" style="display:block">
 					<div class="form-group">
 
-						<div class="col-md-6 ">
-							<label><b>Search for Stakeholder</b></label><br>
-							<div id="btnSearch" class="input-group col-lg-4 col-sm-6">
-								<input id="serachText1" type="text" class="form-control" placeholder="search">
-								<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-							</div>
 
-						</div>
-						@*<div class="col-md-3">
-								<b> Search for Stakeholder</b>
-								<div class="input-group">
-									@Html.TextBoxFor(x => x.searchStakeHolderName, new { @class = "form-control ", placeholder = "Search", maxlength = "15", style = "width:250px" })
-									<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-								</div>
-							</div>*@
-						<br />
-
-						<div class="col-md-12 ">
-							@Html.CheckBox("Check this box to change or update information") &nbsp; Check this box to change or update information
-							<br />
-							@Html.CheckBox("Create new record") &nbsp; Create new record<br /><br />
-						</div>
 						<div class="col-md-3">
 							<lable class=" required">Organization Name</lable><br />
 							@Html.TextBoxFor(x => x.OrganizationName, new { @class = "form-control" })
@@ -75,44 +63,8 @@
 							<lable>Authority in Charge of the Property </lable> <br />
 							@Html.TextBoxFor(x => x.Authority, new { @class = "form-control", maxlength = "30" })
 						</div>
-						<div class="col-md-12">
-							<lable class=" required">Mailing Address Line 1</lable><br />
-							@Html.TextBoxFor(x => x.MailingAddressLine1, new { @class = "form-control", maxlength = "10" })
-						</div>
-						<div class="col-md-12">
-							<lable>Mailing Address Line 2</lable><br />
-							@Html.TextBoxFor(x => x.MailingAddressLine2, new { @class = "form-control", maxlength = "10" })
-						</div>
-						<div class="col-md-3">
-							<lable class=" required">City</lable><br />
-
-							@Html.TextBoxFor(x => x.City, new { @class = "form-control", maxlength = "10" })
-						</div>
-
-
-						<div class="col-md-9">
-							<lable class="required">County</lable> <br />
-							@Html.DropDownListFor(x => x.County, (SelectList)ViewBag.CountiesList, "--Select--", new { @class = "form-control" })
-						</div>
-
-
-						<div class="col-md-3">
-
-							<lable class="required">State</lable> <br />
-							@Html.DropDownListFor(x => x.State, (SelectList)ViewBag.StatesList, "New York", new { @class = "form-control" })
-						</div>
-						<div class="col-md-9">
-							Zip Code<br />
-							@Html.TextBoxFor(x => x.Zip, new { @class = "form-control", maxlength = "10" })
-						</div>
-						<div class="col-md-3">
-
-							<lable class="required">Country</lable> <br />
-							@Html.DropDownListFor(x => x.Country, (SelectList)ViewBag.CountryList, "--Select--", new { @class = "form-control" })
-						</div>
-						<div class="col-md-9">
-							Zip 4<br />
-							@Html.TextBoxFor(x => x.Zip4, new { @class = "form-control", maxlength = "10" })
+						<div>
+							@Html.Partial("_AddressInfo", Model.AddressInfo)
 						</div>
 						<br />
 
@@ -144,30 +96,7 @@
 				@*--------------PropertyOwnerIndividualPage-----------------*@
 
 				<div id="PropertyOwnerIndividualPage" style="display:none">
-
 					<div class="form-group">
-						<div class="col-md-6 ">
-							<label><b>Search for Stakeholder</b></label><br>
-							<div id="btnSearch" class="input-group col-lg-4 col-sm-6">
-								<input id="serachText" type="text" class="form-control" placeholder="search">
-								<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
-							</div>
-
-						</div>
-						@*<div class="col-md-3">
-								<b> Search for Stakeholder Name</b> <br />
-								<div class="input-group">
-									@Html.TextBoxFor(x => x.searchStakeHolderName, new { @class = "form-control ", placeholder = "Search", maxlength = "15", style = "width:250px", required = "TRUE" })
-									<span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-								</div>
-							</div>*@
-						<br />
-
-						<div class="col-md-12">
-							@Html.CheckBox("Check this box to change or update information") &nbsp; Check this box to change or update information
-							<br />
-							@Html.CheckBox("Create new record") &nbsp; Create new record<br /><br />
-						</div>
 						<div class="col-md-3 ">
 							<label class="required">First Name</label> <br />
 							@Html.TextBoxFor(x => x.FirstName, new { @class = "form-control ", maxlength = "5", style = "padding:4px 6px" })
@@ -206,40 +135,8 @@
 							@Html.TextBoxFor(x => x.PropertyOwner, new { @class = "form-control", maxlength = "10" })
 						</div>
 						<br />
-						<div class="col-md-12">
-							<lable class=" required"> Mailing Address Line 1*</lable><br />
-							@Html.TextBoxFor(x => x.MailingAddressLine1, new { @class = "form-control", maxlength = "10" })
-						</div>
-						<div class="col-md-12">
-							Mailing Address Line 2*<br />
-							@Html.TextBoxFor(x => x.MailingAddressLine2, new { @class = "form-control", maxlength = "10" })
-						</div>
-						<div class="col-md-3">
-							<lable class=" required">City</lable><br />
-							@Html.TextBoxFor(x => x.City, new { @class = "form-control", maxlength = "10" })
-						</div>
-						<div class="col-md-9">
-							<lable class=" required">County</lable><br />
-							@Html.DropDownListFor(x => x.County, (SelectList)ViewBag.CountiesList, "--Select--", new { @class = "form-control" })
-						</div>
-
-						<div class="col-md-3">
-
-							<lable class=" required">State</lable>  <br />
-							@Html.DropDownListFor(x => x.State, (SelectList)ViewBag.StatesList, "--Select--", new { @class = "form-control" })
-						</div>
-						<div class="col-md-9">
-							<lable class=" required">Zip Code</lable><br />
-							@Html.TextBoxFor(x => x.Zip, new { @class = "form-control", maxlength = "10" })
-						</div>
-						@*<div class="col-md-3">
-
-								Country<br />
-								@Html.DropDownListFor(x => x.Country, new SelectList(Model.CountryList, "Value", "Text"), "--Select--", new { @class = "form-control" })
-							</div>*@
-						<div class="col-md-9">
-							Zip 4<br />
-							@Html.TextBoxFor(x => x.Zip4, new { @class = "form-control", maxlength = "10" })
+						<div>
+							@Html.Partial("_AddressInfo", Model.AddressInfo)
 						</div>  <br />
 
 						<div class="col-md-12">
@@ -247,39 +144,9 @@
 							<label>Comments</label><br />
 							@Html.TextAreaFor(model => model.Comments, new { @class = "form-control", maxlength = 2000, @cols = "75", @rows = "3" })
 						</div>
-
-						<div class="col-md-12">
-							<br /><br />
-							@*<div class="col-md-3 text-left ">
-
-									<input type="submit" id="btnPrevious" class="NextBtn btn btn-default" value="Previous" style="background-color:#a90606; color:white" />
-
-								</div>
-								<div class="col-md-6 text-right ">
-
-									<input type="submit" id="btnNext" class="NextBtn btn btn-default" value="Next" style="background-color:#a90606; color:white" />
-
-								</div>*@
-						</div>
-						<div class="col-md-12">
-							<br /><br /><br /><br /><br />
-						</div>
-						<div class="col-md-12">
-
-
-						</div>
 					</div>
-
 				</div>
-				<div id="ContactPerson">
-
-				</div>
-				<br /><br />
-				<br /><br /><br />
 			</div>
-
-
-
 		</div>
 	}
 </div>
@@ -323,15 +190,29 @@
 					success: function (data) {
 						response($.map(data, function (item) {
 							console.log(item);
-							return { label: item.StkHoldType_Name, value: item.StkHoldType_Name, itemObj: item };
+							return { label: item.FirstName, value: item.FirstName, address: item };
 						}))
 
 					}
 				})
 			},
 			select: function(e, i) {
-				console.log(i);
+
+				console.log(i.item.address);
+				var ads = i.item.address;
+
+				$("#Address1").val(ads.Address1);
+				$("#Address2").val(ads.Address2);
+				$("#City").val(ads.City);
+				$("#CountyId").val(ads.CountyId);
+
+				$("#StateId").val(ads.StateId);
+				$("#Zip").val(ads.Zip);
+				$("#CountryId").val(ads.CountryId);
+				$("#Zip4Format").val(ads.Zip4Format);
+				
 			},
+			minLength:3,
 			messages: {
 				noResults: "", results: ""
 			}

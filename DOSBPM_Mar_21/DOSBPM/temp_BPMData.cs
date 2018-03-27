@@ -18,5 +18,6 @@ namespace DOSBPM
         public string AppID { get; set; }
         public string UserID { get; set; }
         public string JsonData { get; set; }
+        public Nullable<System.DateTime> C_UpdatedDate { get; set; }
     }
 }

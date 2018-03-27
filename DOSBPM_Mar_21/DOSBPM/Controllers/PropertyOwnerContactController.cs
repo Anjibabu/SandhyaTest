@@ -17,10 +17,6 @@ namespace DOSBPM.Controllers
         {
            
                 var objList = new PropertyOwnerInfo();
-                objList.StatesList = GetStates();
-                objList.CountryList = GetCountries();
-
-                objList.CountiesList = GetCounties();
 
                 return View(objList);
             

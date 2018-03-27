@@ -31,6 +31,7 @@ namespace DOSBPM
         public string TransType_ID { get; set; }
         public string WorkType_ID { get; set; }
         public string PmtInfo_ID { get; set; }
+        public string BldgAppInfo_ProjectType { get; set; }
     
         public virtual L_TransactionType L_TransactionType { get; set; }
         public virtual L_WorkType L_WorkType { get; set; }

@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace DOSBPM.Models
 {
-    public class PropertyOwnerInfo
+    public class PropertyOwnerInfo : AddressInfo
     {
         
         public string PropertyOwnerType { get; set; }
@@ -49,10 +49,9 @@ namespace DOSBPM.Models
         // Organization Address details
         public string OrganizationName { get; set; }
         public int ParcelTaxID { get; set; }
-        public SelectList CountryList { get; set; }
-        public SelectList StatesList { get; set; }
-        public SelectList CountiesList { get; set; }
+         
+		public AddressInfo AddressInfo{ get; set; }
 
 
-    }
+	}
 }

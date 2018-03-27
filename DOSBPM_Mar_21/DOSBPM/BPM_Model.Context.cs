@@ -12,6 +12,8 @@ namespace DOSBPM
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class DEV_CODES_APPDBEntities : DbContext
     {
@@ -49,5 +51,18 @@ namespace DOSBPM
         public virtual DbSet<T_IndividualInformation> T_IndividualInformation { get; set; }
         public virtual DbSet<T_OrganizationInformation> T_OrganizationInformation { get; set; }
         public virtual DbSet<temp_BPMData> temp_BPMData { get; set; }
+    
+        public virtual ObjectResult<usp_getstackHolderInfo_Result> usp_getstackHolderInfo(string searchStr, string type)
+        {
+            var searchStrParameter = searchStr != null ?
+                new ObjectParameter("SearchStr", searchStr) :
+                new ObjectParameter("SearchStr", typeof(string));
+    
+            var typeParameter = type != null ?
+                new ObjectParameter("type", type) :
+                new ObjectParameter("type", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_getstackHolderInfo_Result>("usp_getstackHolderInfo", searchStrParameter, typeParameter);
+        }
     }
 }
