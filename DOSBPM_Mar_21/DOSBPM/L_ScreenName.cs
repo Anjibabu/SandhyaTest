@@ -14,7 +14,16 @@ namespace DOSBPM
     
     public partial class L_ScreenName
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public L_ScreenName()
+        {
+            this.T_CommentsInformation = new HashSet<T_CommentsInformation>();
+        }
+    
         public string Screen_ID { get; set; }
         public string Screen_Name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<T_CommentsInformation> T_CommentsInformation { get; set; }
     }
 }

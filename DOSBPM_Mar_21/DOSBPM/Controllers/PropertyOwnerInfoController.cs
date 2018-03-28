@@ -96,12 +96,14 @@ namespace DOSBPM.Controllers
         }
 
 		[HttpPost]
-		public JsonResult GetStackHolder(string stackHolder)
+		public JsonResult GetStackHolder(string stackHolder,string type)
 		{
-			List<IndividualInformation> stackHolders = new List<IndividualInformation>();
+			List<StackInfo> stackHolders = new List<StackInfo>();
 			var resp = new PropertyInfoData();
-			stackHolders = resp.GetPropertyIndividualInfoData(stackHolder);
+			stackHolders = resp.GetStackInfoData(stackHolder,type);
 			return Json(stackHolders, JsonRequestBehavior.AllowGet);
 		}
+
+		  
     }
 }

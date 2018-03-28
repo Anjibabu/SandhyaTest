@@ -19,6 +19,7 @@ namespace DOSBPM
         {
             this.T_IndividualAdditionalInformation = new HashSet<T_IndividualAdditionalInformation>();
             this.T_OrganizationInformation = new HashSet<T_OrganizationInformation>();
+            this.T_PayeeInformation = new HashSet<T_PayeeInformation>();
         }
     
         public string IndiInfo_ID { get; set; }
@@ -41,5 +42,7 @@ namespace DOSBPM
         public virtual ICollection<T_IndividualAdditionalInformation> T_IndividualAdditionalInformation { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<T_OrganizationInformation> T_OrganizationInformation { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<T_PayeeInformation> T_PayeeInformation { get; set; }
     }
 }

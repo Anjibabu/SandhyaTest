@@ -17,13 +17,20 @@ namespace DOSBPM
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public T_BuildingApplicationInformation()
         {
+            this.T_BuildingApplicationCertificateInformation = new HashSet<T_BuildingApplicationCertificateInformation>();
+            this.T_BuildingApplicationInspectionInformation = new HashSet<T_BuildingApplicationInspectionInformation>();
+            this.T_BuildingApplicationStatus = new HashSet<T_BuildingApplicationStatus>();
             this.T_BuildingInformation = new HashSet<T_BuildingInformation>();
+            this.T_BuildingMiscellaneous = new HashSet<T_BuildingMiscellaneous>();
+            this.T_BuildingOccupancy_Height_Area = new HashSet<T_BuildingOccupancy_Height_Area>();
+            this.T_BuildingVariance = new HashSet<T_BuildingVariance>();
+            this.T_CommentsInformation = new HashSet<T_CommentsInformation>();
             this.T_IndividualInformation = new HashSet<T_IndividualInformation>();
             this.T_OrganizationInformation = new HashSet<T_OrganizationInformation>();
+            this.T_Payment = new HashSet<T_Payment>();
         }
     
         public string BldgAppInfo_ID { get; set; }
-        public string BldgAppInfo_Type { get; set; }
         public string BldgAppInfo_EstimatedCost { get; set; }
         public string BldgAppInfo_Description { get; set; }
         public string BldgAppInfo_TypeOfWork { get; set; }
@@ -36,10 +43,26 @@ namespace DOSBPM
         public virtual L_TransactionType L_TransactionType { get; set; }
         public virtual L_WorkType L_WorkType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<T_BuildingApplicationCertificateInformation> T_BuildingApplicationCertificateInformation { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<T_BuildingApplicationInspectionInformation> T_BuildingApplicationInspectionInformation { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<T_BuildingApplicationStatus> T_BuildingApplicationStatus { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<T_BuildingInformation> T_BuildingInformation { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<T_BuildingMiscellaneous> T_BuildingMiscellaneous { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<T_BuildingOccupancy_Height_Area> T_BuildingOccupancy_Height_Area { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<T_BuildingVariance> T_BuildingVariance { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<T_CommentsInformation> T_CommentsInformation { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<T_IndividualInformation> T_IndividualInformation { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<T_OrganizationInformation> T_OrganizationInformation { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<T_Payment> T_Payment { get; set; }
     }
 }

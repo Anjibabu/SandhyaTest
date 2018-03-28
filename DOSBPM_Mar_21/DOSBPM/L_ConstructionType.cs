@@ -14,7 +14,16 @@ namespace DOSBPM
     
     public partial class L_ConstructionType
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public L_ConstructionType()
+        {
+            this.T_BuildingOccupancy_Height_Area = new HashSet<T_BuildingOccupancy_Height_Area>();
+        }
+    
         public string ConstructionType_ID { get; set; }
         public string ConstructionType_Description { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<T_BuildingOccupancy_Height_Area> T_BuildingOccupancy_Height_Area { get; set; }
     }
 }

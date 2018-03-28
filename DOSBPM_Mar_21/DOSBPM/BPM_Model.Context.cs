@@ -29,27 +29,53 @@ namespace DOSBPM
     
         public virtual DbSet<L_AdditionalFireSmokeFeatures> L_AdditionalFireSmokeFeatures { get; set; }
         public virtual DbSet<L_AsbestoesReason> L_AsbestoesReason { get; set; }
+        public virtual DbSet<L_CilmateZone> L_CilmateZone { get; set; }
+        public virtual DbSet<L_CompliancePath> L_CompliancePath { get; set; }
+        public virtual DbSet<L_ComplianceSoftware> L_ComplianceSoftware { get; set; }
+        public virtual DbSet<L_ConstructionMaterials> L_ConstructionMaterials { get; set; }
         public virtual DbSet<L_ConstructionType> L_ConstructionType { get; set; }
         public virtual DbSet<L_Country> L_Country { get; set; }
         public virtual DbSet<L_County> L_County { get; set; }
+        public virtual DbSet<L_EgressSystems> L_EgressSystems { get; set; }
+        public virtual DbSet<L_ElectricalServiceType> L_ElectricalServiceType { get; set; }
         public virtual DbSet<L_FireBarriers> L_FireBarriers { get; set; }
         public virtual DbSet<L_FirePartition> L_FirePartition { get; set; }
+        public virtual DbSet<L_FireProtectionSystem> L_FireProtectionSystem { get; set; }
+        public virtual DbSet<L_FuelOilTanks> L_FuelOilTanks { get; set; }
+        public virtual DbSet<L_GasFuelOilType> L_GasFuelOilType { get; set; }
+        public virtual DbSet<L_InspectionType> L_InspectionType { get; set; }
         public virtual DbSet<L_OccupancyTypes> L_OccupancyTypes { get; set; }
+        public virtual DbSet<L_PaymentType> L_PaymentType { get; set; }
+        public virtual DbSet<L_PropaneTanks> L_PropaneTanks { get; set; }
+        public virtual DbSet<L_RiskCategory> L_RiskCategory { get; set; }
         public virtual DbSet<L_ScreenName> L_ScreenName { get; set; }
+        public virtual DbSet<L_SeismicDesignCategory> L_SeismicDesignCategory { get; set; }
         public virtual DbSet<L_SpecialDetailedReq> L_SpecialDetailedReq { get; set; }
+        public virtual DbSet<L_SpecialInspectionsType> L_SpecialInspectionsType { get; set; }
         public virtual DbSet<L_StakeHolderType> L_StakeHolderType { get; set; }
         public virtual DbSet<L_State> L_State { get; set; }
         public virtual DbSet<L_Suffix> L_Suffix { get; set; }
         public virtual DbSet<L_TransactionType> L_TransactionType { get; set; }
+        public virtual DbSet<L_TypeOfElectricalSystem> L_TypeOfElectricalSystem { get; set; }
+        public virtual DbSet<L_ViolationType> L_ViolationType { get; set; }
         public virtual DbSet<L_WasterWaterSupplyType> L_WasterWaterSupplyType { get; set; }
         public virtual DbSet<L_WaterSupplyType> L_WaterSupplyType { get; set; }
         public virtual DbSet<L_WorkType> L_WorkType { get; set; }
         public virtual DbSet<T_Address> T_Address { get; set; }
+        public virtual DbSet<T_BuildingApplicationCertificateInformation> T_BuildingApplicationCertificateInformation { get; set; }
         public virtual DbSet<T_BuildingApplicationInformation> T_BuildingApplicationInformation { get; set; }
+        public virtual DbSet<T_BuildingApplicationInspectionInformation> T_BuildingApplicationInspectionInformation { get; set; }
+        public virtual DbSet<T_BuildingApplicationStatus> T_BuildingApplicationStatus { get; set; }
         public virtual DbSet<T_BuildingInformation> T_BuildingInformation { get; set; }
+        public virtual DbSet<T_BuildingMiscellaneous> T_BuildingMiscellaneous { get; set; }
+        public virtual DbSet<T_BuildingOccupancy_Height_Area> T_BuildingOccupancy_Height_Area { get; set; }
+        public virtual DbSet<T_BuildingVariance> T_BuildingVariance { get; set; }
+        public virtual DbSet<T_CommentsInformation> T_CommentsInformation { get; set; }
         public virtual DbSet<T_IndividualAdditionalInformation> T_IndividualAdditionalInformation { get; set; }
         public virtual DbSet<T_IndividualInformation> T_IndividualInformation { get; set; }
         public virtual DbSet<T_OrganizationInformation> T_OrganizationInformation { get; set; }
+        public virtual DbSet<T_PayeeInformation> T_PayeeInformation { get; set; }
+        public virtual DbSet<T_Payment> T_Payment { get; set; }
         public virtual DbSet<temp_BPMData> temp_BPMData { get; set; }
     
         public virtual ObjectResult<usp_getstackHolderInfo_Result> usp_getstackHolderInfo(string searchStr, string type)

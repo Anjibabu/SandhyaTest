@@ -12,12 +12,15 @@ namespace DOSBPM
     using System;
     using System.Collections.Generic;
     
-    public partial class temp_BPMData
+    public partial class T_CommentsInformation
     {
-        public int id { get; set; }
-        public string AppID { get; set; }
-        public string UserID { get; set; }
-        public string JsonData { get; set; }
-        public Nullable<System.DateTime> UpdatedDate { get; set; }
+        public string Comment_ID { get; set; }
+        public string Comment_ApplicantDescription { get; set; }
+        public string Comment_ReviewerDescription { get; set; }
+        public string Comment_ScreenName { get; set; }
+        public string BLdgAppInfo_ID { get; set; }
+    
+        public virtual L_ScreenName L_ScreenName { get; set; }
+        public virtual T_BuildingApplicationInformation T_BuildingApplicationInformation { get; set; }
     }
 }

@@ -12,12 +12,14 @@ namespace DOSBPM
     using System;
     using System.Collections.Generic;
     
-    public partial class temp_BPMData
+    public partial class T_BuildingApplicationCertificateInformation
     {
-        public int id { get; set; }
-        public string AppID { get; set; }
-        public string UserID { get; set; }
-        public string JsonData { get; set; }
-        public Nullable<System.DateTime> UpdatedDate { get; set; }
+        public string BldgAppCertInfo_ID { get; set; }
+        public System.DateTime BldgAppCertInfo_IssueDate { get; set; }
+        public System.DateTime BldgAppCertInfo_ExpiryDate { get; set; }
+        public System.DateTime BldgAppCertInfo_RenewalDate { get; set; }
+        public string BLdgAppInfo_ID { get; set; }
+    
+        public virtual T_BuildingApplicationInformation T_BuildingApplicationInformation { get; set; }
     }
 }

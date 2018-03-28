@@ -12,12 +12,9 @@ namespace DOSBPM
     using System;
     using System.Collections.Generic;
     
-    public partial class temp_BPMData
+    public partial class L_ElectricalServiceType
     {
-        public int id { get; set; }
-        public string AppID { get; set; }
-        public string UserID { get; set; }
-        public string JsonData { get; set; }
-        public Nullable<System.DateTime> UpdatedDate { get; set; }
+        public string ElectricalServiceType_ID { get; set; }
+        public string ElectricalServiceType_Desciption { get; set; }
     }
 }

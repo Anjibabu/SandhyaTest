@@ -201,6 +201,7 @@
     <Compile Include="Controllers\PropertyOwnerIndividualController.cs" />
     <Compile Include="Controllers\PropertyOwnerInfoController.cs" />
     <Compile Include="Controllers\PropertyOwnerOrganizationController.cs" />
+    <Compile Include="Controllers\QualifyInfoController.cs" />
     <Compile Include="Controllers\QualifyingInfoController.cs" />
     <Compile Include="Controllers\SafeguardsDuringConstructionController.cs" />
     <Compile Include="Controllers\SiteandUtilitiesController.cs" />
@@ -222,6 +223,18 @@
     <Compile Include="L_AsbestoesReason.cs">
       <DependentUpon>BPM_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="L_CilmateZone.cs">
+      <DependentUpon>BPM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="L_CompliancePath.cs">
+      <DependentUpon>BPM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="L_ComplianceSoftware.cs">
+      <DependentUpon>BPM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="L_ConstructionMaterials.cs">
+      <DependentUpon>BPM_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="L_ConstructionType.cs">
       <DependentUpon>BPM_Model.tt</DependentUpon>
     </Compile>
@@ -231,19 +244,52 @@
     <Compile Include="L_County.cs">
       <DependentUpon>BPM_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="L_EgressSystems.cs">
+      <DependentUpon>BPM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="L_ElectricalServiceType.cs">
+      <DependentUpon>BPM_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="L_FireBarriers.cs">
       <DependentUpon>BPM_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="L_FirePartition.cs">
       <DependentUpon>BPM_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="L_FireProtectionSystem.cs">
+      <DependentUpon>BPM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="L_FuelOilTanks.cs">
+      <DependentUpon>BPM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="L_GasFuelOilType.cs">
+      <DependentUpon>BPM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="L_InspectionType.cs">
+      <DependentUpon>BPM_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="L_OccupancyTypes.cs">
+      <DependentUpon>BPM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="L_PaymentType.cs">
+      <DependentUpon>BPM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="L_PropaneTanks.cs">
+      <DependentUpon>BPM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="L_RiskCategory.cs">
       <DependentUpon>BPM_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="L_ScreenName.cs">
       <DependentUpon>BPM_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="L_SeismicDesignCategory.cs">
+      <DependentUpon>BPM_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="L_SpecialDetailedReq.cs">
+      <DependentUpon>BPM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="L_SpecialInspectionsType.cs">
       <DependentUpon>BPM_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="L_StakeHolderType.cs">
@@ -256,6 +302,12 @@
       <DependentUpon>BPM_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="L_TransactionType.cs">
+      <DependentUpon>BPM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="L_TypeOfElectricalSystem.cs">
+      <DependentUpon>BPM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="L_ViolationType.cs">
       <DependentUpon>BPM_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="L_WasterWaterSupplyType.cs">
@@ -287,7 +339,7 @@
     <Compile Include="Models\FireProtectionSystems.cs" />
     <Compile Include="Models\FuelGasRequirements.cs" />
     <Compile Include="Models\GeneralBuildingHeightsandAreas.cs" />
-    <Compile Include="Models\IndividualInformation.cs" />
+    <Compile Include="Models\StackInfo.cs" />
     <Compile Include="Models\InteriorEnvironmentandExteriorWallsandRooftopStructures.cs" />
     <Compile Include="Models\InteriorFinishes.cs" />
     <Compile Include="Models\LogIn.cs" />
@@ -325,10 +377,31 @@
     <Compile Include="T_Address.cs">
       <DependentUpon>BPM_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="T_BuildingApplicationCertificateInformation.cs">
+      <DependentUpon>BPM_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="T_BuildingApplicationInformation.cs">
       <DependentUpon>BPM_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="T_BuildingApplicationInspectionInformation.cs">
+      <DependentUpon>BPM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_BuildingApplicationStatus.cs">
+      <DependentUpon>BPM_Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="T_BuildingInformation.cs">
+      <DependentUpon>BPM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_BuildingMiscellaneous.cs">
+      <DependentUpon>BPM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_BuildingOccupancy_Height_Area.cs">
+      <DependentUpon>BPM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_BuildingVariance.cs">
+      <DependentUpon>BPM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_CommentsInformation.cs">
       <DependentUpon>BPM_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="T_IndividualAdditionalInformation.cs">
@@ -338,6 +411,12 @@
       <DependentUpon>BPM_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="T_OrganizationInformation.cs">
+      <DependentUpon>BPM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_PayeeInformation.cs">
+      <DependentUpon>BPM_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T_Payment.cs">
       <DependentUpon>BPM_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_getstackHolderInfo_Result.cs">
@@ -429,6 +508,7 @@
     <Content Include="Content\Images\untitled.png" />
     <Content Include="Content\Images\VFooter.PNG" />
     <Content Include="Content\Images\VHeader.png" />
+    <Content Include="DBScript\usp_getstackHolderInfo.sql" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -489,7 +569,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -546,6 +628,7 @@
     <Content Include="Views\Accessibility\Index.cshtml" />
     <Content Include="Views\Shared\_PropertyOwnerIndividualPage.cshtml" />
     <Content Include="Views\Shared\_AddressInfo.cshtml" />
+    <Content Include="Views\QualifyInfo\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />

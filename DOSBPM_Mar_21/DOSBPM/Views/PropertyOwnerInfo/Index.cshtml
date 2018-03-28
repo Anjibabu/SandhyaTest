@@ -12,11 +12,6 @@
 	@using (Html.BeginForm("Index", "PropertyOwnerInfo", FormMethod.Post))
 	{
 		@Html.AntiForgeryToken()
-
-
-		
-
-
 		<div class="form-group">
 			<div class="col-md-12">
 
@@ -31,7 +26,7 @@
 				<div>
 					@Html.DropDownListFor(model => model.PropertyOwnerType, (List<SelectListItem>)ViewBag.info, "--Select Stakeholder Type--", new { @class = "form-control", id = "ddTransTypes" })
 				</div>
-				 
+
 				<br />
 				<div class="col-md-6 ">
 					<label><b>Search for Stakeholder</b></label><br>
@@ -63,34 +58,9 @@
 							<lable>Authority in Charge of the Property </lable> <br />
 							@Html.TextBoxFor(x => x.Authority, new { @class = "form-control", maxlength = "30" })
 						</div>
-						<div>
-							@Html.Partial("_AddressInfo", Model.AddressInfo)
-						</div>
+
 						<br />
 
-
-						<div class="col-md-12">
-							<br /><br /><br /><br />
-							<label>Comments</label><br />
-							@Html.TextAreaFor(model => model.Comments, new { @class = "form-control", maxlength = "2000", @cols = "75", @rows = "3" })
-						</div>
-
-						<div class="col-md-12">
-							<br /><br />
-							<div class="col-md-3 text-left ">
-
-								<input type="submit" id="btnNext" class="NextBtn btn btn-default" value="Previous" style="background-color:#a90606; color:white" onclick="location.href = '@Url.Action("Index", "QualifyingInfo")'" />
-
-							</div>
-							<div class="col-md-6 text-right ">
-
-								<input type="submit" id="btnNext" class="NextBtn btn btn-default" value="Next" style="background-color:#a90606; color:white" />
-
-							</div>
-						</div>
-						<div class="col-md-12">
-							<br /><br /><br /><br /><br /><br />
-						</div>
 					</div>
 				</div>
 				@*--------------PropertyOwnerIndividualPage-----------------*@
@@ -106,7 +76,7 @@
 						</div>
 						<div class="col-md-3">
 							<label class="required">Last Name</label><br />
-							@Html.TextBoxFor(x => x.LasttName, new { @class = "form-control", maxlength = "5" })
+							@Html.TextBoxFor(x => x.LastName, new { @class = "form-control", maxlength = "5" })
 						</div>
 						<div class="col-md-3">
 							<label>Suffix</label><br />
@@ -135,15 +105,27 @@
 							@Html.TextBoxFor(x => x.PropertyOwner, new { @class = "form-control", maxlength = "10" })
 						</div>
 						<br />
-						<div>
-							@Html.Partial("_AddressInfo", Model.AddressInfo)
-						</div>  <br />
+					</div>
+				</div>
+				<div>
+					@Html.Partial("_AddressInfo", Model.AddressInfo)
+				</div>
+				<div class="col-md-12">
+					<br /><br /><br /><br />
+					<label>Comments</label><br />
+					@Html.TextAreaFor(model => model.Comments, new { @class = "form-control", maxlength = 2000, @cols = "75", @rows = "3" })
+				</div>
+				<div class="col-md-12">
+					<br /><br />
+					<div class="col-md-3 text-left ">
 
-						<div class="col-md-12">
-							<br /><br /><br /><br />
-							<label>Comments</label><br />
-							@Html.TextAreaFor(model => model.Comments, new { @class = "form-control", maxlength = 2000, @cols = "75", @rows = "3" })
-						</div>
+						<input type="submit" id="btnNext" class="NextBtn btn btn-default" value="Previous" style="background-color:#a90606; color:white" onclick="location.href = '@Url.Action("Index", "QualifyingInfo")'" />
+
+					</div>
+					<div class="col-md-6 text-right ">
+
+						<input type="submit" id="btnNext" class="NextBtn btn btn-default" value="Next" style="background-color:#a90606; color:white" />
+
 					</div>
 				</div>
 			</div>
@@ -180,32 +162,60 @@
     });
 
 	$(document).ready(function () {
+		
+		var getType = function () {
+			var ddPropertyOwnerType = $("#ddTransTypes").val();
+			var type = ""
+			if (ddPropertyOwnerType == "Property Owner Organization") {
+				type = "ORG";
+			} else {
+				type = "Ind";
+			}
+			return type;
+		};
+
 		$("#serachText1").autocomplete({
 			source: function (request, response) {
 				$.ajax({
 					url: "/PropertyOwnerInfo/GetStackHolder",
 					type: "POST",
 					dataType: "json",
-					data: { stackHolder: request.term },
+					data: { stackHolder: request.term, type: getType()},
 					success: function (data) {
 						response($.map(data, function (item) {
 							console.log(item);
-							return { label: item.FirstName, value: item.FirstName, address: item };
+							var type = getType();
+							var labelName = "No Item";
+							if (type == "ORG") {
+								  labelName = item.OrgName;
+							} else {
+								labelName = item.FirstName;
+							}
+							return { label: labelName, value: labelName, address: item };
 						}))
 
 					}
 				})
 			},
-			select: function(e, i) {
-
+			select: function (e, i) {
 				console.log(i.item.address);
 				var ads = i.item.address;
 
+				var type = getType();
+				if (type == "ORG") {
+					$("#OrganizationName").val(ads.OrgName);
+					$("#Authority").val(ads.OrgAuthority);
+				} else {
+					$("#FirstName").val(ads.FirstName);
+					$("#LastName").val(ads.LastName);
+					$("#MiddleName").val(ads.MiddleName);
+					$("#Suffix").val(ads.Suffix);
+				}
+				resetAddressControls();
 				$("#Address1").val(ads.Address1);
 				$("#Address2").val(ads.Address2);
 				$("#City").val(ads.City);
 				$("#CountyId").val(ads.CountyId);
-
 				$("#StateId").val(ads.StateId);
 				$("#Zip").val(ads.Zip);
 				$("#CountryId").val(ads.CountryId);
@@ -218,6 +228,17 @@
 			}
        });
 	});
+
+	function resetAddressControls() {
+		$("#Address1").val("");
+		$("#Address2").val("");
+		$("#City").val("");
+		$("#CountyId").val("");
+		$("#StateId").val("");
+		$("#Zip").val("");
+		$("#CountryId").val("");
+		$("#Zip4Format").val("");
+	}
 
 </script>
 @*  *@

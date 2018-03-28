@@ -12,12 +12,9 @@ namespace DOSBPM
     using System;
     using System.Collections.Generic;
     
-    public partial class temp_BPMData
+    public partial class L_RiskCategory
     {
-        public int id { get; set; }
-        public string AppID { get; set; }
-        public string UserID { get; set; }
-        public string JsonData { get; set; }
-        public Nullable<System.DateTime> UpdatedDate { get; set; }
+        public string RiskCategory_ID { get; set; }
+        public string RiskCategory_Description { get; set; }
     }
 }

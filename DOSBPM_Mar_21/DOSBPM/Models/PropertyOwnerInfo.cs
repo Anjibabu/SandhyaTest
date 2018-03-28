@@ -14,10 +14,8 @@ namespace DOSBPM.Models
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         [Required]
-        public string LasttName { get; set; }
+        public string LastName { get; set; }
         public string Suffix { get; set; }
-
-        public int TelephoneNumber { get; set; }
 
         public string EmailAddress { get; set; }
         [Required]
