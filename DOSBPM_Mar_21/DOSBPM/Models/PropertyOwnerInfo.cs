@@ -7,44 +7,21 @@ using System.Web.Mvc;
 
 namespace DOSBPM.Models
 {
-    public class PropertyOwnerInfo : AddressInfo
+    public class PropertyOwnerInfo 
     {
-        
         public string PropertyOwnerType { get; set; }
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
-        [Required]
         public string LastName { get; set; }
         public string Suffix { get; set; }
-
-        public string EmailAddress { get; set; }
-        [Required]
-        public string MailingAddressLine1 { get; set; } // Same for Orgnization address and Contact person address
-        public string MailingAddressLine2 { get; set; } // Same for Orgnization address and Contact person address
-        public string SiteDirection { get; set; }
-        [Required]
-        public string City { get; set; }
-        [Required]
-        public string State { get; set; }
-
-        public int Zip { get; set; }
-        public int Zip4 { get; set; }
-
-        public string County { get; set; }
-
-        public string Country { get; set; }
+		public string TelePhoneNumber { get; set; }
+		public string EmailID { get; set; }
         public string Comments { get; set; }
-
         public string TransType { get; set; }
         public string Authority { get; set; } // Same for Orgnization address and Contact person address
         public string JobTitle { get; set; }
         public string PropertyOwner { get; set; }
         public string searchStakeHolderName { get; set; }
-
-        //DropDowns
-        //public IEnumerable<SelectListItem> Counties { get; set; }
-
-        // Organization Address details
         public string OrganizationName { get; set; }
         public int ParcelTaxID { get; set; }
          

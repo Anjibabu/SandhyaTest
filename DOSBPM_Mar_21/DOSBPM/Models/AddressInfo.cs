@@ -8,6 +8,12 @@ namespace DOSBPM.Models
 {
 	public class AddressInfo
 	{
+		public AddressInfo()
+		{
+			this.CountryList = new SelectList(appdbEntities.L_Country, "Country_ID", "Country_Name");
+			this.StatesList = new SelectList(appdbEntities.L_State, "State_ID", "State_Name");
+			this.CountiesList = new SelectList(appdbEntities.L_County, "County_ID", "County_Name");
+		}
 		DEV_CODES_APPDBEntities appdbEntities = new DEV_CODES_APPDBEntities();
 		public string AddressId { get; set; }
 		public string StkHoldTypeId { get; set; }
@@ -24,27 +30,8 @@ namespace DOSBPM.Models
 		public string CountryId { get; set; }
 		public string TelephoneNumber { get; set; }
 		public string EmailId { get; set; }
-
-		public SelectList CountryList
-		{
-			get
-			{
-				return new SelectList(appdbEntities.L_Country, "Country_ID", "Country_Name");
-			}
-		}
-		public SelectList StatesList
-		{
-			get
-			{
-				return new SelectList(appdbEntities.L_State, "State_ID", "State_Name");
-			}
-		}
-		public SelectList CountiesList
-		{
-			get
-			{
-				return new SelectList(appdbEntities.L_County, "County_ID", "County_Name");
-			}
-		}
+		public SelectList CountryList { get; set; }
+		public SelectList StatesList { get; set; }
+		public SelectList CountiesList { get; set; }
 	}
 }

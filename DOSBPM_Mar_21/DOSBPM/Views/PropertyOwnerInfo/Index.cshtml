@@ -7,8 +7,8 @@
 	ViewBag.Title = "Property Owner Info";
 }
 
-
-<div class="container-fluid">
+<script src="~/Scripts/BPM_Js/propertyOwnerInfo.js"></script>
+<div class="container-fluid" id="PropertyOwnerForm">
 	@using (Html.BeginForm("Index", "PropertyOwnerInfo", FormMethod.Post))
 	{
 		@Html.AntiForgeryToken()
@@ -52,7 +52,7 @@
 
 						<div class="col-md-3">
 							<lable class=" required">Organization Name</lable><br />
-							@Html.TextBoxFor(x => x.OrganizationName, new { @class = "form-control" })
+							@Html.TextBoxFor(x => x.OrganizationName, new { @class = "form-control", IsRequired = "TRUE" })
 						</div>
 						<div class="col-md-9">
 							<lable>Authority in Charge of the Property </lable> <br />
@@ -69,18 +69,18 @@
 					<div class="form-group">
 						<div class="col-md-3 ">
 							<label class="required">First Name</label> <br />
-							@Html.TextBoxFor(x => x.FirstName, new { @class = "form-control ", maxlength = "5", style = "padding:4px 6px" })
+							@Html.TextBoxFor(x => x.FirstName, new { @class = "form-control ",   style = "padding:4px 6px", IsRequired = "TRUE" })
 						</div>
 						<div class="col-md-3">
-							<label> Middle Name</label><br /> @Html.TextBoxFor(x => x.MiddleName, new { @class = "form-control", maxlength = "5" })
+							<label> Middle Name</label><br /> @Html.TextBoxFor(x => x.MiddleName, new { @class = "form-control"  })
 						</div>
 						<div class="col-md-3">
 							<label class="required">Last Name</label><br />
-							@Html.TextBoxFor(x => x.LastName, new { @class = "form-control", maxlength = "5" })
+							@Html.TextBoxFor(x => x.LastName, new { @class = "form-control" , IsRequired = "TRUE" })
 						</div>
 						<div class="col-md-3">
 							<label>Suffix</label><br />
-							@Html.TextBoxFor(x => x.Suffix, new { @class = "form-control", maxlength = "5" })
+							@Html.TextBoxFor(x => x.Suffix, new { @class = "form-control" })
 						</div><br />
 
 						<div class="col-md-3">
@@ -88,17 +88,17 @@
 							@Html.TextBoxFor(x => x.Authority, new { @class = "form-control", maxlength = "30" })
 						</div>
 						<div class="col-md-9">
-							<label class="required">Job Title</label> Job Title <br />
-							@Html.TextBoxFor(x => x.JobTitle, new { @class = "form-control", maxlength = "30" })
+							<label class="required">Job Title</label>   <br />
+							@Html.TextBoxFor(x => x.JobTitle, new { @class = "form-control", maxlength = "30", IsRequired = "TRUE" })
 						</div>
 						<br />
 						<div class="col-md-3">
 							<label class="required">Telephone Number</label>  <br />
-							@Html.TextBoxFor(x => x.TelephoneNumber, new { @class = "form-control", maxlength = "10" })
+							@Html.TextBoxFor(x => x.TelePhoneNumber, new { @class = "form-control", maxlength = "10", IsRequired = "TRUE" })
 						</div>
 						<div class="col-md-9">
 							<label class="required">EmailAddress</label><br />
-							@Html.TextBoxFor(x => x.EmailAddress, new { @class = "form-control", maxlength = "10" })
+							@Html.TextBoxFor(x => x.EmailID, new { @class = "form-control", maxlength = "10", IsRequired = "TRUE" })
 						</div><br />
 						<div class="col-md-12">
 							PropertyOwner<br />
@@ -108,7 +108,7 @@
 					</div>
 				</div>
 				<div>
-					@Html.Partial("_AddressInfo", Model.AddressInfo)
+					@Html.Partial("_AddressInfo", Model)
 				</div>
 				<div class="col-md-12">
 					<br /><br /><br /><br />
@@ -124,7 +124,12 @@
 					</div>
 					<div class="col-md-6 text-right ">
 
-						<input type="submit" id="btnNext" class="NextBtn btn btn-default" value="Next" style="background-color:#a90606; color:white" />
+						<input type="submit" 
+							   id="btnNext" 
+							   class="NextBtn btn btn-default" 
+							   value="Next" 
+							   onclick="return propertyOwnerInfo.validate()"
+							   style="background-color:#a90606; color:white" />
 
 					</div>
 				</div>
@@ -137,108 +142,9 @@
 <script>
     function previousBtn_click() {
               location.href = '@Url.Action("Index", "QualifyingInfo")';
-       }
-    $('#ddTransTypes').change(function () {
-
-        var selected = $(this).val();
-
-		if (selected == "Property Owner Organization") {
-            $("#PropertyOwnerIndividualPage").hide();
-            $("#btnBack").hide();
-			$("#PropertyOwnerInformation").show();
-		}
-		else if (selected == "Property Owner Individual") {
-            $("#PropertyOwnerInformation").hide();
-            $("#btnBack").hide();
-			$("#PropertyOwnerIndividualPage").show();
-		//} else if (selected == "Contact Person") {
-		//	$("#PropertyOwnerInformation,#PropertyOwnerIndividualPage").hide();
-		//	$("#ContactPerson").show();
-		} else {
-			$("#PropertyOwnerInformation,#PropertyOwnerIndividualPage").hide();
-		}
-
-
-    });
-
+       } 
 	$(document).ready(function () {
+		propertyOwnerInfo.init();
 		
-		var getType = function () {
-			var ddPropertyOwnerType = $("#ddTransTypes").val();
-			var type = ""
-			if (ddPropertyOwnerType == "Property Owner Organization") {
-				type = "ORG";
-			} else {
-				type = "Ind";
-			}
-			return type;
-		};
-
-		$("#serachText1").autocomplete({
-			source: function (request, response) {
-				$.ajax({
-					url: "/PropertyOwnerInfo/GetStackHolder",
-					type: "POST",
-					dataType: "json",
-					data: { stackHolder: request.term, type: getType()},
-					success: function (data) {
-						response($.map(data, function (item) {
-							console.log(item);
-							var type = getType();
-							var labelName = "No Item";
-							if (type == "ORG") {
-								  labelName = item.OrgName;
-							} else {
-								labelName = item.FirstName;
-							}
-							return { label: labelName, value: labelName, address: item };
-						}))
-
-					}
-				})
-			},
-			select: function (e, i) {
-				console.log(i.item.address);
-				var ads = i.item.address;
-
-				var type = getType();
-				if (type == "ORG") {
-					$("#OrganizationName").val(ads.OrgName);
-					$("#Authority").val(ads.OrgAuthority);
-				} else {
-					$("#FirstName").val(ads.FirstName);
-					$("#LastName").val(ads.LastName);
-					$("#MiddleName").val(ads.MiddleName);
-					$("#Suffix").val(ads.Suffix);
-				}
-				resetAddressControls();
-				$("#Address1").val(ads.Address1);
-				$("#Address2").val(ads.Address2);
-				$("#City").val(ads.City);
-				$("#CountyId").val(ads.CountyId);
-				$("#StateId").val(ads.StateId);
-				$("#Zip").val(ads.Zip);
-				$("#CountryId").val(ads.CountryId);
-				$("#Zip4Format").val(ads.Zip4Format);
-				
-			},
-			minLength:3,
-			messages: {
-				noResults: "", results: ""
-			}
-       });
 	});
-
-	function resetAddressControls() {
-		$("#Address1").val("");
-		$("#Address2").val("");
-		$("#City").val("");
-		$("#CountyId").val("");
-		$("#StateId").val("");
-		$("#Zip").val("");
-		$("#CountryId").val("");
-		$("#Zip4Format").val("");
-	}
-
 </script>
-@*  *@

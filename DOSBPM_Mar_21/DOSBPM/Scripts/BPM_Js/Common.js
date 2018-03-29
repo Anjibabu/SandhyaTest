@@ -14,7 +14,7 @@ var common = (function () {
         var isValid = true;
         var page = $("#" + pageId);
         var controls = page.find("[IsRequired=TRUE]");
-		var allControls = controls.filter("[type='text'],[type='checkbox'],select");
+		var allControls = controls.filter("[type='text']:visible,[type='checkbox']:visible,select:visible");
 		var allCheckBoxs = controls.filter(" [type='checkbox']");
         $.each(allControls, function () {
             if ($.trim($(this).val()) === "") {

@@ -50,7 +50,10 @@ namespace DOSBPM.Controllers
 			buildApp.PropertyOwnerInfoData.AddressInfo = (buildApp.PropertyOwnerInfoData.AddressInfo == null)?new AddressInfo(): buildApp.PropertyOwnerInfoData.AddressInfo;
 
 			//  buildApp.PropertyOwnerInfoData = ;
-
+			AddressInfo objAddressInfo = new AddressInfo();
+			buildApp.PropertyOwnerInfoData.AddressInfo.CountryList = objAddressInfo.CountryList;
+			buildApp.PropertyOwnerInfoData.AddressInfo.StatesList = objAddressInfo.StatesList;
+			buildApp.PropertyOwnerInfoData.AddressInfo.CountiesList = objAddressInfo.CountiesList; 
 			return View(buildApp.PropertyOwnerInfoData);
 
 
@@ -67,8 +70,11 @@ namespace DOSBPM.Controllers
             {
                 buildApp = new BuildingApplication();
             }
+			propertyOwnerInfo.AddressInfo.CountiesList = null;
+			propertyOwnerInfo.AddressInfo.CountryList = null;
+			propertyOwnerInfo.AddressInfo.StatesList = null;
 
-            buildApp.PropertyOwnerInfoData = propertyOwnerInfo;
+			buildApp.PropertyOwnerInfoData = propertyOwnerInfo;
             Session["BuildingApplication"] = buildApp;
 
             string buildAppString = JsonConvert.SerializeObject(buildApp);
@@ -103,7 +109,6 @@ namespace DOSBPM.Controllers
 			stackHolders = resp.GetStackInfoData(stackHolder,type);
 			return Json(stackHolders, JsonRequestBehavior.AllowGet);
 		}
-
-		  
-    }
+	
+	}
 }
