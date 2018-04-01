@@ -7,8 +7,8 @@ using System.Web.Mvc;
 
 namespace DOSBPM.Models
 {
-    public class PropertyOwnerInfo 
-    {
+    public class PropertyOwnerInfo : IBuildingInfo
+	{
         public string PropertyOwnerType { get; set; }
         public string FirstName { get; set; }
         public string MiddleName { get; set; }

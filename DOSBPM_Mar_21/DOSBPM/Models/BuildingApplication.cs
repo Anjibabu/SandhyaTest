@@ -9,7 +9,7 @@ namespace DOSBPM.Models
     {
         public QualifyingInfo QualifyingInfoData { get; set; }
         public PropertyOwnerInfo PropertyOwnerInfoData { get; set; }
-        public PropertyOwnerContact PropertyOwnerContactData { get; set; }
+        public PropertyOwnerContactInfo PropertyOwnerContactData { get; set; }
         public BuildingInfo BuildingData { get; set; }
     }
 }

@@ -18,7 +18,7 @@ namespace DOSBPM.Controllers
         {
 
 			BuildingApplication buildApp = new BuildingApplication();
-			PropertyOwnerInfo propertyOwnerInfo = new PropertyOwnerInfo();
+			PropertyOwnerContactInfo propertyOwnerInfo = new PropertyOwnerContactInfo();
 
 			if (Session["BuildingApplication"] != null)
 			{
@@ -44,15 +44,17 @@ namespace DOSBPM.Controllers
 														new SelectListItem {Value="Property Owner Individual", Text="Property Owner Individual", Selected=(buildApp.PropertyOwnerInfoData?.PropertyOwnerType=="Property Owner Individual")}
 
 													};
-			buildApp.PropertyOwnerInfoData = (buildApp.PropertyOwnerInfoData == null) ? new PropertyOwnerInfo() : buildApp.PropertyOwnerInfoData;
-			buildApp.PropertyOwnerInfoData.AddressInfo = (buildApp.PropertyOwnerInfoData.AddressInfo == null) ? new AddressInfo() : buildApp.PropertyOwnerInfoData.AddressInfo;
+			buildApp.PropertyOwnerContactData = (buildApp.PropertyOwnerContactData == null) ? new PropertyOwnerContactInfo() : buildApp.PropertyOwnerContactData;
+			buildApp.PropertyOwnerContactData.AddressInfo = (buildApp.PropertyOwnerContactData.AddressInfo == null) ? new AddressInfo() : buildApp.PropertyOwnerContactData.AddressInfo;
 
 			//  buildApp.PropertyOwnerInfoData = ;
 			AddressInfo objAddressInfo = new AddressInfo();
-			buildApp.PropertyOwnerInfoData.AddressInfo.CountryList = objAddressInfo.CountryList;
-			buildApp.PropertyOwnerInfoData.AddressInfo.StatesList = objAddressInfo.StatesList;
-			buildApp.PropertyOwnerInfoData.AddressInfo.CountiesList = objAddressInfo.CountiesList;
-			return View(buildApp.PropertyOwnerInfoData);
+			buildApp.PropertyOwnerContactData.AddressInfo.CountryList = objAddressInfo.CountryList;
+			buildApp.PropertyOwnerContactData.AddressInfo.StatesList = objAddressInfo.StatesList;
+			buildApp.PropertyOwnerContactData.AddressInfo.CountiesList = objAddressInfo.CountiesList;
+			buildApp.PropertyOwnerContactData.PropertyOwner = buildApp.PropertyOwnerInfoData.OrganizationName;
+
+			return View(buildApp.PropertyOwnerContactData);
             
 
         }

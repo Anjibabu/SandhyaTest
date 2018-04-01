@@ -42,6 +42,10 @@ namespace DOSBPM.Controllers
 				//buildApp.QualifyingInfoData.TransactionType = "1";
 
 			}
+			if (buildApp.QualifyingInfoData == null)
+			{
+				buildApp.QualifyingInfoData = new QualifyingInfo();
+			}
 			buildApp.QualifyingInfoData.TransactionTypes = GetTransactionTypes();
 
 			return View(buildApp.QualifyingInfoData);

@@ -339,6 +339,8 @@
     <Compile Include="Models\FireProtectionSystems.cs" />
     <Compile Include="Models\FuelGasRequirements.cs" />
     <Compile Include="Models\GeneralBuildingHeightsandAreas.cs" />
+    <Compile Include="Models\IBuildingInfo.cs" />
+    <Compile Include="Models\PropertyOwnerContactInfo.cs" />
     <Compile Include="Models\StackInfo.cs" />
     <Compile Include="Models\InteriorEnvironmentandExteriorWallsandRooftopStructures.cs" />
     <Compile Include="Models\InteriorFinishes.cs" />
