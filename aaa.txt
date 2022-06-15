@@ -1,0 +1,192 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    section {
+        padding: 60px 0;
+    }
+
+        section .section-title {
+            text-align: center;
+            color: #007b5e;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+    #tabs {
+        color: #000000;
+    }
+
+        #tabs h6.section-title {
+            color: #eee;
+        }
+
+        #tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+            color: #4b2f79;
+            background-color: transparent;
+            border-color: transparent transparent #4b2f79;
+            border-bottom: 4px solid !important;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        #tabs .nav-tabs .nav-link {
+            border: 1px solid transparent;
+            border-top-left-radius: .25rem;
+            border-top-right-radius: .25rem;
+            color: #4b2f79;
+            font-size: 20px;
+        }
+
+    .tabContent h5 {
+        text-align: left;
+    }
+
+    .knowmore  {
+        text-align: right;
+    }
+
+    #nav-general {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+
+        #nav-general #generalText.collapse:not(.show) {
+            display: block;
+            height: 6rem;
+            overflow: hidden;
+        }
+
+        #nav-general #generalText.collapsing {
+            height: 6rem;
+        }
+
+        #nav-general a.collapsed::after {
+            content: '+ Know More';
+        }
+
+        #nav-general a:not(.collapsed)::after {
+            content: '- Know Less';
+        }
+
+    #nav-provider {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+
+        #nav-provider #providerText.collapse:not(.show) {
+            display: block;
+            height: 6rem;
+            overflow: hidden;
+        }
+
+        #nav-provider #providerText.collapsing {
+            height: 6rem;
+        }
+
+        #nav-provider a.collapsed::after {
+            content: '+ Know More';
+        }
+
+        #nav-provider a:not(.collapsed)::after {
+            content: '- Know Less';
+        }
+
+    #nav-stateagent {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+
+        #nav-stateagent #stateagentText.collapse:not(.show) {
+            display: block;
+            height: 6rem;
+            overflow: hidden;
+        }
+
+        #nav-stateagent #stateagentText.collapsing {
+            height: 6rem;
+        }
+
+        #nav-stateagent a.collapsed::after {
+            content: '+ Know More';
+        }
+
+        #nav-stateagent a:not(.collapsed)::after {
+            content: '- Know Less';
+        }
+</style>
+<div class="text-center">
+    <section id="tabs">
+        <div class="container">
+            <div>
+                <img src="~/img/test.png" style="width:100%" />
+            </div>
+            <div class="row">
+                <div class="col-xs-12 ">
+                    <nav>
+                        <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-general" role="tab" aria-controls="nav-home" aria-selected="true">General</a>
+                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-provider" role="tab" aria-controls="nav-provider" aria-selected="false">Provider</a>
+                            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-stateagent" role="tab" aria-controls="nav-stateagent" aria-selected="false">State Agent</a>
+
+                        </div>
+                    </nav>
+                    <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-general" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <div class="tabContent">
+                                <h5>General</h5>
+                                <hr />
+                            </div>
+                            <div class="collapse" id="generalText" aria-expanded="false">
+                                Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+                                Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+                                Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+                                Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+
+                            </div>
+                            <div class="knowmore">
+                                <a role="button" class="collapsed" data-toggle="collapse" href="#generalText" aria-expanded="false" aria-controls="generalText"></a>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade show " id="nav-provider" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <div class="tabContent">
+                                <h5>Provider</h5>
+                                <hr />
+                            </div>
+                            <div class="collapse" id="providerText" aria-expanded="false">
+                                Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+                                Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+                                Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+                                Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+                            </div>
+                            <div class="knowmore">
+                                <a role="button" class="collapsed" data-toggle="collapse" href="#providerText" aria-expanded="false" aria-controls="providerText"></a>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade show " id="nav-stateagent" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <div class="tabContent">
+                                <h5>State Agent</h5>
+                                <hr />
+                            </div>
+                            <div class="collapse" id="stateagentText" aria-expanded="false">
+                                Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+                                Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+                                Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+                                Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit. Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit occaecat anim ullamco ad duis occaecat ex.
+                            </div>
+                            <div class="knowmore">
+                                <a role="button" class="collapsed" data-toggle="collapse" href="#stateagentText" aria-expanded="false" aria-controls="stateagentText"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+</div>
